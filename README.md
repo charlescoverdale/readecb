@@ -1,6 +1,6 @@
 # readecb
 
-[![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![CRAN status](https://www.r-pkg.org/badges/version/readecb)](https://cran.r-project.org/package=readecb) [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) [![R-CMD-check](https://github.com/charlescoverdale/readecb/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/charlescoverdale/readecb/actions/workflows/R-CMD-check.yaml)
 
 An R package for accessing data published by the [European Central Bank](https://www.ecb.europa.eu/) (ECB) via the [ECB Data Portal API](https://data.ecb.europa.eu).
 
@@ -14,19 +14,7 @@ All of this data is freely available through the ECB's Statistical Data Warehous
 
 ## How is this different from the `ecb` package?
 
-The existing [`ecb`](https://cran.r-project.org/package=ecb) package by Eric Persson provides a low-level SDMX interface: you supply a raw series key, and it returns the data. It is a capable package, but it requires users to know or look up the key structure for every query.
-
-`readecb` takes a different approach:
-
-| | `ecb` | `readecb` |
-|---|---|---|
-| Interface | Generic (`get_data(key)`) | Named functions (`ecb_policy_rates()`, `ecb_hicp()`, etc.) |
-| Format | SDMX/XML | CSV |
-| Dependencies | httr, rsdmx, xml2, curl | httr2, cli |
-| Local caching | No | Yes |
-| Series key knowledge | Required | Not required |
-
-Both packages access the same underlying ECB data. Choose `ecb` if you want a thin, general-purpose SDMX client. Choose `readecb` if you want ready-made functions for the most commonly used datasets.
+The existing [`ecb`](https://cran.r-project.org/package=ecb) package provides a general-purpose interface to the same ECB data, and works well if you already know the SDMX series key you need. `readecb` complements it by providing named convenience functions for the most commonly used datasets — so you can call `ecb_policy_rates()` or `ecb_hicp()` without needing to look up key structures. It also caches results locally and uses a lightweight dependency stack (httr2 + cli).
 
 ---
 
