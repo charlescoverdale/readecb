@@ -12,7 +12,7 @@ All of this data is freely available through the ECB's Statistical Data Warehous
 
 ---
 
-## How is this different from the `ecb` package?
+## How is readecb different from the `ecb` package?
 
 The existing [`ecb`](https://cran.r-project.org/package=ecb) package provides a general-purpose interface to the same ECB data, and works well if you already know the SDMX series key you need. `readecb` complements it by providing named convenience functions for the most commonly used datasets — so you can call `ecb_policy_rates()` or `ecb_hicp()` without needing to look up key structures. It also caches results locally and uses a lightweight dependency stack (httr2 + cli).
 
