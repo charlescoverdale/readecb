@@ -1,6 +1,6 @@
 # readecb
 
-[![CRAN status](https://www.r-pkg.org/badges/version/readecb)](https://cran.r-project.org/package=readecb) [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) [![R-CMD-check](https://github.com/charlescoverdale/readecb/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/charlescoverdale/readecb/actions/workflows/R-CMD-check.yaml)
+[![CRAN status](https://www.r-pkg.org/badges/version/readecb)](https://cran.r-project.org/package=readecb) [![CRAN downloads](https://cranlogs.r-pkg.org/badges/readecb)](https://cran.r-project.org/package=readecb) [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 An R package for accessing data published by the [European Central Bank](https://www.ecb.europa.eu/) (ECB) via the [ECB Data Portal API](https://data.ecb.europa.eu).
 
@@ -15,6 +15,19 @@ All of this data is freely available through the ECB's Statistical Data Warehous
 ## How is this different from the `ecb` package?
 
 The existing [`ecb`](https://cran.r-project.org/package=ecb) package provides a general-purpose interface to the same ECB data, and works well if you already know the SDMX series key you need. `readecb` complements it by providing named convenience functions for the most commonly used datasets — so you can call `ecb_policy_rates()` or `ecb_hicp()` without needing to look up key structures. It also caches results locally and uses a lightweight dependency stack (httr2 + cli).
+
+---
+
+## Installation
+
+```r
+# Install from CRAN (when available)
+install.packages("readecb")
+
+# Or install the development version from GitHub
+# install.packages("pak")
+pak::pak("charlescoverdale/readecb")
+```
 
 ---
 
@@ -182,19 +195,6 @@ head(flows)
 Data is cached locally in `tools::R_user_dir("readecb", "cache")` on first download. Subsequent calls with the same parameters return instantly from the cache.
 
 To force a fresh download, pass `cache = FALSE`. To clear the entire cache, call `clear_cache()`.
-
----
-
-## Installation
-
-```r
-# Install from CRAN (when available)
-install.packages("readecb")
-
-# Or install the development version from GitHub
-# install.packages("pak")
-pak::pak("charlescoverdale/readecb")
-```
 
 ---
 
