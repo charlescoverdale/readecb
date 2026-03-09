@@ -32,51 +32,24 @@ devtools::install_github("charlescoverdale/readecb")
 
 ## Functions
 
-### Interest rates
-
-| Function | Returns |
-|---|---|
-| `ecb_policy_rates()` | Main refinancing rate, deposit facility rate, and marginal lending rate (daily) |
-| `ecb_euribor(tenor)` | EURIBOR interbank lending rates at 1M, 3M, 6M, or 12M tenors (monthly) |
-| `ecb_estr()` | Euro short-term rate — the ECB's benchmark overnight rate that replaced EONIA (daily) |
-| `ecb_mortgage_rates(country)` | Composite cost of borrowing for house purchase loans (monthly) |
-| `ecb_lending_rates(country)` | Composite cost of borrowing for loans to non-financial corporations (monthly) |
-
-### Prices and exchange rates
-
-| Function | Returns |
-|---|---|
-| `ecb_hicp(country, measure)` | Harmonised Index of Consumer Prices — annual rate, index level, or monthly rate |
-| `ecb_exchange_rate(currency, frequency)` | ECB reference exchange rates against the euro (monthly or daily) |
-| `list_exchange_rates()` | Available currency codes (no download needed) |
-
-### Macro indicators
-
-| Function | Returns |
-|---|---|
-| `ecb_gdp()` | Quarterly euro area real GDP in EUR millions (chain-linked volumes) |
-| `ecb_unemployment()` | Monthly euro area harmonised unemployment rate (%) |
-| `ecb_government_debt()` | Annual government debt-to-GDP ratio (%) |
-
-### Financial markets
-
-| Function | Returns |
-|---|---|
-| `ecb_yield_curve(tenor)` | AAA-rated euro area government bond yields by maturity (daily) |
-| `ecb_money_supply(aggregate)` | M1, M2, or M3 monetary aggregates in EUR millions (monthly) |
-
-### Generic access
-
-| Function | Returns |
-|---|---|
-| `ecb_get(dataflow, key)` | Any ECB dataflow — for power users who know the series key |
-| `list_ecb_dataflows()` | All available dataflows (~100) |
-
-### Cache management
-
-| Function | What it does |
-|---|---|
-| `clear_cache()` | Deletes all locally cached ECB files |
+| Category | Function | Returns |
+|---|---|---|
+| Interest rates | `ecb_policy_rates()` | Main refinancing rate, deposit facility rate, and marginal lending rate (daily) |
+| Interest rates | `ecb_euribor(tenor)` | EURIBOR interbank lending rates at 1M, 3M, 6M, or 12M tenors (monthly) |
+| Interest rates | `ecb_estr()` | Euro short-term rate — the ECB's benchmark overnight rate that replaced EONIA (daily) |
+| Interest rates | `ecb_mortgage_rates(country)` | Composite cost of borrowing for house purchase loans (monthly) |
+| Interest rates | `ecb_lending_rates(country)` | Composite cost of borrowing for loans to non-financial corporations (monthly) |
+| Prices | `ecb_hicp(country, measure)` | Harmonised Index of Consumer Prices — annual rate, index level, or monthly rate |
+| Exchange rates | `ecb_exchange_rate(currency, frequency)` | ECB reference exchange rates against the euro (monthly or daily) |
+| Exchange rates | `list_exchange_rates()` | Available currency codes (no download needed) |
+| Macro | `ecb_gdp()` | Quarterly euro area real GDP in EUR millions (chain-linked volumes) |
+| Macro | `ecb_unemployment()` | Monthly euro area harmonised unemployment rate (%) |
+| Macro | `ecb_government_debt()` | Annual government debt-to-GDP ratio (%) |
+| Financial markets | `ecb_yield_curve(tenor)` | AAA-rated euro area government bond yields by maturity (daily) |
+| Financial markets | `ecb_money_supply(aggregate)` | M1, M2, or M3 monetary aggregates in EUR millions (monthly) |
+| Generic | `ecb_get(dataflow, key)` | Any ECB dataflow — for power users who know the series key |
+| Generic | `list_ecb_dataflows()` | All available dataflows (~100) |
+| Cache | `clear_cache()` | Deletes all locally cached ECB files |
 
 All download functions accept `from` and `to` date parameters and `cache = TRUE` by default.
 
