@@ -90,22 +90,17 @@ All download functions accept `from` and `to` date parameters and `cache = TRUE`
 ```r
 library(readecb)
 
+# Returns daily data with one row per rate per day
 rates <- ecb_policy_rates(from = "2022-01")
-rates[rates$rate == "Deposit facility rate" & format(rates$date, "%d") == "01", ]
-#>          date                    rate value
-#>    2022-07-27  Deposit facility rate  0.00
-#>    2022-09-14  Deposit facility rate  0.75
-#>    2022-11-02  Deposit facility rate  1.50
-#>    2023-02-08  Deposit facility rate  2.50
-#>    2023-05-10  Deposit facility rate  3.25
-#>    2023-06-21  Deposit facility rate  3.50
-#>    2023-08-02  Deposit facility rate  3.75
-#>    2023-09-20  Deposit facility rate  4.00
-#>    2024-06-12  Deposit facility rate  3.75
-#>    ...
+head(rates)
+#>         date                     rate value
+#>   2022-01-03  Deposit facility rate  -0.50
+#>   2022-01-03  Main refinancing rate   0.00
+#>   2022-01-03  Marginal lending rate   0.25
+#>   2022-01-04  Deposit facility rate  -0.50
+#>   2022-01-04  Main refinancing rate   0.00
+#>   2022-01-04  Marginal lending rate   0.25
 ```
-
-The ECB raised rates from 0% to 4% in just over a year — the fastest tightening cycle in its history.
 
 ---
 
