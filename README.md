@@ -25,8 +25,7 @@ The existing [`ecb`](https://cran.r-project.org/package=ecb) package provides a 
 install.packages("readecb")
 
 # Or install the development version from GitHub
-# install.packages("pak")
-pak::pak("charlescoverdale/readecb")
+devtools::install_github("charlescoverdale/readecb")
 ```
 
 ---
