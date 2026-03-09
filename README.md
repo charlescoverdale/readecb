@@ -164,17 +164,11 @@ head(mortgages)
 ### 5. Plot the euro area yield curve
 
 ```r
-# Fetch yields across the full maturity spectrum
 tenors <- c("3M", "1Y", "2Y", "5Y", "10Y", "20Y", "30Y")
-yields <- ecb_yield_curve(tenors, from = "2025-03-01", to = "2025-03-01")
-
-# Plot the yield curve
-plot(seq_along(tenors), yields$value,
-     type = "b", pch = 19, col = "#003299",
-     xaxt = "n", xlab = "Maturity", ylab = "Yield (%)",
-     main = "Euro Area AAA Government Bond Yield Curve")
-axis(1, at = seq_along(tenors), labels = tenors)
+yields <- ecb_yield_curve(tenors, from = "2025-03-01", to = "2025-03-07")
 ```
+
+![Euro Area Yield Curve](man/figures/yield_curve.png)
 
 ---
 
