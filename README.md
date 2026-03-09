@@ -179,11 +179,11 @@ head(yields)
 
 ### 6. Access any ECB dataset directly
 
+The named functions above cover the most popular datasets, but the ECB publishes over 100 dataflows. If you need something more niche — such as payment statistics, securities issuance, or bank lending surveys — you can use `ecb_get()` with the dataflow name and SDMX series key. Use `list_ecb_dataflows()` to browse what's available.
+
 ```r
-# If you know the SDMX key, use ecb_get() for any dataflow
 df <- ecb_get("EXR", "M.USD.EUR.SP00.A", from = "2024-01")
 
-# Discover available dataflows
 flows <- list_ecb_dataflows()
 head(flows)
 ```
