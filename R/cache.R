@@ -7,7 +7,7 @@
 #'
 #' @export
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' clear_cache()
 #' }
 clear_cache <- function() {

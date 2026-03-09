@@ -14,7 +14,7 @@ Deletes all locally cached ECB data files. The next call to any data
 function will re-download from the ECB Data Portal.
 }
 \examples{
-\dontrun{
+\donttest{
 clear_cache()
 }
 }

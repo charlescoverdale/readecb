@@ -6,7 +6,7 @@
 
 ## Test suite
 
-30 tests across 12 test files. All network-dependent tests are wrapped in
+42 tests across 16 test files. All network-dependent tests are wrapped in
 `skip_on_cran()` and `skip_if_offline()`.
 
 ## Notes on data access

@@ -50,7 +50,16 @@ ecb_fetch <- function(dataflow, key, from = NULL, to = NULL, cache = TRUE) {
   )
   req <- httr2::req_error(req, is_error = function(resp) FALSE)
 
-  resp <- httr2::req_perform(req)
+  resp <- tryCatch(
+    httr2::req_perform(req),
+    error = function(e) {
+      cli::cli_abort(c(
+        "Failed to connect to the ECB Data Portal API.",
+        "i" = "Check your internet connection or try again later.",
+        "i" = "Original error: {conditionMessage(e)}"
+      ))
+    }
+  )
   status <- httr2::resp_status(resp)
 
   if (status == 404L) {

@@ -7,17 +7,12 @@ Description: Provides clean, tidy access to statistical data published by the
     <https://data.ecb.europa.eu>. Covers policy interest rates, EURIBOR,
     euro exchange rates, harmonised consumer price inflation (HICP), euro area
     yield curves, the euro short-term rate (ESTR), monetary aggregates (M1,
-    M2, M3), mortgage and lending rates, GDP, unemployment, government
-    debt-to-GDP, the Eurosystem balance sheet, and Survey of Professional
-    Forecasters inflation expectations. Each dataset has a dedicated
-    function that abstracts away the underlying SDMX key structure, so users
-    do not need to know series codes. A generic fetcher is also provided for
-    direct access to any of the ECB's 100-plus dataflows. Data is downloaded
-    on first use and cached locally for subsequent calls. Unlike the existing
-    'ecb' package, which provides a low-level SDMX interface requiring
-    knowledge of series keys, 'readecb' offers named convenience functions,
-    uses a lightweight dependency stack ('httr2' and 'cli' only), returns CSV
-    rather than XML, and caches results locally.
+    M2, M3), mortgage and lending rates, GDP, unemployment, and government
+    debt-to-GDP. Each dataset has a dedicated function that abstracts away the
+    underlying SDMX key structure, so users do not need to know series codes.
+    A generic fetcher is also provided for direct access to any of the ECB's
+    100-plus dataflows. Data is downloaded on first use and cached locally for
+    subsequent calls.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Language: en-GB
@@ -27,8 +22,9 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3
 Depends: R (>= 4.1.0)
 Imports:
-    httr2,
-    cli
+    cli (>= 3.6.0),
+    httr2 (>= 1.0.0),
+    tools
 Suggests:
     testthat (>= 3.0.0)
 Config/testthat/edition: 3

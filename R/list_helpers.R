@@ -69,7 +69,16 @@ list_ecb_dataflows <- function(cache = TRUE) {
   req <- httr2::request(url)
   req <- httr2::req_headers(req, Accept = "application/xml")
   req <- httr2::req_retry(req, max_tries = 3L, backoff = ~ 2)
-  resp <- httr2::req_perform(req)
+  resp <- tryCatch(
+    httr2::req_perform(req),
+    error = function(e) {
+      cli::cli_abort(c(
+        "Failed to connect to the ECB Data Portal API.",
+        "i" = "Check your internet connection or try again later.",
+        "i" = "Original error: {conditionMessage(e)}"
+      ))
+    }
+  )
   cli::cli_progress_done()
 
   body <- httr2::resp_body_string(resp)
