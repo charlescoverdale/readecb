@@ -177,22 +177,7 @@ head(yields)
 
 ---
 
-### 6. How fast is the money supply growing?
-
-```r
-m3 <- ecb_money_supply("M3", from = "2019-01")
-head(m3)
-#>         date       value
-#>   2019-01-01  12785041.4
-#>   ...
-
-# M3 surged during the pandemic as the ECB expanded its balance sheet,
-# then growth slowed sharply as quantitative tightening began.
-```
-
----
-
-### 7. Access any ECB dataset directly
+### 6. Access any ECB dataset directly
 
 ```r
 # If you know the SDMX key, use ecb_get() for any dataflow
