@@ -164,11 +164,16 @@ head(mortgages)
 ### 5. 10-year government bond yield
 
 ```r
-yields <- ecb_yield_curve("10Y", from = "2005-01")
-plot(yields$date, yields$value, type = "l", xlab = "Date", ylab = "Yield (%)")
+yields <- ecb_yield_curve("10Y", from = "2024-01")
+head(yields)
+#>         date tenor value
+#>   2024-01-02   10Y  2.56
+#>   2024-01-03   10Y  2.59
+#>   2024-01-04   10Y  2.60
+#>   2024-01-05   10Y  2.59
+#>   2024-01-08   10Y  2.55
+#>   2024-01-09   10Y  2.54
 ```
-
-![10-Year Euro Area Government Bond Yield](man/figures/yield_curve.png)
 
 ---
 
