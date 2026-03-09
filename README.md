@@ -147,10 +147,16 @@ head(hicp_countries)
 ### 4. What are eurozone mortgage rates?
 
 ```r
-mortgages <- ecb_mortgage_rates(from = "2010-01")
-tail(mortgages, 6)
+# Euro area aggregate by default
+mortgages <- ecb_mortgage_rates(from = "2020-01")
+head(mortgages)
 #>         date country value
-#>   ...
+#>   2020-01-01      I9  1.41
+#>   2020-02-01      I9  1.41
+#>   2020-03-01      I9  1.39
+#>   2020-04-01      I9  1.38
+#>   2020-05-01      I9  1.36
+#>   2020-06-01      I9  1.39
 
 # Mortgage rates roughly doubled between 2022 and 2024 as the ECB raised
 # policy rates, squeezing household purchasing power across the euro area.
