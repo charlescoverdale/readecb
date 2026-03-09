@@ -38,6 +38,7 @@ pak::pak("charlescoverdale/readecb")
 | Function | Returns |
 |---|---|
 | `ecb_policy_rates()` | Main refinancing rate, deposit facility rate, and marginal lending rate (daily) |
+| `ecb_euribor(tenor)` | EURIBOR interbank lending rates at 1M, 3M, 6M, or 12M tenors (monthly) |
 | `ecb_estr()` | Euro short-term rate — the ECB's benchmark overnight rate that replaced EONIA (daily) |
 | `ecb_mortgage_rates(country)` | Composite cost of borrowing for house purchase loans (monthly) |
 | `ecb_lending_rates(country)` | Composite cost of borrowing for loans to non-financial corporations (monthly) |
@@ -49,6 +50,14 @@ pak::pak("charlescoverdale/readecb")
 | `ecb_hicp(country, measure)` | Harmonised Index of Consumer Prices — annual rate, index level, or monthly rate |
 | `ecb_exchange_rate(currency, frequency)` | ECB reference exchange rates against the euro (monthly or daily) |
 | `list_exchange_rates()` | Available currency codes (no download needed) |
+
+### Macro indicators
+
+| Function | Returns |
+|---|---|
+| `ecb_gdp()` | Quarterly euro area real GDP in EUR millions (chain-linked volumes) |
+| `ecb_unemployment()` | Monthly euro area harmonised unemployment rate (%) |
+| `ecb_government_debt()` | Annual government debt-to-GDP ratio (%) |
 
 ### Financial markets
 

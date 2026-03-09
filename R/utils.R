@@ -39,7 +39,15 @@ ecb_fetch <- function(dataflow, key, from = NULL, to = NULL, cache = TRUE) {
   full_url <- paste0(url, "?", query_string)
 
   req <- httr2::request(full_url)
-  req <- httr2::req_retry(req, max_tries = 3L, backoff = ~ 2)
+  req <- httr2::req_throttle(req, rate = 5 / 10)
+  req <- httr2::req_retry(
+    req, max_tries = 4L, backoff = ~ 8,
+    is_transient = function(resp) {
+      # ECB returns 400 with text/html when rate-limited
+      ct <- httr2::resp_content_type(resp)
+      httr2::resp_status(resp) == 400L && grepl("text/html", ct, fixed = TRUE)
+    }
+  )
   req <- httr2::req_error(req, is_error = function(resp) FALSE)
 
   resp <- httr2::req_perform(req)
