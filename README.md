@@ -164,18 +164,19 @@ head(mortgages)
 
 ---
 
-### 5. Is the yield curve inverted?
+### 5. Plot the euro area yield curve
 
 ```r
-yields <- ecb_yield_curve(c("2Y", "10Y"), from = "2022-01")
+# Fetch yields across the full maturity spectrum
+tenors <- c("3M", "1Y", "2Y", "5Y", "10Y", "20Y", "30Y")
+yields <- ecb_yield_curve(tenors, from = "2025-03-01", to = "2025-03-01")
 
-# Calculate the 2s10s spread
-library(readecb)
-y2  <- yields[yields$tenor == "2Y", c("date", "value")]
-y10 <- yields[yields$tenor == "10Y", c("date", "value")]
-spread <- merge(y2, y10, by = "date", suffixes = c("_2y", "_10y"))
-spread$spread <- spread$value_10y - spread$value_2y
-# Negative spread = inverted curve = recession signal
+# Plot the yield curve
+plot(seq_along(tenors), yields$value,
+     type = "b", pch = 19, col = "#003299",
+     xaxt = "n", xlab = "Maturity", ylab = "Yield (%)",
+     main = "Euro Area AAA Government Bond Yield Curve")
+axis(1, at = seq_along(tenors), labels = tenors)
 ```
 
 ---
