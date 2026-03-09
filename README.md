@@ -122,15 +122,24 @@ fx_multi <- ecb_exchange_rate(c("USD", "GBP", "JPY"), from = "2024-01")
 ### 3. Is eurozone inflation back to 2%?
 
 ```r
+# Euro area aggregate (U2) by default
 hicp <- ecb_hicp(from = "2020-01")
-tail(hicp, 6)
+tail(hicp, 3)
 #>         date country value
+#>   2025-06-01      U2   2.0
 #>   2025-07-01      U2   2.2
 #>   2025-08-01      U2   2.2
-#>   ...
 
 # Compare across countries
-hicp_countries <- ecb_hicp(c("DE", "FR", "IT", "ES"), from = "2023-01")
+hicp_countries <- ecb_hicp(c("DE", "FR", "IT", "ES"), from = "2024-01")
+head(hicp_countries)
+#>         date country value
+#>   2024-01-01      DE   3.1
+#>   2024-01-01      ES   3.5
+#>   2024-01-01      FR   3.4
+#>   2024-01-01      IT   0.9
+#>   2024-02-01      DE   2.7
+#>   2024-02-01      ES   2.9
 ```
 
 ---
