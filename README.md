@@ -157,9 +157,6 @@ head(mortgages)
 #>   2020-04-01      I9  1.38
 #>   2020-05-01      I9  1.36
 #>   2020-06-01      I9  1.39
-
-# Mortgage rates roughly doubled between 2022 and 2024 as the ECB raised
-# policy rates, squeezing household purchasing power across the euro area.
 ```
 
 ---
