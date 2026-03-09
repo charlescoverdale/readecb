@@ -161,14 +161,14 @@ head(mortgages)
 
 ---
 
-### 5. Plot the euro area yield curve
+### 5. 10-year government bond yield
 
 ```r
-tenors <- c("3M", "1Y", "2Y", "5Y", "10Y", "20Y", "30Y")
-yields <- ecb_yield_curve(tenors, from = "2025-03-01", to = "2025-03-07")
+yields <- ecb_yield_curve("10Y", from = "2005-01")
+plot(yields$date, yields$value, type = "l", xlab = "Date", ylab = "Yield (%)")
 ```
 
-![Euro Area Yield Curve](man/figures/yield_curve.png)
+![10-Year Euro Area Government Bond Yield](man/figures/yield_curve.png)
 
 ---
 
