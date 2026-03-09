@@ -161,7 +161,7 @@ head(mortgages)
 
 ---
 
-### 5. 10-year government bond yield
+### 5. What is the 10-year government bond yield?
 
 ```r
 yields <- ecb_yield_curve("10Y", from = "2024-01")
