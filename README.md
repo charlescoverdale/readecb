@@ -6,15 +6,15 @@ An R package for accessing data published by the [European Central Bank](https:/
 
 ## What is the ECB?
 
-The European Central Bank is the central bank for the euro area. It sets monetary policy for the 20 countries that use the euro — most importantly, the key interest rates that determine the cost of borrowing across the eurozone. It also publishes a vast quantity of statistical data covering exchange rates, inflation, money supply, lending conditions, and government bond yields.
+The European Central Bank is the central bank for the euro area. It sets monetary policy for the 20 countries that use the euro - most importantly, the key interest rates that determine the cost of borrowing across the eurozone. It also publishes a vast quantity of statistical data covering exchange rates, inflation, money supply, lending conditions, and government bond yields.
 
-All of this data is freely available through the ECB's Statistical Data Warehouse. The problem is that accessing it programmatically requires knowledge of SDMX series keys — opaque strings like `FM/D.U2.EUR.4F.KR.MRR_RT.LEV` that encode dataflow, frequency, area, currency, and instrument dimensions. This package abstracts that away entirely.
+All of this data is freely available through the ECB's Statistical Data Warehouse. The problem is that accessing it programmatically requires knowledge of SDMX series keys - opaque strings like `FM/D.U2.EUR.4F.KR.MRR_RT.LEV` that encode dataflow, frequency, area, currency, and instrument dimensions. This package abstracts that away entirely.
 
 ---
 
 ## How is readecb different from the `ecb` package?
 
-The existing [`ecb`](https://cran.r-project.org/package=ecb) package provides a general-purpose interface to the same ECB data, and works well if you already know the SDMX series key you need. `readecb` complements it by providing named convenience functions for the most commonly used datasets — so you can call `ecb_policy_rates()` or `ecb_hicp()` without needing to look up key structures. It also caches results locally and uses a lightweight dependency stack (httr2 + cli).
+The existing [`ecb`](https://cran.r-project.org/package=ecb) package provides a general-purpose interface to the same ECB data, and works well if you already know the SDMX series key you need. `readecb` complements it by providing named convenience functions for the most commonly used datasets - so you can call `ecb_policy_rates()` or `ecb_hicp()` without needing to look up key structures. It also caches results locally and uses a lightweight dependency stack (httr2 + cli).
 
 ---
 
@@ -36,10 +36,10 @@ devtools::install_github("charlescoverdale/readecb")
 |---|---|---|
 | Interest rates | `ecb_policy_rates()` | Main refinancing rate, deposit facility rate, and marginal lending rate (daily) |
 | Interest rates | `ecb_euribor(tenor)` | EURIBOR interbank lending rates at 1M, 3M, 6M, or 12M tenors (monthly) |
-| Interest rates | `ecb_estr()` | Euro short-term rate — the ECB's benchmark overnight rate that replaced EONIA (daily) |
+| Interest rates | `ecb_estr()` | Euro short-term rate - the ECB's benchmark overnight rate that replaced EONIA (daily) |
 | Interest rates | `ecb_mortgage_rates(country)` | Composite cost of borrowing for house purchase loans (monthly) |
 | Interest rates | `ecb_lending_rates(country)` | Composite cost of borrowing for loans to non-financial corporations (monthly) |
-| Prices | `ecb_hicp(country, measure)` | Harmonised Index of Consumer Prices — annual rate, index level, or monthly rate |
+| Prices | `ecb_hicp(country, measure)` | Harmonised Index of Consumer Prices - annual rate, index level, or monthly rate |
 | Exchange rates | `ecb_exchange_rate(currency, frequency)` | ECB reference exchange rates against the euro (monthly or daily) |
 | Exchange rates | `list_exchange_rates()` | Available currency codes (no download needed) |
 | Macro | `ecb_gdp()` | Quarterly euro area real GDP in EUR millions (chain-linked volumes) |
@@ -47,7 +47,7 @@ devtools::install_github("charlescoverdale/readecb")
 | Macro | `ecb_government_debt()` | Annual government debt-to-GDP ratio (%) |
 | Financial markets | `ecb_yield_curve(tenor)` | AAA-rated euro area government bond yields by maturity (daily) |
 | Financial markets | `ecb_money_supply(aggregate)` | M1, M2, or M3 monetary aggregates in EUR millions (monthly) |
-| Generic | `ecb_get(dataflow, key)` | Any ECB dataflow — for power users who know the series key |
+| Generic | `ecb_get(dataflow, key)` | Any ECB dataflow - for power users who know the series key |
 | Generic | `list_ecb_dataflows()` | All available dataflows (~100) |
 | Cache | `clear_cache()` | Deletes all locally cached ECB files |
 
@@ -152,7 +152,7 @@ head(yields)
 
 ### 6. Access any ECB dataset directly
 
-The named functions above cover the most popular datasets, but the ECB publishes over 100 dataflows. If you need something more niche — such as payment statistics, securities issuance, or bank lending surveys — you can use `ecb_get()` with the dataflow name and SDMX series key. Use `list_ecb_dataflows()` to browse what's available.
+The named functions above cover the most popular datasets, but the ECB publishes over 100 dataflows. If you need something more niche - such as payment statistics, securities issuance, or bank lending surveys - you can use `ecb_get()` with the dataflow name and SDMX series key. Use `list_ecb_dataflows()` to browse what's available.
 
 ```r
 df <- ecb_get("EXR", "M.USD.EUR.SP00.A", from = "2024-01")
@@ -173,7 +173,7 @@ To force a fresh download, pass `cache = FALSE`. To clear the entire cache, call
 
 ## Related packages
 
-This package is part of a family of R packages for economic and fiscal data. They share a consistent interface — named functions, tidy data frames, local caching — and are designed to work together.
+This package is part of a family of R packages for economic and fiscal data. They share a consistent interface - named functions, tidy data frames, local caching - and are designed to work together.
 
 | Package | What it covers |
 |---|---|
