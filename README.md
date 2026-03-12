@@ -21,10 +21,10 @@ The existing [`ecb`](https://cran.r-project.org/package=ecb) package provides a 
 ## Installation
 
 ```r
-# Install from CRAN (when available)
 install.packages("readecb")
 
 # Or install the development version from GitHub
+# install.packages("devtools")
 devtools::install_github("charlescoverdale/readecb")
 ```
 
