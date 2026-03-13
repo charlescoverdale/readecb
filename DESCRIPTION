@@ -16,7 +16,8 @@ Description: Provides clean, tidy access to statistical data published by the
 License: MIT + file LICENSE
 Encoding: UTF-8
 Language: en-GB
-URL: https://github.com/charlescoverdale/readecb
+URL: https://charlescoverdale.github.io/readecb/,
+    https://github.com/charlescoverdale/readecb
 BugReports: https://github.com/charlescoverdale/readecb/issues
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3

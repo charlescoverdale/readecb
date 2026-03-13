@@ -1,5 +1,8 @@
 # readecb
 
+[![R-CMD-check](https://github.com/charlescoverdale/readecb/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/charlescoverdale/readecb/actions/workflows/R-CMD-check.yaml)
+[![CRAN status](https://www.r-pkg.org/badges/version/readecb)](https://CRAN.R-project.org/package=readecb)
+[![Downloads](https://cranlogs.r-pkg.org/badges/readecb)](https://CRAN.R-project.org/package=readecb)
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 An R package for accessing data published by the [European Central Bank](https://www.ecb.europa.eu/) (ECB) via the [ECB Data Portal API](https://data.ecb.europa.eu).
@@ -181,6 +184,8 @@ This package is part of a family of R packages for economic and fiscal data. The
 | [`boe`](https://github.com/charlescoverdale/boe) | Bank of England data (Bank Rate, SONIA, gilt yields, exchange rates, mortgage rates) |
 | [`hmrc`](https://github.com/charlescoverdale/hmrc) | HMRC tax receipts, corporation tax, stamp duty, R&D credits, and tax gap data |
 | [`obr`](https://github.com/charlescoverdale/obr) | OBR data (Public Finances Databank, forecasts, EFO, welfare trends, fiscal sustainability) |
+| [`readoecd`](https://github.com/charlescoverdale/readoecd) | OECD data (GDP, unemployment, inflation, trade across 38 member countries) |
+| [`fred`](https://github.com/charlescoverdale/fred) | US Federal Reserve (FRED) data (800,000+ economic time series) |
 | [`inflateR`](https://github.com/charlescoverdale/inflateR) | Adjust values for inflation using CPI or GDP deflator data |
 
 ---
@@ -188,3 +193,7 @@ This package is part of a family of R packages for economic and fiscal data. The
 ## Issues
 
 Please report bugs or requests at <https://github.com/charlescoverdale/readecb/issues>.
+
+## Keywords
+
+European Central Bank, ECB, euro area, interest rates, EURIBOR, ESTR, HICP, inflation, exchange rates, yield curve, money supply, GDP, unemployment, government debt, monetary policy, R package

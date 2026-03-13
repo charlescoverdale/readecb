@@ -1,0 +1,63 @@
+url: https://charlescoverdale.github.io/readecb/
+
+template:
+  bootstrap: 5
+
+navbar:
+  structure:
+    left:  [intro, reference, news]
+    right: [search, github]
+  components:
+    github:
+      icon: fa-github
+      href: https://github.com/charlescoverdale/readecb
+
+reference:
+- title: Interest Rates
+  desc: ECB policy rates, interbank rates, and benchmark rates.
+  contents:
+  - ecb_policy_rates
+  - ecb_euribor
+  - ecb_estr
+
+- title: Prices & Inflation
+  desc: Harmonised consumer price indices.
+
+  contents:
+  - ecb_hicp
+
+- title: Exchange Rates
+  desc: ECB reference exchange rates against the euro.
+  contents:
+  - ecb_exchange_rate
+  - list_exchange_rates
+
+- title: Money & Credit
+  desc: Monetary aggregates, mortgage rates, and lending rates.
+  contents:
+  - ecb_money_supply
+  - ecb_mortgage_rates
+  - ecb_lending_rates
+
+- title: Macroeconomic Indicators
+  desc: GDP, unemployment, and government debt.
+  contents:
+  - ecb_gdp
+  - ecb_unemployment
+  - ecb_government_debt
+
+- title: Financial Markets
+  desc: Government bond yield curves.
+  contents:
+  - ecb_yield_curve
+
+- title: General
+  desc: Direct access to any ECB dataflow.
+  contents:
+  - ecb_get
+  - list_ecb_dataflows
+
+- title: Utilities
+  desc: Cache management.
+  contents:
+  - clear_cache

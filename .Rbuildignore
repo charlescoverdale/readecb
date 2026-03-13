@@ -4,3 +4,8 @@
 ^cran-comments\.md$
 ^README\.Rmd$
 ^\.gitattributes$
+^CRAN-SUBMISSION$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^\.github$
