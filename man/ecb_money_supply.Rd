@@ -36,3 +36,9 @@ euro area.
 ecb_money_supply("M3", from = "2020-01")
 }
 }
+\seealso{
+Other credit: 
+\code{\link{ecb_lending_rates}()},
+\code{\link{ecb_mortgage_rates}()}
+}
+\concept{credit}

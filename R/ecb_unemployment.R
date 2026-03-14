@@ -13,6 +13,7 @@
 #'   \item{value}{Numeric. Unemployment rate as a percentage.}
 #' }
 #'
+#' @family macro
 #' @export
 #' @examples
 #' \donttest{

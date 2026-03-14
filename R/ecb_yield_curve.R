@@ -16,6 +16,7 @@
 #'   \item{value}{Numeric. Yield in percent per annum.}
 #' }
 #'
+#' @family data access
 #' @export
 #' @examples
 #' \donttest{

@@ -29,3 +29,9 @@ ECB's labour force statistics dataset (LFSI).
 ecb_unemployment(from = "2020-01")
 }
 }
+\seealso{
+Other macro: 
+\code{\link{ecb_gdp}()},
+\code{\link{ecb_government_debt}()}
+}
+\concept{macro}

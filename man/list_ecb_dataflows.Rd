@@ -25,3 +25,10 @@ corresponds to a dataset that can be queried with \code{\link[=ecb_get]{ecb_get(
 list_ecb_dataflows()
 }
 }
+\seealso{
+Other data access: 
+\code{\link{clear_cache}()},
+\code{\link{ecb_get}()},
+\code{\link{ecb_yield_curve}()}
+}
+\concept{data access}

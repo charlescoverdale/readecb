@@ -20,3 +20,8 @@ reference exchange rates. No network call is made.
 \examples{
 list_exchange_rates()
 }
+\seealso{
+Other exchange rates: 
+\code{\link{ecb_exchange_rate}()}
+}
+\concept{exchange rates}

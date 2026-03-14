@@ -14,6 +14,7 @@
 #'   \item{value}{Numeric. Outstanding amount in millions of euros.}
 #' }
 #'
+#' @family credit
 #' @export
 #' @examples
 #' \donttest{

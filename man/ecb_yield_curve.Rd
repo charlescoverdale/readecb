@@ -34,3 +34,10 @@ ecb_yield_curve("10Y", from = "2023-01")
 ecb_yield_curve(c("2Y", "10Y"), from = "2022-01")
 }
 }
+\seealso{
+Other data access: 
+\code{\link{clear_cache}()},
+\code{\link{ecb_get}()},
+\code{\link{list_ecb_dataflows}()}
+}
+\concept{data access}

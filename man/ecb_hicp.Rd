@@ -48,3 +48,4 @@ ecb_hicp(from = "2020-01")
 ecb_hicp(c("DE", "FR", "IT"), from = "2023-01")
 }
 }
+\concept{prices}

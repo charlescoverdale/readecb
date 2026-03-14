@@ -31,3 +31,9 @@ rate, the deposit facility rate, and the marginal lending facility rate.
 ecb_policy_rates(from = "2022-01")
 }
 }
+\seealso{
+Other interest rates: 
+\code{\link{ecb_estr}()},
+\code{\link{ecb_euribor}()}
+}
+\concept{interest rates}

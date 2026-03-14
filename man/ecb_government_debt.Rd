@@ -30,3 +30,9 @@ statistics dataset (GFS).
 ecb_government_debt(from = "2000")
 }
 }
+\seealso{
+Other macro: 
+\code{\link{ecb_gdp}()},
+\code{\link{ecb_unemployment}()}
+}
+\concept{macro}

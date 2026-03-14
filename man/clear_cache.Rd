@@ -18,3 +18,10 @@ function will re-download from the ECB Data Portal.
 clear_cache()
 }
 }
+\seealso{
+Other data access: 
+\code{\link{ecb_get}()},
+\code{\link{ecb_yield_curve}()},
+\code{\link{list_ecb_dataflows}()}
+}
+\concept{data access}

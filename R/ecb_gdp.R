@@ -13,6 +13,7 @@
 #'   \item{value}{Numeric. GDP in millions of euros (chain-linked volumes).}
 #' }
 #'
+#' @family macro
 #' @export
 #' @examples
 #' \donttest{

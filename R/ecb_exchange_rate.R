@@ -17,6 +17,7 @@
 #'   \item{value}{Numeric. Units of foreign currency per euro.}
 #' }
 #'
+#' @family exchange rates
 #' @export
 #' @examples
 #' \donttest{

@@ -29,3 +29,9 @@ rate that replaced EONIA.
 ecb_estr(from = "2024-01")
 }
 }
+\seealso{
+Other interest rates: 
+\code{\link{ecb_euribor}()},
+\code{\link{ecb_policy_rates}()}
+}
+\concept{interest rates}

@@ -14,6 +14,7 @@
 #'   \item{value}{Numeric. Government debt as a percentage of GDP.}
 #' }
 #'
+#' @family macro
 #' @export
 #' @examples
 #' \donttest{

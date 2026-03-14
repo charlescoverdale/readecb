@@ -17,6 +17,7 @@
 #'   \item{value}{Numeric. Interest rate in percent per annum.}
 #' }
 #'
+#' @family credit
 #' @export
 #' @examples
 #' \donttest{

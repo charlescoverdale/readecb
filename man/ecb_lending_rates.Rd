@@ -34,3 +34,9 @@ non-financial corporations in the euro area or a specific country.
 ecb_lending_rates(from = "2015-01")
 }
 }
+\seealso{
+Other credit: 
+\code{\link{ecb_money_supply}()},
+\code{\link{ecb_mortgage_rates}()}
+}
+\concept{credit}

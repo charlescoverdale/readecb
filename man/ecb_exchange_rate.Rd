@@ -42,3 +42,8 @@ ecb_exchange_rate("USD", from = "2024-01")
 ecb_exchange_rate(c("USD", "GBP", "JPY"), from = "2024-01")
 }
 }
+\seealso{
+Other exchange rates: 
+\code{\link{list_exchange_rates}()}
+}
+\concept{exchange rates}

@@ -32,3 +32,10 @@ A generic fetcher for direct access to any of the ECB's dataflows. Use
 ecb_get("EXR", "M.USD.EUR.SP00.A", from = "2024-01")
 }
 }
+\seealso{
+Other data access: 
+\code{\link{clear_cache}()},
+\code{\link{ecb_yield_curve}()},
+\code{\link{list_ecb_dataflows}()}
+}
+\concept{data access}

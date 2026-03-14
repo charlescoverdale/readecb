@@ -13,6 +13,7 @@
 #' @return A data frame. Columns vary by dataflow but always include
 #'   `TIME_PERIOD` and `OBS_VALUE`.
 #'
+#' @family data access
 #' @export
 #' @examples
 #' \donttest{

@@ -9,6 +9,7 @@
 #'   \item{currency}{Character. Currency name.}
 #' }
 #'
+#' @family exchange rates
 #' @export
 #' @examples
 #' list_exchange_rates()
@@ -51,6 +52,7 @@ list_exchange_rates <- function() {
 #'   \item{name}{Character. Human-readable name.}
 #' }
 #'
+#' @family data access
 #' @export
 #' @examples
 #' \donttest{

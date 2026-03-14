@@ -29,3 +29,9 @@ accounts dataset (MNA).
 ecb_gdp(from = "2020")
 }
 }
+\seealso{
+Other macro: 
+\code{\link{ecb_government_debt}()},
+\code{\link{ecb_unemployment}()}
+}
+\concept{macro}

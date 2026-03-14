@@ -21,4 +21,13 @@ Useful links:
 \strong{Maintainer}: Charles Coverdale \email{charlesfcoverdale@gmail.com}
 
 }
+\concept{ECB}
+\concept{ESTR}
+\concept{EURIBOR}
+\concept{European Central Bank}
+\concept{HICP}
+\concept{SDMX}
+\concept{euro area}
+\concept{exchange rates}
+\concept{monetary policy}
 \keyword{internal}

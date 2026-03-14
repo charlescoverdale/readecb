@@ -34,3 +34,9 @@ in the euro area or a specific country.
 ecb_mortgage_rates(from = "2015-01")
 }
 }
+\seealso{
+Other credit: 
+\code{\link{ecb_lending_rates}()},
+\code{\link{ecb_money_supply}()}
+}
+\concept{credit}

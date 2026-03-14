@@ -21,6 +21,7 @@
 #'   \item{value}{Numeric. Inflation rate or index level.}
 #' }
 #'
+#' @family prices
 #' @export
 #' @examples
 #' \donttest{

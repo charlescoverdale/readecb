@@ -35,3 +35,9 @@ ecb_euribor("3M", from = "2022-01")
 ecb_euribor(c("1M", "3M", "6M", "12M"), from = "2024-01")
 }
 }
+\seealso{
+Other interest rates: 
+\code{\link{ecb_estr}()},
+\code{\link{ecb_policy_rates}()}
+}
+\concept{interest rates}
