@@ -30,8 +30,10 @@ Returns AAA-rated euro area government bond yields for one or more tenors.
 }
 \examples{
 \donttest{
+op <- options(readecb.cache_dir = tempdir())
 ecb_yield_curve("10Y", from = "2023-01")
 ecb_yield_curve(c("2Y", "10Y"), from = "2022-01")
+options(op)
 }
 }
 \seealso{

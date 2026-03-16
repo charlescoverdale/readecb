@@ -21,8 +21,10 @@
 #' @export
 #' @examples
 #' \donttest{
+#' op <- options(readecb.cache_dir = tempdir())
 #' ecb_euribor("3M", from = "2022-01")
 #' ecb_euribor(c("1M", "3M", "6M", "12M"), from = "2024-01")
+#' options(op)
 #' }
 ecb_euribor <- function(tenor = "3M", from = NULL, to = NULL, cache = TRUE) {
   tenor_map <- c(

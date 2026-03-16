@@ -18,7 +18,9 @@
 #' @export
 #' @examples
 #' \donttest{
+#' op <- options(readecb.cache_dir = tempdir())
 #' ecb_government_debt(from = "2000")
+#' options(op)
 #' }
 ecb_government_debt <- function(from = NULL, to = NULL, cache = TRUE) {
   cli::cli_progress_step("Fetching government debt-to-GDP ratio")

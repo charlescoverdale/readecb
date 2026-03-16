@@ -33,7 +33,9 @@ euro area.
 }
 \examples{
 \donttest{
+op <- options(readecb.cache_dir = tempdir())
 ecb_money_supply("M3", from = "2020-01")
+options(op)
 }
 }
 \seealso{

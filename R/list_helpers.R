@@ -56,10 +56,12 @@ list_exchange_rates <- function() {
 #' @export
 #' @examples
 #' \donttest{
+#' op <- options(readecb.cache_dir = tempdir())
 #' list_ecb_dataflows()
+#' options(op)
 #' }
 list_ecb_dataflows <- function(cache = TRUE) {
-  cache_dir  <- tools::R_user_dir("readecb", "cache")
+  cache_dir  <- ecb_cache_dir()
   cache_file <- file.path(cache_dir, "dataflows.rds")
 
   if (cache && file.exists(cache_file)) {

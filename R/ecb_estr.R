@@ -17,7 +17,9 @@
 #' @export
 #' @examples
 #' \donttest{
+#' op <- options(readecb.cache_dir = tempdir())
 #' ecb_estr(from = "2024-01")
+#' options(op)
 #' }
 ecb_estr <- function(from = NULL, to = NULL, cache = TRUE) {
   cli::cli_progress_step("Fetching ESTR data")

@@ -22,7 +22,9 @@ corresponds to a dataset that can be queried with \code{\link[=ecb_get]{ecb_get(
 }
 \examples{
 \donttest{
+op <- options(readecb.cache_dir = tempdir())
 list_ecb_dataflows()
+options(op)
 }
 }
 \seealso{

@@ -26,7 +26,9 @@ ECB's labour force statistics dataset (LFSI).
 }
 \examples{
 \donttest{
+op <- options(readecb.cache_dir = tempdir())
 ecb_unemployment(from = "2020-01")
+options(op)
 }
 }
 \seealso{

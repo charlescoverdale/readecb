@@ -38,8 +38,10 @@ euro.
 }
 \examples{
 \donttest{
+op <- options(readecb.cache_dir = tempdir())
 ecb_exchange_rate("USD", from = "2024-01")
 ecb_exchange_rate(c("USD", "GBP", "JPY"), from = "2024-01")
+options(op)
 }
 }
 \seealso{

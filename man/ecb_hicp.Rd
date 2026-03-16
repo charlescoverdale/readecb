@@ -44,8 +44,10 @@ groups. The default is the euro area aggregate (\code{"U2"}).
 }
 \examples{
 \donttest{
+op <- options(readecb.cache_dir = tempdir())
 ecb_hicp(from = "2020-01")
 ecb_hicp(c("DE", "FR", "IT"), from = "2023-01")
+options(op)
 }
 }
 \concept{prices}

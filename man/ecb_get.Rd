@@ -28,8 +28,10 @@ A generic fetcher for direct access to any of the ECB's dataflows. Use
 }
 \examples{
 \donttest{
+op <- options(readecb.cache_dir = tempdir())
 # Fetch EUR/USD monthly exchange rate
 ecb_get("EXR", "M.USD.EUR.SP00.A", from = "2024-01")
+options(op)
 }
 }
 \seealso{

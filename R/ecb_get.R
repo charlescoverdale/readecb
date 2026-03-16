@@ -17,8 +17,10 @@
 #' @export
 #' @examples
 #' \donttest{
+#' op <- options(readecb.cache_dir = tempdir())
 #' # Fetch EUR/USD monthly exchange rate
 #' ecb_get("EXR", "M.USD.EUR.SP00.A", from = "2024-01")
+#' options(op)
 #' }
 ecb_get <- function(dataflow, key, from = NULL, to = NULL, cache = TRUE) {
   cli::cli_progress_step("Fetching {dataflow} data")

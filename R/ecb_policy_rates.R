@@ -19,7 +19,9 @@
 #' @export
 #' @examples
 #' \donttest{
+#' op <- options(readecb.cache_dir = tempdir())
 #' ecb_policy_rates(from = "2022-01")
+#' options(op)
 #' }
 ecb_policy_rates <- function(from = NULL, to = NULL, cache = TRUE) {
   cli::cli_progress_step("Fetching ECB policy rates")

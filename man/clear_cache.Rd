@@ -15,7 +15,9 @@ function will re-download from the ECB Data Portal.
 }
 \examples{
 \donttest{
+op <- options(readecb.cache_dir = tempdir())
 clear_cache()
+options(op)
 }
 }
 \seealso{

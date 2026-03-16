@@ -31,8 +31,10 @@ widely used as a reference rate for mortgages, loans, and derivatives.
 }
 \examples{
 \donttest{
+op <- options(readecb.cache_dir = tempdir())
 ecb_euribor("3M", from = "2022-01")
 ecb_euribor(c("1M", "3M", "6M", "12M"), from = "2024-01")
+options(op)
 }
 }
 \seealso{

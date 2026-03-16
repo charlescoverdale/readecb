@@ -20,8 +20,10 @@
 #' @export
 #' @examples
 #' \donttest{
+#' op <- options(readecb.cache_dir = tempdir())
 #' ecb_yield_curve("10Y", from = "2023-01")
 #' ecb_yield_curve(c("2Y", "10Y"), from = "2022-01")
+#' options(op)
 #' }
 ecb_yield_curve <- function(tenor = "10Y", from = NULL, to = NULL,
                             cache = TRUE) {

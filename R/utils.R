@@ -2,6 +2,12 @@
 
 ecb_base_url <- "https://data-api.ecb.europa.eu/service/data/"
 
+#' Get the cache directory, respecting the readecb.cache_dir option
+#' @noRd
+ecb_cache_dir <- function() {
+  getOption("readecb.cache_dir", default = tools::R_user_dir("readecb", "cache"))
+}
+
 #' Fetch data from the ECB Data Portal API
 #'
 #' @param dataflow Character. The dataflow identifier (e.g. "EXR", "FM").
@@ -16,7 +22,7 @@ ecb_base_url <- "https://data-api.ecb.europa.eu/service/data/"
 ecb_fetch <- function(dataflow, key, from = NULL, to = NULL, cache = TRUE) {
   url <- paste0(ecb_base_url, dataflow, "/", key)
 
-  cache_dir <- tools::R_user_dir("readecb", "cache")
+  cache_dir <- ecb_cache_dir()
   cache_key <- paste0(
     dataflow, "_", gsub("[^A-Za-z0-9]", "_", key),
     if (!is.null(from)) paste0("_from_", from),

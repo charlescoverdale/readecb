@@ -9,10 +9,12 @@
 #' @export
 #' @examples
 #' \donttest{
+#' op <- options(readecb.cache_dir = tempdir())
 #' clear_cache()
+#' options(op)
 #' }
 clear_cache <- function() {
-  cache_dir <- tools::R_user_dir("readecb", "cache")
+  cache_dir <- ecb_cache_dir()
   if (dir.exists(cache_dir)) {
     unlink(cache_dir, recursive = TRUE)
     cli::cli_alert_success("Cache cleared.")

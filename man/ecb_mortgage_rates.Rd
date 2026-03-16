@@ -31,7 +31,9 @@ in the euro area or a specific country.
 }
 \examples{
 \donttest{
+op <- options(readecb.cache_dir = tempdir())
 ecb_mortgage_rates(from = "2015-01")
+options(op)
 }
 }
 \seealso{

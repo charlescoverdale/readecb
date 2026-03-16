@@ -25,8 +25,10 @@
 #' @export
 #' @examples
 #' \donttest{
+#' op <- options(readecb.cache_dir = tempdir())
 #' ecb_hicp(from = "2020-01")
 #' ecb_hicp(c("DE", "FR", "IT"), from = "2023-01")
+#' options(op)
 #' }
 ecb_hicp <- function(country = "U2",
                      measure = c("annual_rate", "index", "monthly_rate"),
