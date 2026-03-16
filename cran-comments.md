@@ -1,4 +1,15 @@
-# CRAN submission comments — readecb 0.1.0
+# CRAN submission comments — readecb 0.1.1
+
+## Resubmission
+
+This is a resubmission of readecb 0.1.0. Changes made in response to CRAN
+review feedback (Konstanze Lauseker):
+
+* Examples now cache to `tempdir()` instead of the user's home directory,
+  fixing CRAN policy compliance for `\donttest` examples.
+* Cache directory is now configurable via `options(readecb.cache_dir = ...)`.
+* Removed default path from cache helper so no function writes to the user's
+  home filespace by default during examples or tests.
 
 ## R CMD check results
 
@@ -14,7 +25,8 @@
 This package downloads data from the ECB Data Portal API
 <https://data.ecb.europa.eu> on first use and caches it locally using
 `tools::R_user_dir()`. No data is bundled. All examples that make network
-calls are wrapped in `\donttest{}`.
+calls are wrapped in `\donttest{}`, with caching redirected to `tempdir()`
+so that no files are written to the user's home filespace.
 
 ## Relationship to existing 'ecb' package
 
