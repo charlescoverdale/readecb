@@ -1,15 +1,14 @@
-# CRAN submission comments — readecb 0.1.1
+# CRAN submission comments — readecb 0.1.2
 
 ## Resubmission
 
-This is a resubmission of readecb 0.1.0. Changes made in response to CRAN
-review feedback (Konstanze Lauseker):
+This is a resubmission addressing CRAN review feedback (Konstanze Lauseker).
+Changes since readecb 0.1.0:
 
 * Examples now cache to `tempdir()` instead of the user's home directory,
   fixing CRAN policy compliance for `\donttest` examples.
 * Cache directory is now configurable via `options(readecb.cache_dir = ...)`.
-* Removed default path from cache helper so no function writes to the user's
-  home filespace by default during examples or tests.
+* Removed non-existent pkgdown URL from DESCRIPTION (was returning 404).
 
 ## R CMD check results
 
