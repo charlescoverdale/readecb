@@ -30,6 +30,17 @@ ecb_exchange_rate <- function(currency = "USD",
                               frequency = c("monthly", "daily"),
                               from = NULL, to = NULL, cache = TRUE) {
   frequency <- match.arg(frequency)
+
+  currency <- toupper(currency)
+  valid_codes <- list_exchange_rates()$code
+  bad <- setdiff(currency, valid_codes)
+  if (length(bad) > 0L) {
+    cli::cli_abort(c(
+      "{.val {bad}} {?is/are} not valid ECB exchange rate currency code{?s}.",
+      "i" = "Run {.fn list_exchange_rates} to see available currencies."
+    ))
+  }
+
   freq_code <- if (frequency == "monthly") "M" else "D"
   currency_key <- paste(currency, collapse = "+")
 

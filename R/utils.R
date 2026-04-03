@@ -90,7 +90,17 @@ ecb_fetch <- function(dataflow, key, from = NULL, to = NULL, cache = TRUE) {
     writeLines(csv_text, cache_file)
   }
 
-  utils::read.csv(text = csv_text, stringsAsFactors = FALSE)
+  df <- utils::read.csv(text = csv_text, stringsAsFactors = FALSE)
+
+  if (nrow(df) == 0L) {
+    cli::cli_abort(c(
+      "ECB API returned no data for dataflow {.val {dataflow}}.",
+      "i" = "Check that the series key and date range are valid.",
+      "i" = "Key used: {.val {key}}"
+    ))
+  }
+
+  df
 }
 
 

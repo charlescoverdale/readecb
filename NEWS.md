@@ -1,3 +1,12 @@
+# readecb 0.1.3
+
+* `ecb_fetch()` now checks for empty API responses and throws an informative
+  error instead of returning a malformed data frame.
+* `ecb_exchange_rate()` now validates currency codes upfront, with a helpful
+  error pointing to `list_exchange_rates()`.
+* `ecb_hicp()` now validates the `country` argument is a non-empty character
+  vector.
+
 # readecb 0.1.2
 
 * Removed non-existent pkgdown URL from DESCRIPTION.

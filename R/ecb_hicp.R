@@ -33,6 +33,11 @@
 ecb_hicp <- function(country = "U2",
                      measure = c("annual_rate", "index", "monthly_rate"),
                      from = NULL, to = NULL, cache = TRUE) {
+  if (!is.character(country) || length(country) == 0L) {
+    cli::cli_abort("{.arg country} must be a non-empty character vector.")
+  }
+  country <- toupper(country)
+
   measure <- match.arg(measure)
   suffix <- switch(measure,
     annual_rate  = "ANR",
