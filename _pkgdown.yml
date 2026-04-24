@@ -62,6 +62,6 @@ reference:
   contents:
   - clear_cache
 
-  - title: "Package"
-    contents:
-      - readecb-package
+- title: "Package"
+  contents:
+  - readecb-package
