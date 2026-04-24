@@ -1,0 +1,31 @@
+# readecb
+
+> Provides clean, tidy access to statistical data published by the 'European Central Bank' ('ECB') via the 'ECB Data Portal' API. Install with `install.packages("readecb")`.
+
+Version: 0.1.3. License: MIT.
+
+## Functions
+
+- [`clear_cache()`](https://charlescoverdale.github.io/readecb/reference/clear_cache.html): Clear the readecb cache
+- [`ecb_estr()`](https://charlescoverdale.github.io/readecb/reference/ecb_estr.html): Euro short-term rate (ESTR)
+- [`ecb_euribor()`](https://charlescoverdale.github.io/readecb/reference/ecb_euribor.html): EURIBOR interbank lending rates
+- [`ecb_exchange_rate()`](https://charlescoverdale.github.io/readecb/reference/ecb_exchange_rate.html): Euro exchange rates
+- [`ecb_gdp()`](https://charlescoverdale.github.io/readecb/reference/ecb_gdp.html): Euro area GDP
+- [`ecb_get()`](https://charlescoverdale.github.io/readecb/reference/ecb_get.html): Fetch any ECB dataflow
+- [`ecb_government_debt()`](https://charlescoverdale.github.io/readecb/reference/ecb_government_debt.html): Euro area government debt-to-GDP ratio
+- [`ecb_hicp()`](https://charlescoverdale.github.io/readecb/reference/ecb_hicp.html): Harmonised Index of Consumer Prices (HICP)
+- [`ecb_lending_rates()`](https://charlescoverdale.github.io/readecb/reference/ecb_lending_rates.html): Lending interest rates to non-financial corporations
+- [`ecb_money_supply()`](https://charlescoverdale.github.io/readecb/reference/ecb_money_supply.html): Euro area monetary aggregates
+- [`ecb_mortgage_rates()`](https://charlescoverdale.github.io/readecb/reference/ecb_mortgage_rates.html): Mortgage interest rates
+- [`ecb_policy_rates()`](https://charlescoverdale.github.io/readecb/reference/ecb_policy_rates.html): ECB policy interest rates
+- [`ecb_unemployment()`](https://charlescoverdale.github.io/readecb/reference/ecb_unemployment.html): Euro area unemployment rate
+- [`ecb_yield_curve()`](https://charlescoverdale.github.io/readecb/reference/ecb_yield_curve.html): Euro area government bond yield curve
+- [`list_ecb_dataflows()`](https://charlescoverdale.github.io/readecb/reference/list_ecb_dataflows.html): List available ECB dataflows
+- [`list_exchange_rates()`](https://charlescoverdale.github.io/readecb/reference/list_exchange_rates.html): List available exchange rate currencies
+
+## Documentation
+
+- [Full reference](https://charlescoverdale.github.io/readecb/reference/)
+- [GitHub](https://github.com/charlescoverdale/readecb)
+- [CRAN](https://CRAN.R-project.org/package=readecb)
+
