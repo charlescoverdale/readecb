@@ -9,7 +9,7 @@ euro."></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">readecb</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.3</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,7 +21,7 @@ euro."></head><body>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
-<li class="nav-item"><a class="external-link nav-link" href="https://github.com/charlescoverdale/readecb"><span class="fa fa-github"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/charlescoverdale/readecb" aria-label="GitHub"><span class="fa fa-github"></span></a></li>
       </ul></div>
 
 
@@ -89,13 +89,19 @@ euro.</p>
 
 
 </dl></div>
+    <div class="section level2">
+    <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
+    <div class="dont-index"><p>Other exchange rates:
+<code><a href="list_exchange_rates.html">list_exchange_rates()</a></code></p></div>
+    </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="va">op</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>readecb.cache_dir <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">ecb_exchange_rate</span><span class="op">(</span><span class="st">"USD"</span>, from <span class="op">=</span> <span class="st">"2024-01"</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Fetching ECB exchange rates</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Fetching ECB exchange rates <span style="color: #B2B2B2;">[207ms]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Fetching ECB exchange rates <span style="color: #B2B2B2;">[5.6s]</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>          date currency    value</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1  2024-01-01      USD 1.090514</span>
@@ -124,9 +130,10 @@ euro.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 24 2025-12-01      USD 1.170871</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 25 2026-01-01      USD 1.173824</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 26 2026-02-01      USD 1.182395</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27 2026-03-01      USD 1.155832</span>
 <span class="r-in"><span><span class="fu">ecb_exchange_rate</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"USD"</span>, <span class="st">"GBP"</span>, <span class="st">"JPY"</span><span class="op">)</span>, from <span class="op">=</span> <span class="st">"2024-01"</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Fetching ECB exchange rates</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Fetching ECB exchange rates <span style="color: #B2B2B2;">[120ms]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Fetching ECB exchange rates <span style="color: #B2B2B2;">[3.1s]</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>          date currency       value</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1  2024-01-01      GBP   0.8587309</span>
@@ -155,58 +162,62 @@ euro.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 24 2025-12-01      GBP   0.8750000</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 25 2026-01-01      GBP   0.8682810</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 26 2026-02-01      GBP   0.8703150</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27 2024-01-01      JPY 159.4581818</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28 2024-02-01      JPY 161.3771429</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29 2024-03-01      JPY 162.7725000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30 2024-04-01      JPY 165.0295238</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31 2024-05-01      JPY 168.5363636</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32 2024-06-01      JPY 169.8130000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33 2024-07-01      JPY 171.1708696</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34 2024-08-01      JPY 161.0554545</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35 2024-09-01      JPY 159.0809524</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36 2024-10-01      JPY 163.1969565</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37 2024-11-01      JPY 163.2338095</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38 2024-12-01      JPY 161.0835000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39 2025-01-01      JPY 161.9213636</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40 2025-02-01      JPY 158.0870000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41 2025-03-01      JPY 161.1666667</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42 2025-04-01      JPY 161.6705000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43 2025-05-01      JPY 163.1442857</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44 2025-06-01      JPY 166.5233333</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45 2025-07-01      JPY 171.5313043</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46 2025-08-01      JPY 171.7895238</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47 2025-09-01      JPY 173.5486364</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48 2025-10-01      JPY 176.1526087</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49 2025-11-01      JPY 179.3160000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 50 2025-12-01      JPY 182.4971429</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 51 2026-01-01      JPY 183.9385714</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 52 2026-02-01      JPY 183.4515000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 53 2024-01-01      USD   1.0905136</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 54 2024-02-01      USD   1.0794714</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 55 2024-03-01      USD   1.0872200</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 56 2024-04-01      USD   1.0727762</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 57 2024-05-01      USD   1.0812227</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 58 2024-06-01      USD   1.0759000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 59 2024-07-01      USD   1.0844087</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 60 2024-08-01      USD   1.1012182</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 61 2024-09-01      USD   1.1106000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 62 2024-10-01      USD   1.0904348</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 63 2024-11-01      USD   1.0630143</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 64 2024-12-01      USD   1.0478750</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 65 2025-01-01      USD   1.0353727</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 66 2025-02-01      USD   1.0412500</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 67 2025-03-01      USD   1.0806810</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 68 2025-04-01      USD   1.1213950</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 69 2025-05-01      USD   1.1278048</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 70 2025-06-01      USD   1.1516190</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 71 2025-07-01      USD   1.1676870</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 72 2025-08-01      USD   1.1631429</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 73 2025-09-01      USD   1.1732227</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 74 2025-10-01      USD   1.1630435</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 75 2025-11-01      USD   1.1560200</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 76 2025-12-01      USD   1.1708714</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 77 2026-01-01      USD   1.1738238</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 78 2026-02-01      USD   1.1823950</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27 2026-03-01      GBP   0.8663109</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28 2024-01-01      JPY 159.4581818</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29 2024-02-01      JPY 161.3771429</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30 2024-03-01      JPY 162.7725000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31 2024-04-01      JPY 165.0295238</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32 2024-05-01      JPY 168.5363636</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33 2024-06-01      JPY 169.8130000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34 2024-07-01      JPY 171.1708696</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35 2024-08-01      JPY 161.0554545</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36 2024-09-01      JPY 159.0809524</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37 2024-10-01      JPY 163.1969565</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38 2024-11-01      JPY 163.2338095</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39 2024-12-01      JPY 161.0835000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40 2025-01-01      JPY 161.9213636</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41 2025-02-01      JPY 158.0870000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42 2025-03-01      JPY 161.1666667</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43 2025-04-01      JPY 161.6705000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 44 2025-05-01      JPY 163.1442857</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45 2025-06-01      JPY 166.5233333</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 46 2025-07-01      JPY 171.5313043</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47 2025-08-01      JPY 171.7895238</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 48 2025-09-01      JPY 173.5486364</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 49 2025-10-01      JPY 176.1526087</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 50 2025-11-01      JPY 179.3160000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51 2025-12-01      JPY 182.4971429</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52 2026-01-01      JPY 183.9385714</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 53 2026-02-01      JPY 183.4515000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 54 2026-03-01      JPY 183.3990909</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 55 2024-01-01      USD   1.0905136</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 56 2024-02-01      USD   1.0794714</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 57 2024-03-01      USD   1.0872200</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 58 2024-04-01      USD   1.0727762</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 59 2024-05-01      USD   1.0812227</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 60 2024-06-01      USD   1.0759000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 61 2024-07-01      USD   1.0844087</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 62 2024-08-01      USD   1.1012182</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 63 2024-09-01      USD   1.1106000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 64 2024-10-01      USD   1.0904348</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 65 2024-11-01      USD   1.0630143</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 66 2024-12-01      USD   1.0478750</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 67 2025-01-01      USD   1.0353727</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 68 2025-02-01      USD   1.0412500</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 69 2025-03-01      USD   1.0806810</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 70 2025-04-01      USD   1.1213950</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 71 2025-05-01      USD   1.1278048</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 72 2025-06-01      USD   1.1516190</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 73 2025-07-01      USD   1.1676870</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 74 2025-08-01      USD   1.1631429</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 75 2025-09-01      USD   1.1732227</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 76 2025-10-01      USD   1.1630435</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 77 2025-11-01      USD   1.1560200</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 78 2025-12-01      USD   1.1708714</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 79 2026-01-01      USD   1.1738238</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 80 2026-02-01      USD   1.1823950</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 81 2026-03-01      USD   1.1558318</span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span><span class="va">op</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

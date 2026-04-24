@@ -9,7 +9,7 @@ accounts dataset (MNA)."></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">readecb</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.3</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,7 +21,7 @@ accounts dataset (MNA)."></head><body>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
-<li class="nav-item"><a class="external-link nav-link" href="https://github.com/charlescoverdale/readecb"><span class="fa fa-github"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/charlescoverdale/readecb" aria-label="GitHub"><span class="fa fa-github"></span></a></li>
       </ul></div>
 
 
@@ -71,39 +71,47 @@ accounts dataset (MNA).</p>
 
 
 </dl></div>
+    <div class="section level2">
+    <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
+    <div class="dont-index"><p>Other macro:
+<code><a href="ecb_government_debt.html">ecb_government_debt()</a></code>,
+<code><a href="ecb_unemployment.html">ecb_unemployment()</a></code></p></div>
+    </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="va">op</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>readecb.cache_dir <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">ecb_gdp</span><span class="op">(</span>from <span class="op">=</span> <span class="st">"2020"</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Fetching euro area GDP</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Fetching euro area GDP <span style="color: #B2B2B2;">[120ms]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Fetching euro area GDP <span style="color: #B2B2B2;">[2.7s]</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>          date   value</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  2020-01-01 2995342</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  2020-04-01 2662314</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  2020-07-01 2969661</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  2020-10-01 2980603</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  2021-01-01 3004292</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  2021-04-01 3069219</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  2020-01-01 2995346</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  2020-04-01 2662313</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  2020-07-01 2969660</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  2020-10-01 2980601</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  2021-01-01 3004297</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  2021-04-01 3069207</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 7  2021-07-01 3123112</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8  2021-10-01 3148318</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9  2022-01-01 3171779</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10 2022-04-01 3201012</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11 2022-07-01 3215575</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12 2022-10-01 3213768</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13 2023-01-01 3213034</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14 2023-04-01 3218927</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15 2023-07-01 3218830</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16 2023-10-01 3221248</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17 2024-01-01 3230466</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18 2024-04-01 3236980</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19 2024-07-01 3251313</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20 2024-10-01 3263878</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21 2025-01-01 3283230</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22 2025-04-01 3287888</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23 2025-07-01 3297741</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24 2025-10-01 3304191</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8  2021-10-01 3148326</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  2022-01-01 3171886</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 2022-04-01 3201158</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11 2022-07-01 3215700</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12 2022-10-01 3213847</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13 2023-01-01 3213042</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14 2023-04-01 3218853</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15 2023-07-01 3218696</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16 2023-10-01 3221111</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17 2024-01-01 3230449</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18 2024-04-01 3236907</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19 2024-07-01 3251260</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20 2024-10-01 3263759</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21 2025-01-01 3283121</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22 2025-04-01 3287844</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23 2025-07-01 3297684</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24 2025-10-01 3304260</span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span><span class="va">op</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

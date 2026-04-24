@@ -35,13 +35,20 @@ A data frame with columns:
 
   Numeric. Unemployment rate as a percentage.
 
+## See also
+
+Other macro:
+[`ecb_gdp()`](https://charlescoverdale.github.io/readecb/reference/ecb_gdp.md),
+[`ecb_government_debt()`](https://charlescoverdale.github.io/readecb/reference/ecb_government_debt.md)
+
 ## Examples
 
 ``` r
 # \donttest{
+op <- options(readecb.cache_dir = tempdir())
 ecb_unemployment(from = "2020-01")
 #> ℹ Fetching euro area unemployment rate
-#> ✔ Fetching euro area unemployment rate [121ms]
+#> ✔ Fetching euro area unemployment rate [6.4s]
 #> 
 #>          date value
 #> 1  2020-01-01   7.5
@@ -117,5 +124,7 @@ ecb_unemployment(from = "2020-01")
 #> 71 2025-11-01   6.3
 #> 72 2025-12-01   6.3
 #> 73 2026-01-01   6.2
+#> 74 2026-02-01   6.2
+options(op)
 # }
 ```

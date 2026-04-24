@@ -28,13 +28,21 @@ A data frame with columns:
 
   Character. Human-readable name.
 
+## See also
+
+Other data access:
+[`clear_cache()`](https://charlescoverdale.github.io/readecb/reference/clear_cache.md),
+[`ecb_get()`](https://charlescoverdale.github.io/readecb/reference/ecb_get.md),
+[`ecb_yield_curve()`](https://charlescoverdale.github.io/readecb/reference/ecb_yield_curve.md)
+
 ## Examples
 
 ``` r
 # \donttest{
+op <- options(readecb.cache_dir = tempdir())
 list_ecb_dataflows()
 #> ℹ Fetching ECB dataflow list
-#> ✔ Fetching ECB dataflow list [142ms]
+#> ✔ Fetching ECB dataflow list [177ms]
 #> 
 #>     dataflow_id name
 #> 1           AGR <NA>
@@ -58,86 +66,88 @@ list_ecb_dataflows()
 #> 19           DD <NA>
 #> 20          DWA <NA>
 #> 21          ECS <NA>
-#> 22          EON <NA>
-#> 23          ESA <NA>
-#> 24          ESB <NA>
-#> 25          EST <NA>
-#> 26          EWT <NA>
-#> 27          EXR <NA>
-#> 28           FM <NA>
-#> 29          FVC <NA>
-#> 30          FXI <NA>
-#> 31          GST <NA>
-#> 32         HICP <NA>
-#> 33          ICB <NA>
-#> 34          ICO <NA>
-#> 35          ICP <NA>
-#> 36          IFI <NA>
-#> 37          ILM <NA>
-#> 38          INW <NA>
-#> 39          IRS <NA>
-#> 40          IVF <NA>
-#> 41          KRI <NA>
-#> 42          LIG <NA>
-#> 43          MFI <NA>
-#> 44          MIR <NA>
-#> 45          MMS <NA>
-#> 46         MMSR <NA>
-#> 47          MPD <NA>
-#> 48          NEC <NA>
-#> 49          OFI <NA>
-#> 50          OMO <NA>
-#> 51          PAY <NA>
-#> 52          PCN <NA>
-#> 53          PCP <NA>
-#> 54          PCT <NA>
-#> 55          PDD <NA>
-#> 56          PEM <NA>
-#> 57          PFB <NA>
-#> 58         PFBM <NA>
-#> 59         PFBR <NA>
-#> 60          PIS <NA>
-#> 61          PLB <NA>
-#> 62          PMC <NA>
-#> 63          PPC <NA>
-#> 64          PSN <NA>
-#> 65          PSS <NA>
-#> 66          PST <NA>
-#> 67          PTN <NA>
-#> 68          PTT <NA>
-#> 69           RA <NA>
-#> 70          RAI <NA>
-#> 71          RDE <NA>
-#> 72          RDF <NA>
-#> 73         RESC <NA>
-#> 74         RESH <NA>
-#> 75         RESR <NA>
-#> 76         RESV <NA>
-#> 77          RIR <NA>
-#> 78          RPP <NA>
-#> 79          RPV <NA>
-#> 80          RTD <NA>
-#> 81         SAFE <NA>
-#> 82          SEC <NA>
-#> 83          SEE <NA>
-#> 84       SESFOD <NA>
-#> 85          SHI <NA>
-#> 86          SHS <NA>
-#> 87         SHSS <NA>
-#> 88          SPF <NA>
-#> 89          SSI <NA>
-#> 90          SSP <NA>
-#> 91          SST <NA>
-#> 92          ST1 <NA>
-#> 93          ST3 <NA>
-#> 94         STBS <NA>
-#> 95          STP <NA>
-#> 96          STS <NA>
-#> 97          SUP <NA>
-#> 98          SUR <NA>
-#> 99          TGB <NA>
-#> 100         TRD <NA>
-#> 101         WTS <NA>
-#> 102          YC <NA>
+#> 22         EMMS <NA>
+#> 23          EON <NA>
+#> 24          ESA <NA>
+#> 25          ESB <NA>
+#> 26          EST <NA>
+#> 27          EWT <NA>
+#> 28          EXR <NA>
+#> 29           FM <NA>
+#> 30          FVC <NA>
+#> 31          FXI <NA>
+#> 32          GST <NA>
+#> 33         HICP <NA>
+#> 34          ICB <NA>
+#> 35          ICO <NA>
+#> 36          ICP <NA>
+#> 37          IFI <NA>
+#> 38          ILM <NA>
+#> 39          INW <NA>
+#> 40          IRS <NA>
+#> 41          IVF <NA>
+#> 42          KRI <NA>
+#> 43          LIG <NA>
+#> 44          MFI <NA>
+#> 45          MIR <NA>
+#> 46          MMS <NA>
+#> 47         MMSR <NA>
+#> 48          MPD <NA>
+#> 49          NEC <NA>
+#> 50          OFI <NA>
+#> 51          OMO <NA>
+#> 52          PAY <NA>
+#> 53          PCN <NA>
+#> 54          PCP <NA>
+#> 55          PCT <NA>
+#> 56          PDD <NA>
+#> 57          PEM <NA>
+#> 58          PFB <NA>
+#> 59         PFBM <NA>
+#> 60         PFBR <NA>
+#> 61          PIS <NA>
+#> 62          PLB <NA>
+#> 63          PMC <NA>
+#> 64          PPC <NA>
+#> 65          PSN <NA>
+#> 66          PSS <NA>
+#> 67          PST <NA>
+#> 68          PTN <NA>
+#> 69          PTT <NA>
+#> 70           RA <NA>
+#> 71          RAI <NA>
+#> 72          RDE <NA>
+#> 73          RDF <NA>
+#> 74         RESC <NA>
+#> 75         RESH <NA>
+#> 76         RESR <NA>
+#> 77         RESV <NA>
+#> 78          RIR <NA>
+#> 79          RPP <NA>
+#> 80          RPV <NA>
+#> 81          RTD <NA>
+#> 82         SAFE <NA>
+#> 83          SEC <NA>
+#> 84          SEE <NA>
+#> 85       SESFOD <NA>
+#> 86          SHI <NA>
+#> 87          SHS <NA>
+#> 88         SHSS <NA>
+#> 89          SPF <NA>
+#> 90          SSI <NA>
+#> 91          SSP <NA>
+#> 92          SST <NA>
+#> 93          ST1 <NA>
+#> 94          ST3 <NA>
+#> 95         STBS <NA>
+#> 96          STP <NA>
+#> 97          STS <NA>
+#> 98          SUP <NA>
+#> 99          SUR <NA>
+#> 100         TGB <NA>
+#> 101         TRD <NA>
+#> 102         WTS <NA>
+#> 103          YC <NA>
+options(op)
 # }
 ```

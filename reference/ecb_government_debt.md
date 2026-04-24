@@ -36,13 +36,20 @@ A data frame with columns:
 
   Numeric. Government debt as a percentage of GDP.
 
+## See also
+
+Other macro:
+[`ecb_gdp()`](https://charlescoverdale.github.io/readecb/reference/ecb_gdp.md),
+[`ecb_unemployment()`](https://charlescoverdale.github.io/readecb/reference/ecb_unemployment.md)
+
 ## Examples
 
 ``` r
 # \donttest{
+op <- options(readecb.cache_dir = tempdir())
 ecb_government_debt(from = "2000")
 #> ℹ Fetching government debt-to-GDP ratio
-#> ✔ Fetching government debt-to-GDP ratio [121ms]
+#> ✔ Fetching government debt-to-GDP ratio [953ms]
 #> 
 #>          date  value
 #> 1  2000-01-01 69.245
@@ -70,5 +77,6 @@ ecb_government_debt(from = "2000")
 #> 23 2022-01-01 89.308
 #> 24 2023-01-01 86.953
 #> 25 2024-01-01 87.079
+options(op)
 # }
 ```

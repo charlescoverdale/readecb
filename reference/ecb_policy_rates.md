@@ -40,13 +40,20 @@ A data frame with columns:
 
   Numeric. Rate in percent per annum.
 
+## See also
+
+Other interest rates:
+[`ecb_estr()`](https://charlescoverdale.github.io/readecb/reference/ecb_estr.md),
+[`ecb_euribor()`](https://charlescoverdale.github.io/readecb/reference/ecb_euribor.md)
+
 ## Examples
 
 ``` r
 # \donttest{
+op <- options(readecb.cache_dir = tempdir())
 ecb_policy_rates(from = "2022-01")
 #> ℹ Fetching ECB policy rates
-#> ✔ Fetching ECB policy rates [348ms]
+#> ✔ Fetching ECB policy rates [3s]
 #> 
 #>            date                  rate value
 #> 1    2022-01-01 Deposit facility rate -0.50
@@ -4648,5 +4655,132 @@ ecb_policy_rates(from = "2022-01")
 #> 4597 2026-03-13 Deposit facility rate  2.00
 #> 4598 2026-03-13 Main refinancing rate  2.15
 #> 4599 2026-03-13 Marginal lending rate  2.40
+#> 4600 2026-03-14 Deposit facility rate  2.00
+#> 4601 2026-03-14 Main refinancing rate  2.15
+#> 4602 2026-03-14 Marginal lending rate  2.40
+#> 4603 2026-03-15 Deposit facility rate  2.00
+#> 4604 2026-03-15 Main refinancing rate  2.15
+#> 4605 2026-03-15 Marginal lending rate  2.40
+#> 4606 2026-03-16 Deposit facility rate  2.00
+#> 4607 2026-03-16 Main refinancing rate  2.15
+#> 4608 2026-03-16 Marginal lending rate  2.40
+#> 4609 2026-03-17 Deposit facility rate  2.00
+#> 4610 2026-03-17 Main refinancing rate  2.15
+#> 4611 2026-03-17 Marginal lending rate  2.40
+#> 4612 2026-03-18 Deposit facility rate  2.00
+#> 4613 2026-03-18 Main refinancing rate  2.15
+#> 4614 2026-03-18 Marginal lending rate  2.40
+#> 4615 2026-03-19 Deposit facility rate  2.00
+#> 4616 2026-03-19 Main refinancing rate  2.15
+#> 4617 2026-03-19 Marginal lending rate  2.40
+#> 4618 2026-03-20 Deposit facility rate  2.00
+#> 4619 2026-03-20 Main refinancing rate  2.15
+#> 4620 2026-03-20 Marginal lending rate  2.40
+#> 4621 2026-03-21 Deposit facility rate  2.00
+#> 4622 2026-03-21 Main refinancing rate  2.15
+#> 4623 2026-03-21 Marginal lending rate  2.40
+#> 4624 2026-03-22 Deposit facility rate  2.00
+#> 4625 2026-03-22 Main refinancing rate  2.15
+#> 4626 2026-03-22 Marginal lending rate  2.40
+#> 4627 2026-03-23 Deposit facility rate  2.00
+#> 4628 2026-03-23 Main refinancing rate  2.15
+#> 4629 2026-03-23 Marginal lending rate  2.40
+#> 4630 2026-03-24 Deposit facility rate  2.00
+#> 4631 2026-03-24 Main refinancing rate  2.15
+#> 4632 2026-03-24 Marginal lending rate  2.40
+#> 4633 2026-03-25 Deposit facility rate  2.00
+#> 4634 2026-03-25 Main refinancing rate  2.15
+#> 4635 2026-03-25 Marginal lending rate  2.40
+#> 4636 2026-03-26 Deposit facility rate  2.00
+#> 4637 2026-03-26 Main refinancing rate  2.15
+#> 4638 2026-03-26 Marginal lending rate  2.40
+#> 4639 2026-03-27 Deposit facility rate  2.00
+#> 4640 2026-03-27 Main refinancing rate  2.15
+#> 4641 2026-03-27 Marginal lending rate  2.40
+#> 4642 2026-03-28 Deposit facility rate  2.00
+#> 4643 2026-03-28 Main refinancing rate  2.15
+#> 4644 2026-03-28 Marginal lending rate  2.40
+#> 4645 2026-03-29 Deposit facility rate  2.00
+#> 4646 2026-03-29 Main refinancing rate  2.15
+#> 4647 2026-03-29 Marginal lending rate  2.40
+#> 4648 2026-03-30 Deposit facility rate  2.00
+#> 4649 2026-03-30 Main refinancing rate  2.15
+#> 4650 2026-03-30 Marginal lending rate  2.40
+#> 4651 2026-03-31 Deposit facility rate  2.00
+#> 4652 2026-03-31 Main refinancing rate  2.15
+#> 4653 2026-03-31 Marginal lending rate  2.40
+#> 4654 2026-04-01 Deposit facility rate  2.00
+#> 4655 2026-04-01 Main refinancing rate  2.15
+#> 4656 2026-04-01 Marginal lending rate  2.40
+#> 4657 2026-04-02 Deposit facility rate  2.00
+#> 4658 2026-04-02 Main refinancing rate  2.15
+#> 4659 2026-04-02 Marginal lending rate  2.40
+#> 4660 2026-04-03 Deposit facility rate  2.00
+#> 4661 2026-04-03 Main refinancing rate  2.15
+#> 4662 2026-04-03 Marginal lending rate  2.40
+#> 4663 2026-04-04 Deposit facility rate  2.00
+#> 4664 2026-04-04 Main refinancing rate  2.15
+#> 4665 2026-04-04 Marginal lending rate  2.40
+#> 4666 2026-04-05 Deposit facility rate  2.00
+#> 4667 2026-04-05 Main refinancing rate  2.15
+#> 4668 2026-04-05 Marginal lending rate  2.40
+#> 4669 2026-04-06 Deposit facility rate  2.00
+#> 4670 2026-04-06 Main refinancing rate  2.15
+#> 4671 2026-04-06 Marginal lending rate  2.40
+#> 4672 2026-04-07 Deposit facility rate  2.00
+#> 4673 2026-04-07 Main refinancing rate  2.15
+#> 4674 2026-04-07 Marginal lending rate  2.40
+#> 4675 2026-04-08 Deposit facility rate  2.00
+#> 4676 2026-04-08 Main refinancing rate  2.15
+#> 4677 2026-04-08 Marginal lending rate  2.40
+#> 4678 2026-04-09 Deposit facility rate  2.00
+#> 4679 2026-04-09 Main refinancing rate  2.15
+#> 4680 2026-04-09 Marginal lending rate  2.40
+#> 4681 2026-04-10 Deposit facility rate  2.00
+#> 4682 2026-04-10 Main refinancing rate  2.15
+#> 4683 2026-04-10 Marginal lending rate  2.40
+#> 4684 2026-04-11 Deposit facility rate  2.00
+#> 4685 2026-04-11 Main refinancing rate  2.15
+#> 4686 2026-04-11 Marginal lending rate  2.40
+#> 4687 2026-04-12 Deposit facility rate  2.00
+#> 4688 2026-04-12 Main refinancing rate  2.15
+#> 4689 2026-04-12 Marginal lending rate  2.40
+#> 4690 2026-04-13 Deposit facility rate  2.00
+#> 4691 2026-04-13 Main refinancing rate  2.15
+#> 4692 2026-04-13 Marginal lending rate  2.40
+#> 4693 2026-04-14 Deposit facility rate  2.00
+#> 4694 2026-04-14 Main refinancing rate  2.15
+#> 4695 2026-04-14 Marginal lending rate  2.40
+#> 4696 2026-04-15 Deposit facility rate  2.00
+#> 4697 2026-04-15 Main refinancing rate  2.15
+#> 4698 2026-04-15 Marginal lending rate  2.40
+#> 4699 2026-04-16 Deposit facility rate  2.00
+#> 4700 2026-04-16 Main refinancing rate  2.15
+#> 4701 2026-04-16 Marginal lending rate  2.40
+#> 4702 2026-04-17 Deposit facility rate  2.00
+#> 4703 2026-04-17 Main refinancing rate  2.15
+#> 4704 2026-04-17 Marginal lending rate  2.40
+#> 4705 2026-04-18 Deposit facility rate  2.00
+#> 4706 2026-04-18 Main refinancing rate  2.15
+#> 4707 2026-04-18 Marginal lending rate  2.40
+#> 4708 2026-04-19 Deposit facility rate  2.00
+#> 4709 2026-04-19 Main refinancing rate  2.15
+#> 4710 2026-04-19 Marginal lending rate  2.40
+#> 4711 2026-04-20 Deposit facility rate  2.00
+#> 4712 2026-04-20 Main refinancing rate  2.15
+#> 4713 2026-04-20 Marginal lending rate  2.40
+#> 4714 2026-04-21 Deposit facility rate  2.00
+#> 4715 2026-04-21 Main refinancing rate  2.15
+#> 4716 2026-04-21 Marginal lending rate  2.40
+#> 4717 2026-04-22 Deposit facility rate  2.00
+#> 4718 2026-04-22 Main refinancing rate  2.15
+#> 4719 2026-04-22 Marginal lending rate  2.40
+#> 4720 2026-04-23 Deposit facility rate  2.00
+#> 4721 2026-04-23 Main refinancing rate  2.15
+#> 4722 2026-04-23 Marginal lending rate  2.40
+#> 4723 2026-04-24 Deposit facility rate  2.00
+#> 4724 2026-04-24 Main refinancing rate  2.15
+#> 4725 2026-04-24 Marginal lending rate  2.40
+options(op)
 # }
 ```

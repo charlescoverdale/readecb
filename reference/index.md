@@ -71,3 +71,9 @@ Cache management.
 
 - [`clear_cache()`](https://charlescoverdale.github.io/readecb/reference/clear_cache.md)
   : Clear the readecb cache
+
+## Package
+
+- [`readecb`](https://charlescoverdale.github.io/readecb/reference/readecb-package.md)
+  [`readecb-package`](https://charlescoverdale.github.io/readecb/reference/readecb-package.md)
+  : readecb: Access 'European Central Bank' Data

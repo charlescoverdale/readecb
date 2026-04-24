@@ -37,14 +37,22 @@ ecb_get(dataflow, key, from = NULL, to = NULL, cache = TRUE)
 A data frame. Columns vary by dataflow but always include `TIME_PERIOD`
 and `OBS_VALUE`.
 
+## See also
+
+Other data access:
+[`clear_cache()`](https://charlescoverdale.github.io/readecb/reference/clear_cache.md),
+[`ecb_yield_curve()`](https://charlescoverdale.github.io/readecb/reference/ecb_yield_curve.md),
+[`list_ecb_dataflows()`](https://charlescoverdale.github.io/readecb/reference/list_ecb_dataflows.md)
+
 ## Examples
 
 ``` r
 # \donttest{
+op <- options(readecb.cache_dir = tempdir())
 # Fetch EUR/USD monthly exchange rate
 ecb_get("EXR", "M.USD.EUR.SP00.A", from = "2024-01")
 #> ℹ Fetching EXR data
-#> ✔ Fetching EXR data [8ms]
+#> ✔ Fetching EXR data [7ms]
 #> 
 #>                     KEY FREQ CURRENCY CURRENCY_DENOM EXR_TYPE EXR_SUFFIX
 #> 1  EXR.M.USD.EUR.SP00.A    M      USD            EUR     SP00          A
@@ -73,6 +81,7 @@ ecb_get("EXR", "M.USD.EUR.SP00.A", from = "2024-01")
 #> 24 EXR.M.USD.EUR.SP00.A    M      USD            EUR     SP00          A
 #> 25 EXR.M.USD.EUR.SP00.A    M      USD            EUR     SP00          A
 #> 26 EXR.M.USD.EUR.SP00.A    M      USD            EUR     SP00          A
+#> 27 EXR.M.USD.EUR.SP00.A    M      USD            EUR     SP00          A
 #>    TIME_PERIOD OBS_VALUE
 #> 1   2024-01-01  1.090514
 #> 2   2024-02-01  1.079471
@@ -100,5 +109,7 @@ ecb_get("EXR", "M.USD.EUR.SP00.A", from = "2024-01")
 #> 24  2025-12-01  1.170871
 #> 25  2026-01-01  1.173824
 #> 26  2026-02-01  1.182395
+#> 27  2026-03-01  1.155832
+options(op)
 # }
 ```

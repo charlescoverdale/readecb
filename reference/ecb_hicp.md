@@ -65,9 +65,10 @@ A data frame with columns:
 
 ``` r
 # \donttest{
+op <- options(readecb.cache_dir = tempdir())
 ecb_hicp(from = "2020-01")
 #> ℹ Fetching HICP data
-#> ✔ Fetching HICP data [121ms]
+#> ✔ Fetching HICP data [2.6s]
 #> 
 #>          date country value
 #> 1  2020-01-01      U2   1.4
@@ -144,7 +145,7 @@ ecb_hicp(from = "2020-01")
 #> 72 2025-12-01      U2   1.9
 ecb_hicp(c("DE", "FR", "IT"), from = "2023-01")
 #> ℹ Fetching HICP data
-#> ✔ Fetching HICP data [121ms]
+#> ✔ Fetching HICP data [3.1s]
 #> 
 #>           date country value
 #> 1   2023-01-01      DE   9.2
@@ -255,5 +256,6 @@ ecb_hicp(c("DE", "FR", "IT"), from = "2023-01")
 #> 106 2025-10-01      IT   1.3
 #> 107 2025-11-01      IT   1.1
 #> 108 2025-12-01      IT   1.2
+options(op)
 # }
 ```

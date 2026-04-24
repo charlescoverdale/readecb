@@ -44,13 +44,20 @@ A data frame with columns:
 
   Numeric. Interest rate in percent per annum.
 
+## See also
+
+Other credit:
+[`ecb_money_supply()`](https://charlescoverdale.github.io/readecb/reference/ecb_money_supply.md),
+[`ecb_mortgage_rates()`](https://charlescoverdale.github.io/readecb/reference/ecb_mortgage_rates.md)
+
 ## Examples
 
 ``` r
 # \donttest{
+op <- options(readecb.cache_dir = tempdir())
 ecb_lending_rates(from = "2015-01")
 #> ℹ Fetching lending rate data
-#> ✔ Fetching lending rate data [122ms]
+#> ✔ Fetching lending rate data [2.1s]
 #> 
 #>           date country value
 #> 1   2015-01-01      U2  5.24
@@ -181,10 +188,12 @@ ecb_lending_rates(from = "2015-01")
 #> 126 2025-06-01      U2  6.68
 #> 127 2025-07-01      U2  6.68
 #> 128 2025-08-01      U2  7.12
-#> 129 2025-09-01      U2  6.73
+#> 129 2025-09-01      U2  6.74
 #> 130 2025-10-01      U2  6.40
-#> 131 2025-11-01      U2  6.18
+#> 131 2025-11-01      U2  6.19
 #> 132 2025-12-01      U2  6.36
-#> 133 2026-01-01      U2  6.66
+#> 133 2026-01-01      U2  7.17
+#> 134 2026-02-01      U2  6.83
+options(op)
 # }
 ```

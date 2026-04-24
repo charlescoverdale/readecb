@@ -9,7 +9,7 @@ rate, the deposit facility rate, and the marginal lending facility rate."></head
 
     <a class="navbar-brand me-2" href="../index.html">readecb</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.3</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,7 +21,7 @@ rate, the deposit facility rate, and the marginal lending facility rate."></head
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
-<li class="nav-item"><a class="external-link nav-link" href="https://github.com/charlescoverdale/readecb"><span class="fa fa-github"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/charlescoverdale/readecb" aria-label="GitHub"><span class="fa fa-github"></span></a></li>
       </ul></div>
 
 
@@ -75,13 +75,20 @@ rate, the deposit facility rate, and the marginal lending facility rate.</p>
 
 
 </dl></div>
+    <div class="section level2">
+    <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
+    <div class="dont-index"><p>Other interest rates:
+<code><a href="ecb_estr.html">ecb_estr()</a></code>,
+<code><a href="ecb_euribor.html">ecb_euribor()</a></code></p></div>
+    </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="va">op</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>readecb.cache_dir <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">ecb_policy_rates</span><span class="op">(</span>from <span class="op">=</span> <span class="st">"2022-01"</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Fetching ECB policy rates</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Fetching ECB policy rates <span style="color: #B2B2B2;">[348ms]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Fetching ECB policy rates <span style="color: #B2B2B2;">[3s]</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>            date                  rate value</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1    2022-01-01 Deposit facility rate -0.50</span>
@@ -4683,6 +4690,133 @@ rate, the deposit facility rate, and the marginal lending facility rate.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4597 2026-03-13 Deposit facility rate  2.00</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4598 2026-03-13 Main refinancing rate  2.15</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4599 2026-03-13 Marginal lending rate  2.40</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4600 2026-03-14 Deposit facility rate  2.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4601 2026-03-14 Main refinancing rate  2.15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4602 2026-03-14 Marginal lending rate  2.40</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4603 2026-03-15 Deposit facility rate  2.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4604 2026-03-15 Main refinancing rate  2.15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4605 2026-03-15 Marginal lending rate  2.40</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4606 2026-03-16 Deposit facility rate  2.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4607 2026-03-16 Main refinancing rate  2.15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4608 2026-03-16 Marginal lending rate  2.40</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4609 2026-03-17 Deposit facility rate  2.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4610 2026-03-17 Main refinancing rate  2.15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4611 2026-03-17 Marginal lending rate  2.40</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4612 2026-03-18 Deposit facility rate  2.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4613 2026-03-18 Main refinancing rate  2.15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4614 2026-03-18 Marginal lending rate  2.40</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4615 2026-03-19 Deposit facility rate  2.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4616 2026-03-19 Main refinancing rate  2.15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4617 2026-03-19 Marginal lending rate  2.40</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4618 2026-03-20 Deposit facility rate  2.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4619 2026-03-20 Main refinancing rate  2.15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4620 2026-03-20 Marginal lending rate  2.40</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4621 2026-03-21 Deposit facility rate  2.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4622 2026-03-21 Main refinancing rate  2.15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4623 2026-03-21 Marginal lending rate  2.40</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4624 2026-03-22 Deposit facility rate  2.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4625 2026-03-22 Main refinancing rate  2.15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4626 2026-03-22 Marginal lending rate  2.40</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4627 2026-03-23 Deposit facility rate  2.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4628 2026-03-23 Main refinancing rate  2.15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4629 2026-03-23 Marginal lending rate  2.40</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4630 2026-03-24 Deposit facility rate  2.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4631 2026-03-24 Main refinancing rate  2.15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4632 2026-03-24 Marginal lending rate  2.40</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4633 2026-03-25 Deposit facility rate  2.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4634 2026-03-25 Main refinancing rate  2.15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4635 2026-03-25 Marginal lending rate  2.40</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4636 2026-03-26 Deposit facility rate  2.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4637 2026-03-26 Main refinancing rate  2.15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4638 2026-03-26 Marginal lending rate  2.40</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4639 2026-03-27 Deposit facility rate  2.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4640 2026-03-27 Main refinancing rate  2.15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4641 2026-03-27 Marginal lending rate  2.40</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4642 2026-03-28 Deposit facility rate  2.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4643 2026-03-28 Main refinancing rate  2.15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4644 2026-03-28 Marginal lending rate  2.40</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4645 2026-03-29 Deposit facility rate  2.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4646 2026-03-29 Main refinancing rate  2.15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4647 2026-03-29 Marginal lending rate  2.40</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4648 2026-03-30 Deposit facility rate  2.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4649 2026-03-30 Main refinancing rate  2.15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4650 2026-03-30 Marginal lending rate  2.40</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4651 2026-03-31 Deposit facility rate  2.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4652 2026-03-31 Main refinancing rate  2.15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4653 2026-03-31 Marginal lending rate  2.40</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4654 2026-04-01 Deposit facility rate  2.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4655 2026-04-01 Main refinancing rate  2.15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4656 2026-04-01 Marginal lending rate  2.40</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4657 2026-04-02 Deposit facility rate  2.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4658 2026-04-02 Main refinancing rate  2.15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4659 2026-04-02 Marginal lending rate  2.40</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4660 2026-04-03 Deposit facility rate  2.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4661 2026-04-03 Main refinancing rate  2.15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4662 2026-04-03 Marginal lending rate  2.40</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4663 2026-04-04 Deposit facility rate  2.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4664 2026-04-04 Main refinancing rate  2.15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4665 2026-04-04 Marginal lending rate  2.40</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4666 2026-04-05 Deposit facility rate  2.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4667 2026-04-05 Main refinancing rate  2.15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4668 2026-04-05 Marginal lending rate  2.40</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4669 2026-04-06 Deposit facility rate  2.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4670 2026-04-06 Main refinancing rate  2.15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4671 2026-04-06 Marginal lending rate  2.40</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4672 2026-04-07 Deposit facility rate  2.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4673 2026-04-07 Main refinancing rate  2.15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4674 2026-04-07 Marginal lending rate  2.40</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4675 2026-04-08 Deposit facility rate  2.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4676 2026-04-08 Main refinancing rate  2.15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4677 2026-04-08 Marginal lending rate  2.40</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4678 2026-04-09 Deposit facility rate  2.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4679 2026-04-09 Main refinancing rate  2.15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4680 2026-04-09 Marginal lending rate  2.40</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4681 2026-04-10 Deposit facility rate  2.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4682 2026-04-10 Main refinancing rate  2.15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4683 2026-04-10 Marginal lending rate  2.40</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4684 2026-04-11 Deposit facility rate  2.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4685 2026-04-11 Main refinancing rate  2.15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4686 2026-04-11 Marginal lending rate  2.40</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4687 2026-04-12 Deposit facility rate  2.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4688 2026-04-12 Main refinancing rate  2.15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4689 2026-04-12 Marginal lending rate  2.40</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4690 2026-04-13 Deposit facility rate  2.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4691 2026-04-13 Main refinancing rate  2.15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4692 2026-04-13 Marginal lending rate  2.40</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4693 2026-04-14 Deposit facility rate  2.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4694 2026-04-14 Main refinancing rate  2.15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4695 2026-04-14 Marginal lending rate  2.40</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4696 2026-04-15 Deposit facility rate  2.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4697 2026-04-15 Main refinancing rate  2.15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4698 2026-04-15 Marginal lending rate  2.40</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4699 2026-04-16 Deposit facility rate  2.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4700 2026-04-16 Main refinancing rate  2.15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4701 2026-04-16 Marginal lending rate  2.40</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4702 2026-04-17 Deposit facility rate  2.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4703 2026-04-17 Main refinancing rate  2.15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4704 2026-04-17 Marginal lending rate  2.40</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4705 2026-04-18 Deposit facility rate  2.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4706 2026-04-18 Main refinancing rate  2.15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4707 2026-04-18 Marginal lending rate  2.40</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4708 2026-04-19 Deposit facility rate  2.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4709 2026-04-19 Main refinancing rate  2.15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4710 2026-04-19 Marginal lending rate  2.40</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4711 2026-04-20 Deposit facility rate  2.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4712 2026-04-20 Main refinancing rate  2.15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4713 2026-04-20 Marginal lending rate  2.40</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4714 2026-04-21 Deposit facility rate  2.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4715 2026-04-21 Main refinancing rate  2.15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4716 2026-04-21 Marginal lending rate  2.40</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4717 2026-04-22 Deposit facility rate  2.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4718 2026-04-22 Main refinancing rate  2.15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4719 2026-04-22 Marginal lending rate  2.40</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4720 2026-04-23 Deposit facility rate  2.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4721 2026-04-23 Main refinancing rate  2.15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4722 2026-04-23 Marginal lending rate  2.40</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4723 2026-04-24 Deposit facility rate  2.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4724 2026-04-24 Main refinancing rate  2.15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4725 2026-04-24 Marginal lending rate  2.40</span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span><span class="va">op</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

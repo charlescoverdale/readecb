@@ -9,7 +9,7 @@ corresponds to a dataset that can be queried with ecb_get()."></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">readecb</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.3</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,7 +21,7 @@ corresponds to a dataset that can be queried with ecb_get()."></head><body>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
-<li class="nav-item"><a class="external-link nav-link" href="https://github.com/charlescoverdale/readecb"><span class="fa fa-github"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/charlescoverdale/readecb" aria-label="GitHub"><span class="fa fa-github"></span></a></li>
       </ul></div>
 
 
@@ -63,13 +63,21 @@ corresponds to a dataset that can be queried with <code><a href="ecb_get.html">e
 
 
 </dl></div>
+    <div class="section level2">
+    <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
+    <div class="dont-index"><p>Other data access:
+<code><a href="clear_cache.html">clear_cache()</a></code>,
+<code><a href="ecb_get.html">ecb_get()</a></code>,
+<code><a href="ecb_yield_curve.html">ecb_yield_curve()</a></code></p></div>
+    </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="va">op</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>readecb.cache_dir <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">list_ecb_dataflows</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Fetching ECB dataflow list</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Fetching ECB dataflow list <span style="color: #B2B2B2;">[142ms]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Fetching ECB dataflow list <span style="color: #B2B2B2;">[177ms]</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     dataflow_id name</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1           AGR &lt;NA&gt;</span>
@@ -93,87 +101,89 @@ corresponds to a dataset that can be queried with <code><a href="ecb_get.html">e
 <span class="r-out co"><span class="r-pr">#&gt;</span> 19           DD &lt;NA&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 20          DWA &lt;NA&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 21          ECS &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22          EON &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23          ESA &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24          ESB &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25          EST &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26          EWT &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27          EXR &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28           FM &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29          FVC &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30          FXI &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31          GST &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32         HICP &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33          ICB &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34          ICO &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35          ICP &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36          IFI &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37          ILM &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38          INW &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39          IRS &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40          IVF &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41          KRI &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42          LIG &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43          MFI &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44          MIR &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45          MMS &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46         MMSR &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47          MPD &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48          NEC &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49          OFI &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 50          OMO &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 51          PAY &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 52          PCN &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 53          PCP &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 54          PCT &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 55          PDD &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 56          PEM &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 57          PFB &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 58         PFBM &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 59         PFBR &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 60          PIS &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 61          PLB &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 62          PMC &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 63          PPC &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 64          PSN &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 65          PSS &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 66          PST &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 67          PTN &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 68          PTT &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 69           RA &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 70          RAI &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 71          RDE &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 72          RDF &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 73         RESC &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 74         RESH &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 75         RESR &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 76         RESV &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 77          RIR &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 78          RPP &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 79          RPV &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 80          RTD &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 81         SAFE &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 82          SEC &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 83          SEE &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 84       SESFOD &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 85          SHI &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 86          SHS &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 87         SHSS &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 88          SPF &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 89          SSI &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 90          SSP &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 91          SST &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 92          ST1 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 93          ST3 &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 94         STBS &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 95          STP &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 96          STS &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 97          SUP &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 98          SUR &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 99          TGB &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 100         TRD &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 101         WTS &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 102          YC &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22         EMMS &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23          EON &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24          ESA &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25          ESB &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26          EST &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27          EWT &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28          EXR &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29           FM &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30          FVC &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31          FXI &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32          GST &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33         HICP &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34          ICB &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35          ICO &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36          ICP &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37          IFI &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38          ILM &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39          INW &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40          IRS &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41          IVF &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42          KRI &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43          LIG &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 44          MFI &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45          MIR &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 46          MMS &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47         MMSR &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 48          MPD &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 49          NEC &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 50          OFI &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51          OMO &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52          PAY &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 53          PCN &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 54          PCP &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 55          PCT &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 56          PDD &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 57          PEM &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 58          PFB &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 59         PFBM &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 60         PFBR &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 61          PIS &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 62          PLB &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 63          PMC &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 64          PPC &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 65          PSN &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 66          PSS &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 67          PST &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 68          PTN &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 69          PTT &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 70           RA &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 71          RAI &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 72          RDE &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 73          RDF &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 74         RESC &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 75         RESH &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 76         RESR &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 77         RESV &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 78          RIR &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 79          RPP &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 80          RPV &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 81          RTD &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 82         SAFE &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 83          SEC &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 84          SEE &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 85       SESFOD &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 86          SHI &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 87          SHS &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 88         SHSS &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 89          SPF &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 90          SSI &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 91          SSP &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 92          SST &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 93          ST1 &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 94          ST3 &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 95         STBS &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 96          STP &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 97          STS &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 98          SUP &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 99          SUR &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 100         TGB &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 101         TRD &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 102         WTS &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 103          YC &lt;NA&gt;</span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span><span class="va">op</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

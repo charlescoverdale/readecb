@@ -9,7 +9,7 @@ euro area."></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">readecb</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.3</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,7 +21,7 @@ euro area."></head><body>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
-<li class="nav-item"><a class="external-link nav-link" href="https://github.com/charlescoverdale/readecb"><span class="fa fa-github"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/charlescoverdale/readecb" aria-label="GitHub"><span class="fa fa-github"></span></a></li>
       </ul></div>
 
 
@@ -80,88 +80,97 @@ euro area.</p>
 
 
 </dl></div>
+    <div class="section level2">
+    <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
+    <div class="dont-index"><p>Other credit:
+<code><a href="ecb_lending_rates.html">ecb_lending_rates()</a></code>,
+<code><a href="ecb_mortgage_rates.html">ecb_mortgage_rates()</a></code></p></div>
+    </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="va">op</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>readecb.cache_dir <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">ecb_money_supply</span><span class="op">(</span><span class="st">"M3"</span>, from <span class="op">=</span> <span class="st">"2020-01"</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Fetching M3 data</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Fetching M3 data <span style="color: #B2B2B2;">[122ms]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Fetching M3 data <span style="color: #B2B2B2;">[5.4s]</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>          date    value</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  2020-01-01 13016466</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  2020-02-01 13108025</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  2020-03-01 13457108</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  2020-04-01 13631385</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  2020-05-01 13841790</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  2020-06-01 13924722</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  2020-07-01 14024415</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8  2020-08-01 14040950</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9  2020-09-01 14126059</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10 2020-10-01 14247563</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11 2020-11-01 14370473</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12 2020-12-01 14503859</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13 2021-01-01 14574683</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14 2021-02-01 14634655</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15 2021-03-01 14716195</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16 2021-04-01 14799076</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17 2021-05-01 14908357</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18 2021-06-01 14997805</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19 2021-07-01 15168028</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20 2021-08-01 15208831</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21 2021-09-01 15233874</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22 2021-10-01 15366674</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23 2021-11-01 15449383</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24 2021-12-01 15539534</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25 2022-01-01 15546221</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26 2022-02-01 15584972</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27 2022-03-01 15683719</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28 2022-04-01 15811991</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29 2022-05-01 15857242</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30 2022-06-01 15945097</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31 2022-07-01 16066995</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32 2022-08-01 16137358</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33 2022-09-01 16182455</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34 2022-10-01 16103476</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35 2022-11-01 16155116</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36 2022-12-01 16135266</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37 2023-01-01 16033759</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38 2023-02-01 15999126</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39 2023-03-01 16003693</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40 2023-04-01 16006032</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41 2023-05-01 15989787</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42 2023-06-01 15988374</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43 2023-07-01 15984959</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44 2023-08-01 15945989</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45 2023-09-01 16001901</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46 2023-10-01 15956239</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47 2023-11-01 16021152</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48 2023-12-01 16193157</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49 2024-01-01 16055477</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 50 2024-02-01 16051366</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 51 2024-03-01 16180364</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 52 2024-04-01 16203732</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 53 2024-05-01 16232763</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 54 2024-06-01 16396269</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 55 2024-07-01 16386382</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 56 2024-08-01 16480207</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 57 2024-09-01 16524547</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 58 2024-10-01 16547802</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 59 2024-11-01 16739983</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 60 2024-12-01 16832012</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 61 2025-01-01 16738914</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 62 2025-02-01 16765422</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 63 2025-03-01 16800962</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 64 2025-04-01 16866004</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 65 2025-05-01 16930595</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 66 2025-06-01 16921078</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 67 2025-07-01 16945070</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 68 2025-08-01 16950635</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 69 2025-09-01 16977573</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 70 2025-10-01 17045634</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 71 2025-11-01 17243635</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 72 2025-12-01 17273645</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 73 2026-01-01 17317789</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  2020-01-01 13016224</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  2020-02-01 13107780</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  2020-03-01 13456861</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  2020-04-01 13631127</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  2020-05-01 13841519</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  2020-06-01 13924445</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  2020-07-01 14024135</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8  2020-08-01 14040666</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  2020-09-01 14125777</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 2020-10-01 14247282</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11 2020-11-01 14370196</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12 2020-12-01 14503587</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13 2021-01-01 14574411</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14 2021-02-01 14634381</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15 2021-03-01 14715905</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16 2021-04-01 14798782</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17 2021-05-01 14908066</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18 2021-06-01 14997491</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19 2021-07-01 15167682</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20 2021-08-01 15208488</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21 2021-09-01 15233537</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22 2021-10-01 15366335</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23 2021-11-01 15449046</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24 2021-12-01 15539197</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25 2022-01-01 15545888</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26 2022-02-01 15584634</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27 2022-03-01 15683374</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28 2022-04-01 15811638</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29 2022-05-01 15856881</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30 2022-06-01 15944733</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31 2022-07-01 16066634</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32 2022-08-01 16136998</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33 2022-09-01 16182095</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34 2022-10-01 16103120</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35 2022-11-01 16154751</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36 2022-12-01 16134884</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37 2023-01-01 16033372</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38 2023-02-01 15998742</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39 2023-03-01 16003314</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40 2023-04-01 16005658</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41 2023-05-01 15989424</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42 2023-06-01 15988030</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43 2023-07-01 15984629</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 44 2023-08-01 15945649</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45 2023-09-01 16001555</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 46 2023-10-01 15955888</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47 2023-11-01 16020807</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 48 2023-12-01 16192784</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 49 2024-01-01 16055468</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 50 2024-02-01 16051356</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51 2024-03-01 16180354</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52 2024-04-01 16203722</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 53 2024-05-01 16232752</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 54 2024-06-01 16396259</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 55 2024-07-01 16386371</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 56 2024-08-01 16480196</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 57 2024-09-01 16524536</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 58 2024-10-01 16547792</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 59 2024-11-01 16739970</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 60 2024-12-01 16832001</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 61 2025-01-01 16738909</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 62 2025-02-01 16765411</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 63 2025-03-01 16800950</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 64 2025-04-01 16865993</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 65 2025-05-01 16930584</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 66 2025-06-01 16921076</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 67 2025-07-01 16944949</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 68 2025-08-01 16950514</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 69 2025-09-01 16977451</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 70 2025-10-01 17045714</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 71 2025-11-01 17243570</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 72 2025-12-01 17271147</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 73 2026-01-01 17313098</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 74 2026-02-01 17311614</span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span><span class="va">op</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

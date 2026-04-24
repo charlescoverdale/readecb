@@ -21,6 +21,11 @@ A data frame with columns:
 
   Character. Currency name.
 
+## See also
+
+Other exchange rates:
+[`ecb_exchange_rate()`](https://charlescoverdale.github.io/readecb/reference/ecb_exchange_rate.md)
+
 ## Examples
 
 ``` r
