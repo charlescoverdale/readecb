@@ -11,6 +11,7 @@ Provides clean, tidy access to statistical data published by the 'European Centr
 \seealso{
 Useful links:
 \itemize{
+  \item \url{https://charlescoverdale.github.io/readecb/}
   \item \url{https://github.com/charlescoverdale/readecb}
   \item Report bugs at \url{https://github.com/charlescoverdale/readecb/issues}
 }

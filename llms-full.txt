@@ -1,0 +1,544 @@
+# readecb — full API reference
+
+> Provides clean, tidy access to statistical data published by the 'European Central Bank' ('ECB') via the 'ECB Data Portal' API.
+
+- Version: 0.1.3
+- Install: `install.packages("readecb")`
+- CRAN: https://CRAN.R-project.org/package=readecb
+- GitHub: https://github.com/charlescoverdale/readecb
+- Reference site: https://charlescoverdale.github.io/readecb/
+
+This file is a self-contained reference for LLM agents: every exported
+function with its signature, arguments, return value, and example.
+
+---
+
+## `clear_cache()`
+
+**Clear the readecb cache**
+
+Deletes all locally cached ECB data files. The next call to any data function will re-download from the ECB Data Portal.
+
+**Usage**
+
+```r
+clear_cache()
+```
+
+**Returns**
+
+Invisible `NULL`.
+
+**Example**
+
+```r
+op <- options(readecb.cache_dir = tempdir())
+clear_cache()
+options(op)
+```
+
+---
+
+## `ecb_estr()`
+
+**Euro short-term rate (ESTR)**
+
+Returns the euro short-term rate, the ECB's benchmark overnight interest rate that replaced EONIA.
+
+**Usage**
+
+```r
+ecb_estr(from = NULL, to = NULL, cache = TRUE)
+```
+
+**Arguments**
+
+- `from` — Optional start date.
+- `to` — Optional end date.
+- `cache` — Logical. Use cached data if available (default `TRUE`).
+
+**Returns**
+
+A data frame with columns: dateDate. valueNumeric. Rate in percent.
+
+**Example**
+
+```r
+op <- options(readecb.cache_dir = tempdir())
+ecb_estr(from = "2024-01")
+options(op)
+```
+
+---
+
+## `ecb_euribor()`
+
+**EURIBOR interbank lending rates**
+
+Returns EURIBOR (Euro Interbank Offered Rate) at one or more tenors. EURIBOR is the benchmark rate at which euro area banks lend to each other, widely used as a reference rate for mortgages, loans, and derivatives.
+
+**Usage**
+
+```r
+ecb_euribor(tenor = "3M", from = NULL, to = NULL, cache = TRUE)
+```
+
+**Arguments**
+
+- `tenor` — One or more of `"1M"` (1 month), `"3M"` (default), `"6M"`, or `"12M"`.
+- `from` — Optional start date.
+- `to` — Optional end date.
+- `cache` — Logical. Use cached data if available (default `TRUE`).
+
+**Returns**
+
+A data frame with columns: dateDate. tenorCharacter. EURIBOR maturity. valueNumeric. Rate in percent per annum.
+
+**Example**
+
+```r
+op <- options(readecb.cache_dir = tempdir())
+ecb_euribor("3M", from = "2022-01")
+ecb_euribor(c("1M", "3M", "6M", "12M"), from = "2024-01")
+options(op)
+```
+
+---
+
+## `ecb_exchange_rate()`
+
+**Euro exchange rates**
+
+Returns ECB reference exchange rates for one or more currencies against the euro.
+
+**Usage**
+
+```r
+ecb_exchange_rate(
+  currency = "USD",
+  frequency = c("monthly", "daily"),
+  from = NULL,
+  to = NULL,
+  cache = TRUE
+)
+```
+
+**Arguments**
+
+- `currency` — Character vector of ISO 4217 currency codes (e.g. `"USD"`, `"GBP"`). Use `list_exchange_rates()` to see available currencies.
+- `frequency` — One of `"monthly"` (default) or `"daily"`.
+- `from` — Optional start date.
+- `to` — Optional end date.
+- `cache` — Logical. Use cached data if available (default `TRUE`).
+
+**Returns**
+
+A data frame with columns: dateDate. currencyCharacter. ISO currency code. valueNumeric. Units of foreign currency per euro.
+
+**Example**
+
+```r
+op <- options(readecb.cache_dir = tempdir())
+ecb_exchange_rate("USD", from = "2024-01")
+ecb_exchange_rate(c("USD", "GBP", "JPY"), from = "2024-01")
+options(op)
+```
+
+---
+
+## `ecb_gdp()`
+
+**Euro area GDP**
+
+Returns quarterly real GDP for the euro area from the ECB's national accounts dataset (MNA).
+
+**Usage**
+
+```r
+ecb_gdp(from = NULL, to = NULL, cache = TRUE)
+```
+
+**Arguments**
+
+- `from` — Optional start date.
+- `to` — Optional end date.
+- `cache` — Logical. Use cached data if available (default `TRUE`).
+
+**Returns**
+
+A data frame with columns: dateDate. First day of the quarter. valueNumeric. GDP in millions of euros (chain-linked volumes).
+
+**Example**
+
+```r
+op <- options(readecb.cache_dir = tempdir())
+ecb_gdp(from = "2020")
+options(op)
+```
+
+---
+
+## `ecb_get()`
+
+**Fetch any ECB dataflow**
+
+A generic fetcher for direct access to any of the ECB's dataflows. Use `list_ecb_dataflows()` to discover available dataflows.
+
+**Usage**
+
+```r
+ecb_get(dataflow, key, from = NULL, to = NULL, cache = TRUE)
+```
+
+**Arguments**
+
+- `dataflow` — Character. The dataflow identifier (e.g. `"EXR"`, `"FM"`).
+- `key` — Character. The SDMX dimension key (e.g. `"M.USD.EUR.SP00.A"`).
+- `from` — Optional start date.
+- `to` — Optional end date.
+- `cache` — Logical. Use cached data if available (default `TRUE`).
+
+**Returns**
+
+A data frame. Columns vary by dataflow but always include `TIME_PERIOD` and `OBS_VALUE`.
+
+**Example**
+
+```r
+op <- options(readecb.cache_dir = tempdir())
+# Fetch EUR/USD monthly exchange rate
+ecb_get("EXR", "M.USD.EUR.SP00.A", from = "2024-01")
+options(op)
+```
+
+---
+
+## `ecb_government_debt()`
+
+**Euro area government debt-to-GDP ratio**
+
+Returns the annual general government consolidated gross debt as a percentage of GDP for the euro area, from the ECB's government finance statistics dataset (GFS).
+
+**Usage**
+
+```r
+ecb_government_debt(from = NULL, to = NULL, cache = TRUE)
+```
+
+**Arguments**
+
+- `from` — Optional start date (year, e.g. `"2000"`).
+- `to` — Optional end date.
+- `cache` — Logical. Use cached data if available (default `TRUE`).
+
+**Returns**
+
+A data frame with columns: dateDate. 1 January of each year. valueNumeric. Government debt as a percentage of GDP.
+
+**Example**
+
+```r
+op <- options(readecb.cache_dir = tempdir())
+ecb_government_debt(from = "2000")
+options(op)
+```
+
+---
+
+## `ecb_hicp()`
+
+**Harmonised Index of Consumer Prices (HICP)**
+
+Returns HICP inflation data for one or more euro area countries or country groups. The default is the euro area aggregate (`"U2"`).
+
+**Usage**
+
+```r
+ecb_hicp(
+  country = "U2",
+  measure = c("annual_rate", "index", "monthly_rate"),
+  from = NULL,
+  to = NULL,
+  cache = TRUE
+)
+```
+
+**Arguments**
+
+- `country` — Character vector of country codes. Use `"U2"` for the euro area aggregate, or ISO 2-letter codes such as `"DE"` (Germany), `"FR"` (France), `"IT"` (Italy), `"ES"` (Spain).
+- `measure` — One of: `"annual_rate"` (default) -- year-on-year percentage change `"index"` -- index level (2015 = 100) `"monthly_rate"` -- month-on-month percentage change
+- `from` — Optional start date.
+- `to` — Optional end date.
+- `cache` — Logical. Use cached data if available (default `TRUE`).
+
+**Returns**
+
+A data frame with columns: dateDate. countryCharacter. Country or area code. valueNumeric. Inflation rate or index level.
+
+**Example**
+
+```r
+op <- options(readecb.cache_dir = tempdir())
+ecb_hicp(from = "2020-01")
+ecb_hicp(c("DE", "FR", "IT"), from = "2023-01")
+options(op)
+```
+
+---
+
+## `ecb_lending_rates()`
+
+**Lending interest rates to non-financial corporations**
+
+Returns the composite cost-of-borrowing indicator for loans to non-financial corporations in the euro area or a specific country.
+
+**Usage**
+
+```r
+ecb_lending_rates(country = "U2", from = NULL, to = NULL, cache = TRUE)
+```
+
+**Arguments**
+
+- `country` — Character. Country code: `"U2"` for the euro area aggregate (default), or an ISO 2-letter code such as `"DE"`, `"FR"`, `"IT"`, `"ES"`.
+- `from` — Optional start date.
+- `to` — Optional end date.
+- `cache` — Logical. Use cached data if available (default `TRUE`).
+
+**Returns**
+
+A data frame with columns: dateDate. countryCharacter. Country or area code. valueNumeric. Interest rate in percent per annum.
+
+**Example**
+
+```r
+op <- options(readecb.cache_dir = tempdir())
+ecb_lending_rates(from = "2015-01")
+options(op)
+```
+
+---
+
+## `ecb_money_supply()`
+
+**Euro area monetary aggregates**
+
+Returns outstanding amounts for M1, M2, or M3 monetary aggregates in the euro area.
+
+**Usage**
+
+```r
+ecb_money_supply(
+  aggregate = c("M3", "M2", "M1"),
+  from = NULL,
+  to = NULL,
+  cache = TRUE
+)
+```
+
+**Arguments**
+
+- `aggregate` — One of `"M3"` (default), `"M2"`, or `"M1"`.
+- `from` — Optional start date.
+- `to` — Optional end date.
+- `cache` — Logical. Use cached data if available (default `TRUE`).
+
+**Returns**
+
+A data frame with columns: dateDate. valueNumeric. Outstanding amount in millions of euros.
+
+**Example**
+
+```r
+op <- options(readecb.cache_dir = tempdir())
+ecb_money_supply("M3", from = "2020-01")
+options(op)
+```
+
+---
+
+## `ecb_mortgage_rates()`
+
+**Mortgage interest rates**
+
+Returns the composite cost-of-borrowing indicator for house purchase loans in the euro area or a specific country.
+
+**Usage**
+
+```r
+ecb_mortgage_rates(country = "U2", from = NULL, to = NULL, cache = TRUE)
+```
+
+**Arguments**
+
+- `country` — Character. Country code: `"U2"` for the euro area aggregate (default), or an ISO 2-letter code such as `"DE"`, `"FR"`, `"IT"`, `"ES"`.
+- `from` — Optional start date.
+- `to` — Optional end date.
+- `cache` — Logical. Use cached data if available (default `TRUE`).
+
+**Returns**
+
+A data frame with columns: dateDate. countryCharacter. Country or area code. valueNumeric. Interest rate in percent per annum.
+
+**Example**
+
+```r
+op <- options(readecb.cache_dir = tempdir())
+ecb_mortgage_rates(from = "2015-01")
+options(op)
+```
+
+---
+
+## `ecb_policy_rates()`
+
+**ECB policy interest rates**
+
+Returns the three main ECB policy rates: the main refinancing operations rate, the deposit facility rate, and the marginal lending facility rate.
+
+**Usage**
+
+```r
+ecb_policy_rates(from = NULL, to = NULL, cache = TRUE)
+```
+
+**Arguments**
+
+- `from` — Optional start date (e.g. `"2020"` or `"2020-01"`).
+- `to` — Optional end date.
+- `cache` — Logical. Use cached data if available (default `TRUE`).
+
+**Returns**
+
+A data frame with columns: dateDate. rateCharacter. One of `"Main refinancing rate"`, `"Deposit facility rate"`, or `"Marginal lending rate"`. valueNumeric. Rate in percent per annum.
+
+**Example**
+
+```r
+op <- options(readecb.cache_dir = tempdir())
+ecb_policy_rates(from = "2022-01")
+options(op)
+```
+
+---
+
+## `ecb_unemployment()`
+
+**Euro area unemployment rate**
+
+Returns the monthly harmonised unemployment rate for the euro area from the ECB's labour force statistics dataset (LFSI).
+
+**Usage**
+
+```r
+ecb_unemployment(from = NULL, to = NULL, cache = TRUE)
+```
+
+**Arguments**
+
+- `from` — Optional start date.
+- `to` — Optional end date.
+- `cache` — Logical. Use cached data if available (default `TRUE`).
+
+**Returns**
+
+A data frame with columns: dateDate. valueNumeric. Unemployment rate as a percentage.
+
+**Example**
+
+```r
+op <- options(readecb.cache_dir = tempdir())
+ecb_unemployment(from = "2020-01")
+options(op)
+```
+
+---
+
+## `ecb_yield_curve()`
+
+**Euro area government bond yield curve**
+
+Returns AAA-rated euro area government bond yields for one or more tenors.
+
+**Usage**
+
+```r
+ecb_yield_curve(tenor = "10Y", from = NULL, to = NULL, cache = TRUE)
+```
+
+**Arguments**
+
+- `tenor` — Character vector of tenors. Common values: `"3M"`, `"6M"`, `"1Y"`, `"2Y"`, `"3Y"`, `"5Y"`, `"7Y"`, `"10Y"`, `"15Y"`, `"20Y"`, `"30Y"`. Default is `"10Y"`.
+- `from` — Optional start date.
+- `to` — Optional end date.
+- `cache` — Logical. Use cached data if available (default `TRUE`).
+
+**Returns**
+
+A data frame with columns: dateDate. tenorCharacter. Bond maturity. valueNumeric. Yield in percent per annum.
+
+**Example**
+
+```r
+op <- options(readecb.cache_dir = tempdir())
+ecb_yield_curve("10Y", from = "2023-01")
+ecb_yield_curve(c("2Y", "10Y"), from = "2022-01")
+options(op)
+```
+
+---
+
+## `list_ecb_dataflows()`
+
+**List available ECB dataflows**
+
+Fetches the full list of dataflows from the ECB Data Portal. Each dataflow corresponds to a dataset that can be queried with `ecb_get()`.
+
+**Usage**
+
+```r
+list_ecb_dataflows(cache = TRUE)
+```
+
+**Arguments**
+
+- `cache` — Logical. Use cached data if available (default `TRUE`).
+
+**Returns**
+
+A data frame with columns: dataflow_idCharacter. The dataflow identifier. nameCharacter. Human-readable name.
+
+**Example**
+
+```r
+op <- options(readecb.cache_dir = tempdir())
+list_ecb_dataflows()
+options(op)
+```
+
+---
+
+## `list_exchange_rates()`
+
+**List available exchange rate currencies**
+
+Returns a data frame of ISO 4217 currency codes for which the ECB publishes reference exchange rates. No network call is made.
+
+**Usage**
+
+```r
+list_exchange_rates()
+```
+
+**Returns**
+
+A data frame with columns: codeCharacter. ISO 4217 currency code. currencyCharacter. Currency name.
+
+**Example**
+
+```r
+list_exchange_rates()
+```
+
+---
+
