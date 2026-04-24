@@ -61,3 +61,7 @@ reference:
   desc: Cache management.
   contents:
   - clear_cache
+
+  - title: "Package"
+    contents:
+      - readecb-package
