@@ -173,17 +173,15 @@ To force a fresh download, pass `cache = FALSE`. To clear the entire cache, call
 
 ## Related packages
 
-This package is part of a family of R packages for economic and fiscal data. They share a consistent interface - named functions, tidy data frames, local caching - and are designed to work together.
-
-| Package | What it covers |
+| Package | Description |
 |---|---|
-| [`ons`](https://github.com/charlescoverdale/ons) | ONS data (GDP, inflation, unemployment, wages, trade, house prices, population) |
-| [`boe`](https://github.com/charlescoverdale/boe) | Bank of England data (Bank Rate, SONIA, gilt yields, exchange rates, mortgage rates) |
-| [`hmrc`](https://github.com/charlescoverdale/hmrc) | HMRC tax receipts, corporation tax, stamp duty, R&D credits, and tax gap data |
-| [`obr`](https://github.com/charlescoverdale/obr) | OBR data (Public Finances Databank, forecasts, EFO, welfare trends, fiscal sustainability) |
-| [`readoecd`](https://github.com/charlescoverdale/readoecd) | OECD data (GDP, unemployment, inflation, trade across 38 member countries) |
-| [`fred`](https://github.com/charlescoverdale/fred) | US Federal Reserve (FRED) data (800,000+ economic time series) |
-| [`inflateR`](https://github.com/charlescoverdale/inflateR) | Adjust values for inflation using CPI or GDP deflator data |
+| [`boe`](https://github.com/charlescoverdale/boe) | Bank of England data (peer central bank) |
+| [`fred`](https://github.com/charlescoverdale/fred) | US Federal Reserve (FRED) data |
+| [`readoecd`](https://github.com/charlescoverdale/readoecd) | OECD international data |
+| [`yieldcurves`](https://github.com/charlescoverdale/yieldcurves) | Yield curve fitting (Nelson-Siegel, Svensson) |
+| [`mpshock`](https://github.com/charlescoverdale/mpshock) | Monetary policy shock series |
+| [`inflationkit`](https://github.com/charlescoverdale/inflationkit) | Inflation analysis (decomposition, persistence, Phillips curve) |
+| [`nowcast`](https://github.com/charlescoverdale/nowcast) | Economic nowcasting (bridge, MIDAS, DFM) |
 
 ---
 
