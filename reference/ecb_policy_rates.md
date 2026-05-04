@@ -53,7 +53,7 @@ Other interest rates:
 op <- options(readecb.cache_dir = tempdir())
 ecb_policy_rates(from = "2022-01")
 #> ℹ Fetching ECB policy rates
-#> ✔ Fetching ECB policy rates [3s]
+#> ✔ Fetching ECB policy rates [709ms]
 #> 
 #>            date                  rate value
 #> 1    2022-01-01 Deposit facility rate -0.50
@@ -4781,6 +4781,36 @@ ecb_policy_rates(from = "2022-01")
 #> 4723 2026-04-24 Deposit facility rate  2.00
 #> 4724 2026-04-24 Main refinancing rate  2.15
 #> 4725 2026-04-24 Marginal lending rate  2.40
+#> 4726 2026-04-25 Deposit facility rate  2.00
+#> 4727 2026-04-25 Main refinancing rate  2.15
+#> 4728 2026-04-25 Marginal lending rate  2.40
+#> 4729 2026-04-26 Deposit facility rate  2.00
+#> 4730 2026-04-26 Main refinancing rate  2.15
+#> 4731 2026-04-26 Marginal lending rate  2.40
+#> 4732 2026-04-27 Deposit facility rate  2.00
+#> 4733 2026-04-27 Main refinancing rate  2.15
+#> 4734 2026-04-27 Marginal lending rate  2.40
+#> 4735 2026-04-28 Deposit facility rate  2.00
+#> 4736 2026-04-28 Main refinancing rate  2.15
+#> 4737 2026-04-28 Marginal lending rate  2.40
+#> 4738 2026-04-29 Deposit facility rate  2.00
+#> 4739 2026-04-29 Main refinancing rate  2.15
+#> 4740 2026-04-29 Marginal lending rate  2.40
+#> 4741 2026-04-30 Deposit facility rate  2.00
+#> 4742 2026-04-30 Main refinancing rate  2.15
+#> 4743 2026-04-30 Marginal lending rate  2.40
+#> 4744 2026-05-01 Deposit facility rate  2.00
+#> 4745 2026-05-01 Main refinancing rate  2.15
+#> 4746 2026-05-01 Marginal lending rate  2.40
+#> 4747 2026-05-02 Deposit facility rate  2.00
+#> 4748 2026-05-02 Main refinancing rate  2.15
+#> 4749 2026-05-02 Marginal lending rate  2.40
+#> 4750 2026-05-03 Deposit facility rate  2.00
+#> 4751 2026-05-03 Main refinancing rate  2.15
+#> 4752 2026-05-03 Marginal lending rate  2.40
+#> 4753 2026-05-04 Deposit facility rate  2.00
+#> 4754 2026-05-04 Main refinancing rate  2.15
+#> 4755 2026-05-04 Marginal lending rate  2.40
 options(op)
 # }
 ```

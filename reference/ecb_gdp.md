@@ -48,7 +48,7 @@ Other macro:
 op <- options(readecb.cache_dir = tempdir())
 ecb_gdp(from = "2020")
 #> ℹ Fetching euro area GDP
-#> ✔ Fetching euro area GDP [2.7s]
+#> ✔ Fetching euro area GDP [497ms]
 #> 
 #>          date   value
 #> 1  2020-01-01 2995346
@@ -75,6 +75,7 @@ ecb_gdp(from = "2020")
 #> 22 2025-04-01 3287844
 #> 23 2025-07-01 3297684
 #> 24 2025-10-01 3304260
+#> 25 2026-01-01 3309010
 options(op)
 # }
 ```

@@ -52,7 +52,7 @@ op <- options(readecb.cache_dir = tempdir())
 # Fetch EUR/USD monthly exchange rate
 ecb_get("EXR", "M.USD.EUR.SP00.A", from = "2024-01")
 #> ℹ Fetching EXR data
-#> ✔ Fetching EXR data [7ms]
+#> ✔ Fetching EXR data [8ms]
 #> 
 #>                     KEY FREQ CURRENCY CURRENCY_DENOM EXR_TYPE EXR_SUFFIX
 #> 1  EXR.M.USD.EUR.SP00.A    M      USD            EUR     SP00          A
@@ -82,6 +82,7 @@ ecb_get("EXR", "M.USD.EUR.SP00.A", from = "2024-01")
 #> 25 EXR.M.USD.EUR.SP00.A    M      USD            EUR     SP00          A
 #> 26 EXR.M.USD.EUR.SP00.A    M      USD            EUR     SP00          A
 #> 27 EXR.M.USD.EUR.SP00.A    M      USD            EUR     SP00          A
+#> 28 EXR.M.USD.EUR.SP00.A    M      USD            EUR     SP00          A
 #>    TIME_PERIOD OBS_VALUE
 #> 1   2024-01-01  1.090514
 #> 2   2024-02-01  1.079471
@@ -110,6 +111,7 @@ ecb_get("EXR", "M.USD.EUR.SP00.A", from = "2024-01")
 #> 25  2026-01-01  1.173824
 #> 26  2026-02-01  1.182395
 #> 27  2026-03-01  1.155832
+#> 28  2026-04-01  1.170640
 options(op)
 # }
 ```

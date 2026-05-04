@@ -48,7 +48,7 @@ Other macro:
 op <- options(readecb.cache_dir = tempdir())
 ecb_unemployment(from = "2020-01")
 #> ℹ Fetching euro area unemployment rate
-#> ✔ Fetching euro area unemployment rate [6.4s]
+#> ✔ Fetching euro area unemployment rate [1.2s]
 #> 
 #>          date value
 #> 1  2020-01-01   7.5
@@ -124,7 +124,8 @@ ecb_unemployment(from = "2020-01")
 #> 71 2025-11-01   6.3
 #> 72 2025-12-01   6.3
 #> 73 2026-01-01   6.2
-#> 74 2026-02-01   6.2
+#> 74 2026-02-01   6.3
+#> 75 2026-03-01   6.3
 options(op)
 # }
 ```

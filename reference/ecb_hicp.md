@@ -68,7 +68,7 @@ A data frame with columns:
 op <- options(readecb.cache_dir = tempdir())
 ecb_hicp(from = "2020-01")
 #> ℹ Fetching HICP data
-#> ✔ Fetching HICP data [2.6s]
+#> ✔ Fetching HICP data [650ms]
 #> 
 #>          date country value
 #> 1  2020-01-01      U2   1.4
@@ -145,7 +145,7 @@ ecb_hicp(from = "2020-01")
 #> 72 2025-12-01      U2   1.9
 ecb_hicp(c("DE", "FR", "IT"), from = "2023-01")
 #> ℹ Fetching HICP data
-#> ✔ Fetching HICP data [3.1s]
+#> ✔ Fetching HICP data [487ms]
 #> 
 #>           date country value
 #> 1   2023-01-01      DE   9.2

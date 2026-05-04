@@ -57,7 +57,7 @@ Other credit:
 op <- options(readecb.cache_dir = tempdir())
 ecb_mortgage_rates(from = "2015-01")
 #> ℹ Fetching mortgage rate data
-#> ✔ Fetching mortgage rate data [2.4s]
+#> ✔ Fetching mortgage rate data [456ms]
 #> 
 #>           date country value
 #> 1   2015-01-01      U2  2.40
