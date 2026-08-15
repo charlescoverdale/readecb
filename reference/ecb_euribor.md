@@ -58,7 +58,7 @@ Other interest rates:
 op <- options(readecb.cache_dir = tempdir())
 ecb_euribor("3M", from = "2022-01")
 #> ℹ Fetching EURIBOR data
-#> ✔ Fetching EURIBOR data [523ms]
+#> ✔ Fetching EURIBOR data [369ms]
 #> 
 #>          date tenor      value
 #> 1  2022-01-01    3M -0.5601429
@@ -118,7 +118,7 @@ ecb_euribor("3M", from = "2022-01")
 #> 55 2026-07-01    3M  2.4253913
 ecb_euribor(c("1M", "3M", "6M", "12M"), from = "2024-01")
 #> ℹ Fetching EURIBOR data
-#> ✔ Fetching EURIBOR data [531ms]
+#> ✔ Fetching EURIBOR data [690ms]
 #> 
 #>           date tenor    value
 #> 1   2024-01-01   12M 3.609227

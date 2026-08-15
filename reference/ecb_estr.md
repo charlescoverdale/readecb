@@ -48,7 +48,7 @@ Other interest rates:
 op <- options(readecb.cache_dir = tempdir())
 ecb_estr(from = "2024-01")
 #> ℹ Fetching ESTR data
-#> ✔ Fetching ESTR data [1.1s]
+#> ✔ Fetching ESTR data [1.2s]
 #> 
 #>           date value
 #> 1   2024-01-02 3.906

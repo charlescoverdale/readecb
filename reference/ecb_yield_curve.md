@@ -59,7 +59,7 @@ Other data access:
 op <- options(readecb.cache_dir = tempdir())
 ecb_yield_curve("10Y", from = "2023-01")
 #> ℹ Fetching yield curve data
-#> ✔ Fetching yield curve data [1.5s]
+#> ✔ Fetching yield curve data [720ms]
 #> 
 #>           date tenor    value
 #> 1   2023-01-02   10Y 2.518254
@@ -986,7 +986,7 @@ ecb_yield_curve("10Y", from = "2023-01")
 #> 922 2026-08-13   10Y 3.155665
 ecb_yield_curve(c("2Y", "10Y"), from = "2022-01")
 #> ℹ Fetching yield curve data
-#> ✔ Fetching yield curve data [1.6s]
+#> ✔ Fetching yield curve data [229ms]
 #> 
 #>            date tenor         value
 #> 1    2022-01-03   10Y -0.1231371694

@@ -42,7 +42,7 @@ Other data access:
 op <- options(readecb.cache_dir = tempdir())
 list_ecb_dataflows()
 #> ℹ Fetching ECB dataflow list
-#> ✔ Fetching ECB dataflow list [235ms]
+#> ✔ Fetching ECB dataflow list [272ms]
 #> 
 #>     dataflow_id name
 #> 1           AGR <NA>

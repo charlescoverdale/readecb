@@ -49,7 +49,7 @@ Other macro:
 op <- options(readecb.cache_dir = tempdir())
 ecb_government_debt(from = "2000")
 #> ℹ Fetching government debt-to-GDP ratio
-#> ✔ Fetching government debt-to-GDP ratio [672ms]
+#> ✔ Fetching government debt-to-GDP ratio [295ms]
 #> 
 #>          date   value
 #> 1  2000-01-01 69.2452

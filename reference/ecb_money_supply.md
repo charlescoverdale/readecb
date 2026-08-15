@@ -57,7 +57,7 @@ Other credit:
 op <- options(readecb.cache_dir = tempdir())
 ecb_money_supply("M3", from = "2020-01")
 #> ℹ Fetching M3 data
-#> ✔ Fetching M3 data [497ms]
+#> ✔ Fetching M3 data [269ms]
 #> 
 #>          date    value
 #> 1  2020-01-01 13016224

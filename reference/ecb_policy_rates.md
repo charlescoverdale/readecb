@@ -53,7 +53,7 @@ Other interest rates:
 op <- options(readecb.cache_dir = tempdir())
 ecb_policy_rates(from = "2022-01")
 #> ℹ Fetching ECB policy rates
-#> ✔ Fetching ECB policy rates [878ms]
+#> ✔ Fetching ECB policy rates [1.4s]
 #> 
 #>            date                  rate value
 #> 1    2022-01-01 Deposit facility rate -0.50

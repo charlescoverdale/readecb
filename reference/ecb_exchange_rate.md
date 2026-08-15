@@ -68,7 +68,7 @@ Other exchange rates:
 op <- options(readecb.cache_dir = tempdir())
 ecb_exchange_rate("USD", from = "2024-01")
 #> ℹ Fetching ECB exchange rates
-#> ✔ Fetching ECB exchange rates [749ms]
+#> ✔ Fetching ECB exchange rates [348ms]
 #> 
 #>          date currency    value
 #> 1  2024-01-01      USD 1.090514
@@ -104,7 +104,7 @@ ecb_exchange_rate("USD", from = "2024-01")
 #> 31 2026-07-01      USD 1.141748
 ecb_exchange_rate(c("USD", "GBP", "JPY"), from = "2024-01")
 #> ℹ Fetching ECB exchange rates
-#> ✔ Fetching ECB exchange rates [498ms]
+#> ✔ Fetching ECB exchange rates [272ms]
 #> 
 #>          date currency       value
 #> 1  2024-01-01      GBP   0.8587309
