@@ -1,41 +1,32 @@
-# CRAN submission comments — readecb 0.1.2
+# CRAN submission comments — readecb 0.1.3
 
-## Resubmission
+## Reason for this submission
 
-This is a resubmission addressing CRAN review feedback (Konstanze Lauseker).
-Changes since readecb 0.1.0:
+This is a maintenance update to readecb 0.1.2, currently on CRAN. It
+improves error handling in three places where a malformed or empty
+response produced a confusing downstream failure rather than a clear
+message.
 
-* Examples now cache to `tempdir()` instead of the user's home directory,
-  fixing CRAN policy compliance for `\donttest` examples.
-* Cache directory is now configurable via `options(readecb.cache_dir = ...)`.
-* Removed non-existent pkgdown URL from DESCRIPTION (was returning 404).
+* `ecb_fetch()` now detects an empty API response and raises an
+  informative error, instead of returning a malformed data frame that
+  failed later and further from the cause.
+* `ecb_exchange_rate()` validates currency codes upfront, with an error
+  pointing at `list_exchange_rates()`.
+* `ecb_hicp()` validates that `country` is a non-empty character vector.
+
+No API changes, no changes to returned data for well-formed calls.
 
 ## R CMD check results
 
-0 errors | 0 warnings | 0 notes
-
-## Test suite
-
-42 tests across 16 test files. All network-dependent tests are wrapped in
-`skip_on_cran()` and `skip_if_offline()`.
+0 errors | 0 warnings | 0 notes (CRAN default settings, R 4.5.2, macOS).
 
 ## Notes on data access
 
-This package downloads data from the ECB Data Portal API
-<https://data.ecb.europa.eu> on first use and caches it locally using
-`tools::R_user_dir()`. No data is bundled. All examples that make network
-calls are wrapped in `\donttest{}`, with caching redirected to `tempdir()`
-so that no files are written to the user's home filespace.
-
-## Relationship to existing 'ecb' package
-
-This package provides a different interface to the same data source. The
-existing 'ecb' package is a low-level SDMX wrapper requiring users to supply
-raw series keys. 'readecb' provides named convenience functions (e.g.
-`ecb_policy_rates()`, `ecb_hicp()`), uses CSV rather than XML, has a lighter
-dependency stack (httr2 + cli vs httr + rsdmx + xml2 + curl), and caches
-results locally.
+Unchanged: the package calls the ECB Data Portal on demand and caches
+locally using `tools::R_user_dir()`. No data is bundled. Network-using
+examples are wrapped in `\donttest{}` and tests in `skip_on_cran()`, so
+the check does not depend on the portal being reachable.
 
 ## Downstream dependencies
 
-None — this is a new package.
+None on CRAN.
