@@ -57,7 +57,7 @@ Other credit:
 op <- options(readecb.cache_dir = tempdir())
 ecb_lending_rates(from = "2015-01")
 #> ℹ Fetching lending rate data
-#> ✔ Fetching lending rate data [485ms]
+#> ✔ Fetching lending rate data [498ms]
 #> 
 #>           date country value
 #> 1   2015-01-01      U2  5.24
@@ -188,12 +188,16 @@ ecb_lending_rates(from = "2015-01")
 #> 126 2025-06-01      U2  6.68
 #> 127 2025-07-01      U2  6.68
 #> 128 2025-08-01      U2  7.12
-#> 129 2025-09-01      U2  6.74
+#> 129 2025-09-01      U2  6.75
 #> 130 2025-10-01      U2  6.40
 #> 131 2025-11-01      U2  6.19
 #> 132 2025-12-01      U2  6.36
 #> 133 2026-01-01      U2  7.17
 #> 134 2026-02-01      U2  6.83
+#> 135 2026-03-01      U2  7.02
+#> 136 2026-04-01      U2  7.11
+#> 137 2026-05-01      U2  7.17
+#> 138 2026-06-01      U2  7.21
 options(op)
 # }
 ```
