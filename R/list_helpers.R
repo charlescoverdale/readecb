@@ -57,7 +57,9 @@ list_exchange_rates <- function() {
 #' @examples
 #' \donttest{
 #' op <- options(readecb.cache_dir = tempdir())
-#' list_ecb_dataflows()
+#' try({
+#'   list_ecb_dataflows()
+#' })
 #' options(op)
 #' }
 list_ecb_dataflows <- function(cache = TRUE) {

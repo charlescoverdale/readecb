@@ -2,7 +2,7 @@ test_that("ecb_exchange_rate returns expected structure", {
   skip_on_cran()
   skip_if_offline()
 
-  df <- ecb_exchange_rate("USD", from = "2024-01", to = "2024-03")
+  df <- expect_ecb(ecb_exchange_rate("USD", from = "2024-01", to = "2024-03"))
 
   expect_s3_class(df, "data.frame")
   expect_named(df, c("date", "currency", "value"))
@@ -17,7 +17,7 @@ test_that("ecb_exchange_rate handles multiple currencies", {
   skip_on_cran()
   skip_if_offline()
 
-  df <- ecb_exchange_rate(c("USD", "GBP"), from = "2024-01", to = "2024-03")
+  df <- expect_ecb(ecb_exchange_rate(c("USD", "GBP"), from = "2024-01", to = "2024-03"))
 
   expect_true("USD" %in% df$currency)
   expect_true("GBP" %in% df$currency)
@@ -27,8 +27,8 @@ test_that("ecb_exchange_rate supports daily frequency", {
   skip_on_cran()
   skip_if_offline()
 
-  df <- ecb_exchange_rate("USD", frequency = "daily",
-                          from = "2024-01", to = "2024-01")
+  df <- expect_ecb(ecb_exchange_rate("USD", frequency = "daily",
+                          from = "2024-01", to = "2024-01"))
   expect_true(nrow(df) > 5)
 })
 

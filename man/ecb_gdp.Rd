@@ -27,7 +27,9 @@ accounts dataset (MNA).
 \examples{
 \donttest{
 op <- options(readecb.cache_dir = tempdir())
-ecb_gdp(from = "2020")
+try({
+  ecb_gdp(from = "2020")
+})
 options(op)
 }
 }

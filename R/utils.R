@@ -48,10 +48,20 @@ ecb_fetch <- function(dataflow, key, from = NULL, to = NULL, cache = TRUE) {
   req <- httr2::req_throttle(req, rate = 5 / 10)
   req <- httr2::req_retry(
     req, max_tries = 4L, backoff = ~ 8,
+    # Cap the total retry wait. Four tries at a flat 8s, on top of the
+    # throttle above, cost a throttled host over 30 seconds per call before
+    # failing. Bounding it keeps a refused host cheap rather than slow.
+    max_seconds = 20,
     is_transient = function(resp) {
-      # ECB returns 400 with text/html when rate-limited
+      status <- httr2::resp_status(resp)
       ct <- httr2::resp_content_type(resp)
-      httr2::resp_status(resp) == 400L && grepl("text/html", ct, fixed = TRUE)
+      # ECB returns 400 with text/html when rate-limited.
+      rate_limited <- status == 400L && grepl("text/html", ct, fixed = TRUE)
+      # Supplying is_transient replaces httr2's default, which would otherwise
+      # have retried 429 and 5xx. Gateway timeouts and 503s from the portal are
+      # transient and worth a retry; without this they failed on first sight.
+      server_side <- status == 429L || status >= 500L
+      rate_limited || server_side
     }
   )
   req <- httr2::req_error(req, is_error = function(resp) FALSE)
@@ -72,11 +82,29 @@ ecb_fetch <- function(dataflow, key, from = NULL, to = NULL, cache = TRUE) {
     cli::cli_abort("No data found. Check the dataflow and key are valid.")
   }
 
+  # An HTML body is never how the ECB reports a bad query: an unknown dataflow
+  # or series key returns 404 with application/problem+json, handled above.
+  # HTML means the request never reached the data service, which in practice
+  # is the portal's rate limiter, a gateway timeout, or maintenance. Reporting
+  # that as "invalid query" sent users to check a key that was correct.
   ct <- httr2::resp_content_type(resp)
   if (grepl("text/html", ct, fixed = TRUE)) {
-    cli::cli_abort(
-      "Invalid query. Check the dataflow ({.val {dataflow}}) and key ({.val {key}})."
-    )
+    if (status == 400L) {
+      cli::cli_abort(c(
+        "The ECB Data Portal is rate-limiting this connection.",
+        "i" = "The dataflow and key are almost certainly fine: an unknown one
+               returns a 404, not this.",
+        "i" = "Retries were already attempted. Wait a little before trying
+               again, or space out repeated calls.",
+        "i" = "Dataflow {.val {dataflow}}, key {.val {key}}."
+      ))
+    }
+    cli::cli_abort(c(
+      "The ECB Data Portal returned a web page rather than data (HTTP {status}).",
+      "i" = "This usually means the service is temporarily unavailable or under
+             maintenance, rather than that the query is wrong.",
+      "i" = "Dataflow {.val {dataflow}}, key {.val {key}}."
+    ))
   }
 
   if (status >= 400L) {

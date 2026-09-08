@@ -18,7 +18,9 @@
 #' @examples
 #' \donttest{
 #' op <- options(readecb.cache_dir = tempdir())
-#' ecb_unemployment(from = "2020-01")
+#' try({
+#'   ecb_unemployment(from = "2020-01")
+#' })
 #' options(op)
 #' }
 ecb_unemployment <- function(from = NULL, to = NULL, cache = TRUE) {

@@ -19,7 +19,9 @@
 #' @examples
 #' \donttest{
 #' op <- options(readecb.cache_dir = tempdir())
-#' ecb_money_supply("M3", from = "2020-01")
+#' try({
+#'   ecb_money_supply("M3", from = "2020-01")
+#' })
 #' options(op)
 #' }
 ecb_money_supply <- function(aggregate = c("M3", "M2", "M1"),

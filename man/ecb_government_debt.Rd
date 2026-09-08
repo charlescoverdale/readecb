@@ -28,7 +28,9 @@ statistics dataset (GFS).
 \examples{
 \donttest{
 op <- options(readecb.cache_dir = tempdir())
-ecb_government_debt(from = "2000")
+try({
+  ecb_government_debt(from = "2000")
+})
 options(op)
 }
 }

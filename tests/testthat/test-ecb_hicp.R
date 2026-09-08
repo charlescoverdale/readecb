@@ -2,7 +2,7 @@ test_that("ecb_hicp returns expected structure", {
   skip_on_cran()
   skip_if_offline()
 
-  df <- ecb_hicp(from = "2024-01", to = "2024-06")
+  df <- expect_ecb(ecb_hicp(from = "2024-01", to = "2024-06"))
 
   expect_s3_class(df, "data.frame")
   expect_named(df, c("date", "country", "value"))
@@ -15,7 +15,7 @@ test_that("ecb_hicp supports multiple countries", {
   skip_on_cran()
   skip_if_offline()
 
-  df <- ecb_hicp(c("DE", "FR"), from = "2024-01", to = "2024-03")
+  df <- expect_ecb(ecb_hicp(c("DE", "FR"), from = "2024-01", to = "2024-03"))
 
   expect_true("DE" %in% df$country)
   expect_true("FR" %in% df$country)
@@ -25,7 +25,7 @@ test_that("ecb_hicp supports index measure", {
   skip_on_cran()
   skip_if_offline()
 
-  df <- ecb_hicp(measure = "index", from = "2024-01", to = "2024-03")
+  df <- expect_ecb(ecb_hicp(measure = "index", from = "2024-01", to = "2024-03"))
   expect_true(all(df$value > 50))
 })
 

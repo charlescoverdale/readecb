@@ -29,7 +29,9 @@ rate, the deposit facility rate, and the marginal lending facility rate.
 \examples{
 \donttest{
 op <- options(readecb.cache_dir = tempdir())
-ecb_policy_rates(from = "2022-01")
+try({
+  ecb_policy_rates(from = "2022-01")
+})
 options(op)
 }
 }

@@ -12,7 +12,7 @@ test_that("list_ecb_dataflows returns expected structure", {
   skip_on_cran()
   skip_if_offline()
 
-  df <- list_ecb_dataflows()
+  df <- expect_ecb(list_ecb_dataflows())
 
   expect_s3_class(df, "data.frame")
   expect_true("dataflow_id" %in% names(df))

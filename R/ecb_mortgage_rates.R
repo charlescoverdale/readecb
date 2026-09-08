@@ -22,7 +22,9 @@
 #' @examples
 #' \donttest{
 #' op <- options(readecb.cache_dir = tempdir())
-#' ecb_mortgage_rates(from = "2015-01")
+#' try({
+#'   ecb_mortgage_rates(from = "2015-01")
+#' })
 #' options(op)
 #' }
 ecb_mortgage_rates <- function(country = "U2", from = NULL, to = NULL,
