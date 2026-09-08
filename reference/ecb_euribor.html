@@ -11,7 +11,7 @@ widely used as a reference rate for mortgages, loans, and derivatives."></head><
 
     <a class="navbar-brand me-2" href="../index.html">readecb</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.3</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.4</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -93,195 +93,18 @@ or <code>"12M"</code>.</p></dd>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="va">op</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>readecb.cache_dir <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu">ecb_euribor</span><span class="op">(</span><span class="st">"3M"</span>, from <span class="op">=</span> <span class="st">"2022-01"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="op">{</span></span></span>
+<span class="r-in"><span>  <span class="fu">ecb_euribor</span><span class="op">(</span><span class="st">"3M"</span>, from <span class="op">=</span> <span class="st">"2022-01"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="fu">ecb_euribor</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"1M"</span>, <span class="st">"3M"</span>, <span class="st">"6M"</span>, <span class="st">"12M"</span><span class="op">)</span>, from <span class="op">=</span> <span class="st">"2024-01"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Fetching EURIBOR data</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Fetching EURIBOR data <span style="color: #B2B2B2;">[369ms]</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Fetching EURIBOR data <span style="color: #B2B2B2;">[30.2s]</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>          date tenor      value</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  2022-01-01    3M -0.5601429</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  2022-02-01    3M -0.5315000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  2022-03-01    3M -0.4954348</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  2022-04-01    3M -0.4478947</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  2022-05-01    3M -0.3857273</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  2022-06-01    3M -0.2392273</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  2022-07-01    3M  0.0366190</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8  2022-08-01    3M  0.3947391</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9  2022-09-01    3M  1.0108636</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10 2022-10-01    3M  1.4276667</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11 2022-11-01    3M  1.8252273</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12 2022-12-01    3M  2.0634762</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13 2023-01-01    3M  2.3448636</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14 2023-02-01    3M  2.6403500</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15 2023-03-01    3M  2.9105652</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16 2023-04-01    3M  3.1794444</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17 2023-05-01    3M  3.3717273</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18 2023-06-01    3M  3.5358636</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19 2023-07-01    3M  3.6718095</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20 2023-08-01    3M  3.7803043</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21 2023-09-01    3M  3.8800476</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22 2023-10-01    3M  3.9676364</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23 2023-11-01    3M  3.9716364</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24 2023-12-01    3M  3.9348947</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25 2024-01-01    3M  3.9252727</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26 2024-02-01    3M  3.9231905</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27 2024-03-01    3M  3.9231000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28 2024-04-01    3M  3.8853333</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29 2024-05-01    3M  3.8126818</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30 2024-06-01    3M  3.7245000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31 2024-07-01    3M  3.6848261</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32 2024-08-01    3M  3.5475909</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33 2024-09-01    3M  3.4337143</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34 2024-10-01    3M  3.1666087</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35 2024-11-01    3M  3.0067619</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36 2024-12-01    3M  2.8246000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37 2025-01-01    3M  2.7042727</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38 2025-02-01    3M  2.5249500</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39 2025-03-01    3M  2.4424286</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40 2025-04-01    3M  2.2494000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41 2025-05-01    3M  2.0872381</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42 2025-06-01    3M  1.9836190</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43 2025-07-01    3M  1.9863478</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44 2025-08-01    3M  2.0210952</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45 2025-09-01    3M  2.0272727</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46 2025-10-01    3M  2.0344348</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47 2025-11-01    3M  2.0416500</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48 2025-12-01    3M  2.0484286</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49 2026-01-01    3M  2.0277273</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 50 2026-02-01    3M  2.0113000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 51 2026-03-01    3M  2.1094091</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 52 2026-04-01    3M  2.1753000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 53 2026-05-01    3M  2.2261000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 54 2026-06-01    3M  2.3390000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 55 2026-07-01    3M  2.4253913</span>
-<span class="r-in"><span><span class="fu">ecb_euribor</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"1M"</span>, <span class="st">"3M"</span>, <span class="st">"6M"</span>, <span class="st">"12M"</span><span class="op">)</span>, from <span class="op">=</span> <span class="st">"2024-01"</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Fetching EURIBOR data</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Fetching EURIBOR data <span style="color: #B2B2B2;">[690ms]</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           date tenor    value</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1   2024-01-01   12M 3.609227</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2   2024-02-01   12M 3.670524</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3   2024-03-01   12M 3.717850</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4   2024-04-01   12M 3.703333</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5   2024-05-01   12M 3.680136</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6   2024-06-01   12M 3.649600</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7   2024-07-01   12M 3.525913</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8   2024-08-01   12M 3.166136</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9   2024-09-01   12M 2.936048</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10  2024-10-01   12M 2.691304</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11  2024-11-01   12M 2.505571</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12  2024-12-01   12M 2.436050</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13  2025-01-01   12M 2.525227</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14  2025-02-01   12M 2.406950</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15  2025-03-01   12M 2.398381</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16  2025-04-01   12M 2.143400</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17  2025-05-01   12M 2.080571</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18  2025-06-01   12M 2.080905</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19  2025-07-01   12M 2.079087</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20  2025-08-01   12M 2.113905</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21  2025-09-01   12M 2.171500</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22  2025-10-01   12M 2.187304</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23  2025-11-01   12M 2.216900</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24  2025-12-01   12M 2.267143</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25  2026-01-01   12M 2.245095</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26  2026-02-01   12M 2.220700</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27  2026-03-01   12M 2.565136</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28  2026-04-01   12M 2.746800</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29  2026-05-01   12M 2.804200</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30  2026-06-01   12M 2.797591</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31  2026-07-01   12M 2.855087</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32  2024-01-01    1M 3.869000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33  2024-02-01    1M 3.868476</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34  2024-03-01    1M 3.852950</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35  2024-04-01    1M 3.852524</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36  2024-05-01    1M 3.815909</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37  2024-06-01    1M 3.634700</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38  2024-07-01    1M 3.617522</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39  2024-08-01    1M 3.596727</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40  2024-09-01    1M 3.438095</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41  2024-10-01    1M 3.205478</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42  2024-11-01    1M 3.066429</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43  2024-12-01    1M 2.890050</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44  2025-01-01    1M 2.791864</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45  2025-02-01    1M 2.605750</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46  2025-03-01    1M 2.401000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47  2025-04-01    1M 2.242650</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48  2025-05-01    1M 2.093905</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49  2025-06-01    1M 1.928524</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 50  2025-07-01    1M 1.892261</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 51  2025-08-01    1M 1.890000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 52  2025-09-01    1M 1.897227</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 53  2025-10-01    1M 1.906261</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 54  2025-11-01    1M 1.905600</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 55  2025-12-01    1M 1.915476</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 56  2026-01-01    1M 1.960762</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 57  2026-02-01    1M 1.952250</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 58  2026-03-01    1M 1.932773</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 59  2026-04-01    1M 1.971200</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 60  2026-05-01    1M 1.956550</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 61  2026-06-01    1M 2.146318</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 62  2026-07-01    1M 2.214043</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 63  2024-01-01    3M 3.925273</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 64  2024-02-01    3M 3.923191</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 65  2024-03-01    3M 3.923100</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 66  2024-04-01    3M 3.885333</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 67  2024-05-01    3M 3.812682</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 68  2024-06-01    3M 3.724500</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 69  2024-07-01    3M 3.684826</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 70  2024-08-01    3M 3.547591</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 71  2024-09-01    3M 3.433714</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 72  2024-10-01    3M 3.166609</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 73  2024-11-01    3M 3.006762</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 74  2024-12-01    3M 2.824600</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 75  2025-01-01    3M 2.704273</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 76  2025-02-01    3M 2.524950</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 77  2025-03-01    3M 2.442429</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 78  2025-04-01    3M 2.249400</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 79  2025-05-01    3M 2.087238</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 80  2025-06-01    3M 1.983619</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 81  2025-07-01    3M 1.986348</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 82  2025-08-01    3M 2.021095</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 83  2025-09-01    3M 2.027273</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 84  2025-10-01    3M 2.034435</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 85  2025-11-01    3M 2.041650</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 86  2025-12-01    3M 2.048429</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 87  2026-01-01    3M 2.027727</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 88  2026-02-01    3M 2.011300</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 89  2026-03-01    3M 2.109409</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 90  2026-04-01    3M 2.175300</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 91  2026-05-01    3M 2.226100</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 92  2026-06-01    3M 2.339000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 93  2026-07-01    3M 2.425391</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 94  2024-01-01    6M 3.891682</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 95  2024-02-01    6M 3.900524</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 96  2024-03-01    6M 3.894800</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 97  2024-04-01    6M 3.838238</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 98  2024-05-01    6M 3.786636</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 99  2024-06-01    6M 3.714900</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 100 2024-07-01    6M 3.643565</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 101 2024-08-01    6M 3.424909</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 102 2024-09-01    6M 3.257810</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 103 2024-10-01    6M 3.001609</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 104 2024-11-01    6M 2.787524</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 105 2024-12-01    6M 2.632150</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 106 2025-01-01    6M 2.614409</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 107 2025-02-01    6M 2.459600</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 108 2025-03-01    6M 2.385381</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 109 2025-04-01    6M 2.201700</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 110 2025-05-01    6M 2.116191</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 111 2025-06-01    6M 2.049667</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 112 2025-07-01    6M 2.055348</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 113 2025-08-01    6M 2.084429</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 114 2025-09-01    6M 2.102318</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 115 2025-10-01    6M 2.106826</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 116 2025-11-01    6M 2.131000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 117 2025-12-01    6M 2.139476</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 118 2026-01-01    6M 2.137143</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 119 2026-02-01    6M 2.143500</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 120 2026-03-01    6M 2.321954</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 121 2026-04-01    6M 2.453750</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 122 2026-05-01    6M 2.536400</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 123 2026-06-01    6M 2.595500</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 124 2026-07-01    6M 2.646739</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error in ecb_fetch("FM", key, from = from, to = to, cache = cache) : </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   The ECB Data Portal returned a web page rather than data (HTTP 504).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> This usually means the service is temporarily unavailable or under</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   maintenance, rather than that the query is wrong.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Dataflow <span style="color: #0000BB;">"FM"</span>, key <span style="color: #0000BB;">"M.U2.EUR.RT.MM.EURIBOR3MD_.HSTA"</span>.</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span><span class="va">op</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>

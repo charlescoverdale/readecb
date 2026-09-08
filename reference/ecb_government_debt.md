@@ -47,37 +47,17 @@ Other macro:
 ``` r
 # \donttest{
 op <- options(readecb.cache_dir = tempdir())
-ecb_government_debt(from = "2000")
+try({
+  ecb_government_debt(from = "2000")
+})
 #> ℹ Fetching government debt-to-GDP ratio
-#> ✔ Fetching government debt-to-GDP ratio [295ms]
+#> ✖ Fetching government debt-to-GDP ratio [30.1s]
 #> 
-#>          date   value
-#> 1  2000-01-01 69.2452
-#> 2  2001-01-01 68.2047
-#> 3  2002-01-01 68.1292
-#> 4  2003-01-01 69.3940
-#> 5  2004-01-01 69.6865
-#> 6  2005-01-01 70.3002
-#> 7  2006-01-01 68.2519
-#> 8  2007-01-01 65.9070
-#> 9  2008-01-01 69.5719
-#> 10 2009-01-01 80.0309
-#> 11 2010-01-01 85.4456
-#> 12 2011-01-01 87.2681
-#> 13 2012-01-01 90.7719
-#> 14 2013-01-01 92.7642
-#> 15 2014-01-01 92.9404
-#> 16 2015-01-01 91.0153
-#> 17 2016-01-01 89.9407
-#> 18 2017-01-01 87.4810
-#> 19 2018-01-01 85.5433
-#> 20 2019-01-01 83.5975
-#> 21 2020-01-01 96.5233
-#> 22 2021-01-01 93.8152
-#> 23 2022-01-01 89.3087
-#> 24 2023-01-01 86.9154
-#> 25 2024-01-01 86.9866
-#> 26 2025-01-01 87.8062
+#> Error in ecb_fetch("GFS", "A.N.I9.W0.S13.S1.C.L.LE.GD.T._Z.XDC_R_B1GQ._T.F.V.N._T",  : 
+#>   The ECB Data Portal returned a web page rather than data (HTTP 504).
+#> ℹ This usually means the service is temporarily unavailable or under
+#>   maintenance, rather than that the query is wrong.
+#> ℹ Dataflow "GFS", key "A.N.I9.W0.S13.S1.C.L.LE.GD.T._Z.XDC_R_B1GQ._T.F.V.N._T".
 options(op)
 # }
 ```

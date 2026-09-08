@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">readecb</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.3</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.4</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,7 +33,27 @@
     </div>
 
     <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.1.4" id="readecb-014">readecb 0.1.4<a class="anchor" aria-label="anchor" href="#readecb-014"></a></h2>
+<div class="section level3">
+<h3 id="a-rate-limited-or-unavailable-portal-no-longer-reports-as-a-bad-query-0-1-4">A rate-limited or unavailable portal no longer reports as a bad query<a class="anchor" aria-label="anchor" href="#a-rate-limited-or-unavailable-portal-no-longer-reports-as-a-bad-query-0-1-4"></a></h3>
+<p><code>ecb_fetch()</code> aborted with “Invalid query. Check the dataflow and key” whenever the response body was HTML. That was never the right diagnosis: an unknown dataflow or series key returns HTTP 404 with <code>application/problem+json</code>, which is handled separately. HTML means the request never reached the data service at all, which in practice is the portal’s rate limiter, a gateway timeout, or maintenance.</p>
+<p>The effect was that a user whose key was perfectly correct got told to go and check it. The message now distinguishes rate limiting (HTTP 400 with an HTML body, which is how the portal signals it) from a service that is temporarily unavailable, and says in both cases that the key is probably fine.</p>
+</div>
+<div class="section level3">
+<h3 id="transient-server-errors-are-retried-0-1-4">Transient server errors are retried<a class="anchor" aria-label="anchor" href="#transient-server-errors-are-retried-0-1-4"></a></h3>
+<p><code>is_transient</code> only recognised the rate-limit signal. Supplying it replaced httr2’s default, which silently stopped 429 and 5xx from being retried at all, so a gateway timeout failed on first sight. Those are now retried, and the total retry wait is capped with <code>max_seconds</code> so a refused host costs seconds rather than half a minute.</p>
+</div>
+<div class="section level3">
+<h3 id="tests-skip-rather-than-fail-when-the-portal-is-down-0-1-4">Tests skip rather than fail when the portal is down<a class="anchor" aria-label="anchor" href="#tests-skip-rather-than-fail-when-the-portal-is-down-0-1-4"></a></h3>
+<p>The ECB Data Portal intermittently returns 504s, taking about 30 seconds to do so. The network tests now skip on exactly the conditions the package classifies as transient, via a new <code>expect_ecb()</code> helper. A real bug still fails: this only skips server-side conditions, so the suite stays a useful signal instead of going red whenever the upstream service has a wobble.</p>
+</div>
+</div>
+    <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.1.3" id="readecb-013">readecb 0.1.3<a class="anchor" aria-label="anchor" href="#readecb-013"></a></h2>
+<div class="section level3">
+<h3 id="examples-now-fail-gracefully-when-the-ecb-data-portal-is-unreachable-0-1-3">Examples now fail gracefully when the ECB Data Portal is unreachable<a class="anchor" aria-label="anchor" href="#examples-now-fail-gracefully-when-the-ecb-data-portal-is-unreachable-0-1-3"></a></h3>
+<p>Every <code>\donttest{}</code> example that reaches the ECB Data Portal is wrapped in <code><a href="https://rdrr.io/r/base/try.html" class="external-link">try()</a></code>. 14 blocks were affected. CRAN runs these in its additional-issues donttest check, on build machines the upstream host routinely refuses or rate-limits, and an example that could not reach it was an ERROR rather than a printed condition. The <code>options(op)</code> cache restore stays outside the <code><a href="https://rdrr.io/r/base/try.html" class="external-link">try()</a></code> so it runs either way.</p>
+<p>This is the CRAN Repository Policy requirement that a package using an internet resource fail gracefully when the resource is unavailable. It is the rule obr was archived under on 2026-08-22.</p>
 <ul><li>
 <code>ecb_fetch()</code> now checks for empty API responses and throws an informative error instead of returning a malformed data frame.</li>
 <li>
@@ -41,6 +61,7 @@
 <li>
 <code><a href="../reference/ecb_hicp.html">ecb_hicp()</a></code> now validates the <code>country</code> argument is a non-empty character vector.</li>
 </ul></div>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.1.2" id="readecb-012">readecb 0.1.2<a class="anchor" aria-label="anchor" href="#readecb-012"></a></h2><p class="text-muted">CRAN release: 2026-03-19</p>
 <ul><li>Removed non-existent pkgdown URL from DESCRIPTION.</li>

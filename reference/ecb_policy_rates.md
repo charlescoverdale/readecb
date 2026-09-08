@@ -51,9 +51,11 @@ Other interest rates:
 ``` r
 # \donttest{
 op <- options(readecb.cache_dir = tempdir())
-ecb_policy_rates(from = "2022-01")
+try({
+  ecb_policy_rates(from = "2022-01")
+})
 #> ℹ Fetching ECB policy rates
-#> ✔ Fetching ECB policy rates [1.4s]
+#> ✔ Fetching ECB policy rates [617ms]
 #> 
 #>            date                  rate value
 #> 1    2022-01-01 Deposit facility rate -0.50
@@ -5120,6 +5122,78 @@ ecb_policy_rates(from = "2022-01")
 #> 5062 2026-08-15 Deposit facility rate  2.25
 #> 5063 2026-08-15 Main refinancing rate  2.40
 #> 5064 2026-08-15 Marginal lending rate  2.65
+#> 5065 2026-08-16 Deposit facility rate  2.25
+#> 5066 2026-08-16 Main refinancing rate  2.40
+#> 5067 2026-08-16 Marginal lending rate  2.65
+#> 5068 2026-08-17 Deposit facility rate  2.25
+#> 5069 2026-08-17 Main refinancing rate  2.40
+#> 5070 2026-08-17 Marginal lending rate  2.65
+#> 5071 2026-08-18 Deposit facility rate  2.25
+#> 5072 2026-08-18 Main refinancing rate  2.40
+#> 5073 2026-08-18 Marginal lending rate  2.65
+#> 5074 2026-08-19 Deposit facility rate  2.25
+#> 5075 2026-08-19 Main refinancing rate  2.40
+#> 5076 2026-08-19 Marginal lending rate  2.65
+#> 5077 2026-08-20 Deposit facility rate  2.25
+#> 5078 2026-08-20 Main refinancing rate  2.40
+#> 5079 2026-08-20 Marginal lending rate  2.65
+#> 5080 2026-08-21 Deposit facility rate  2.25
+#> 5081 2026-08-21 Main refinancing rate  2.40
+#> 5082 2026-08-21 Marginal lending rate  2.65
+#> 5083 2026-08-22 Deposit facility rate  2.25
+#> 5084 2026-08-22 Main refinancing rate  2.40
+#> 5085 2026-08-22 Marginal lending rate  2.65
+#> 5086 2026-08-23 Deposit facility rate  2.25
+#> 5087 2026-08-23 Main refinancing rate  2.40
+#> 5088 2026-08-23 Marginal lending rate  2.65
+#> 5089 2026-08-24 Deposit facility rate  2.25
+#> 5090 2026-08-24 Main refinancing rate  2.40
+#> 5091 2026-08-24 Marginal lending rate  2.65
+#> 5092 2026-08-25 Deposit facility rate  2.25
+#> 5093 2026-08-25 Main refinancing rate  2.40
+#> 5094 2026-08-25 Marginal lending rate  2.65
+#> 5095 2026-08-26 Deposit facility rate  2.25
+#> 5096 2026-08-26 Main refinancing rate  2.40
+#> 5097 2026-08-26 Marginal lending rate  2.65
+#> 5098 2026-08-27 Deposit facility rate  2.25
+#> 5099 2026-08-27 Main refinancing rate  2.40
+#> 5100 2026-08-27 Marginal lending rate  2.65
+#> 5101 2026-08-28 Deposit facility rate  2.25
+#> 5102 2026-08-28 Main refinancing rate  2.40
+#> 5103 2026-08-28 Marginal lending rate  2.65
+#> 5104 2026-08-29 Deposit facility rate  2.25
+#> 5105 2026-08-29 Main refinancing rate  2.40
+#> 5106 2026-08-29 Marginal lending rate  2.65
+#> 5107 2026-08-30 Deposit facility rate  2.25
+#> 5108 2026-08-30 Main refinancing rate  2.40
+#> 5109 2026-08-30 Marginal lending rate  2.65
+#> 5110 2026-08-31 Deposit facility rate  2.25
+#> 5111 2026-08-31 Main refinancing rate  2.40
+#> 5112 2026-08-31 Marginal lending rate  2.65
+#> 5113 2026-09-01 Deposit facility rate  2.25
+#> 5114 2026-09-01 Main refinancing rate  2.40
+#> 5115 2026-09-01 Marginal lending rate  2.65
+#> 5116 2026-09-02 Deposit facility rate  2.25
+#> 5117 2026-09-02 Main refinancing rate  2.40
+#> 5118 2026-09-02 Marginal lending rate  2.65
+#> 5119 2026-09-03 Deposit facility rate  2.25
+#> 5120 2026-09-03 Main refinancing rate  2.40
+#> 5121 2026-09-03 Marginal lending rate  2.65
+#> 5122 2026-09-04 Deposit facility rate  2.25
+#> 5123 2026-09-04 Main refinancing rate  2.40
+#> 5124 2026-09-04 Marginal lending rate  2.65
+#> 5125 2026-09-05 Deposit facility rate  2.25
+#> 5126 2026-09-05 Main refinancing rate  2.40
+#> 5127 2026-09-05 Marginal lending rate  2.65
+#> 5128 2026-09-06 Deposit facility rate  2.25
+#> 5129 2026-09-06 Main refinancing rate  2.40
+#> 5130 2026-09-06 Marginal lending rate  2.65
+#> 5131 2026-09-07 Deposit facility rate  2.25
+#> 5132 2026-09-07 Main refinancing rate  2.40
+#> 5133 2026-09-07 Marginal lending rate  2.65
+#> 5134 2026-09-08 Deposit facility rate  2.25
+#> 5135 2026-09-08 Main refinancing rate  2.40
+#> 5136 2026-09-08 Marginal lending rate  2.65
 options(op)
 # }
 ```
