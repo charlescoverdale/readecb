@@ -1,8 +1,8 @@
-# readecb — full API reference
+# readecb: full API reference
 
 > Provides clean, tidy access to statistical data published by the 'European Central Bank' ('ECB') via the 'ECB Data Portal' API.
 
-- Version: 0.1.3
+- Version: 0.1.4
 - Install: `install.packages("readecb")`
 - CRAN: https://CRAN.R-project.org/package=readecb
 - GitHub: https://github.com/charlescoverdale/readecb
@@ -53,9 +53,9 @@ ecb_estr(from = NULL, to = NULL, cache = TRUE)
 
 **Arguments**
 
-- `from` — Optional start date.
-- `to` — Optional end date.
-- `cache` — Logical. Use cached data if available (default `TRUE`).
+- `from`: Optional start date.
+- `to`: Optional end date.
+- `cache`: Logical. Use cached data if available (default `TRUE`).
 
 **Returns**
 
@@ -65,7 +65,9 @@ A data frame with columns: dateDate. valueNumeric. Rate in percent.
 
 ```r
 op <- options(readecb.cache_dir = tempdir())
-ecb_estr(from = "2024-01")
+try({
+  ecb_estr(from = "2024-01")
+})
 options(op)
 ```
 
@@ -85,10 +87,10 @@ ecb_euribor(tenor = "3M", from = NULL, to = NULL, cache = TRUE)
 
 **Arguments**
 
-- `tenor` — One or more of `"1M"` (1 month), `"3M"` (default), `"6M"`, or `"12M"`.
-- `from` — Optional start date.
-- `to` — Optional end date.
-- `cache` — Logical. Use cached data if available (default `TRUE`).
+- `tenor`: One or more of `"1M"` (1 month), `"3M"` (default), `"6M"`, or `"12M"`.
+- `from`: Optional start date.
+- `to`: Optional end date.
+- `cache`: Logical. Use cached data if available (default `TRUE`).
 
 **Returns**
 
@@ -98,8 +100,10 @@ A data frame with columns: dateDate. tenorCharacter. EURIBOR maturity. valueNume
 
 ```r
 op <- options(readecb.cache_dir = tempdir())
-ecb_euribor("3M", from = "2022-01")
-ecb_euribor(c("1M", "3M", "6M", "12M"), from = "2024-01")
+try({
+  ecb_euribor("3M", from = "2022-01")
+  ecb_euribor(c("1M", "3M", "6M", "12M"), from = "2024-01")
+})
 options(op)
 ```
 
@@ -125,11 +129,11 @@ ecb_exchange_rate(
 
 **Arguments**
 
-- `currency` — Character vector of ISO 4217 currency codes (e.g. `"USD"`, `"GBP"`). Use `list_exchange_rates()` to see available currencies.
-- `frequency` — One of `"monthly"` (default) or `"daily"`.
-- `from` — Optional start date.
-- `to` — Optional end date.
-- `cache` — Logical. Use cached data if available (default `TRUE`).
+- `currency`: Character vector of ISO 4217 currency codes (e.g. `"USD"`, `"GBP"`). Use `list_exchange_rates()` to see available currencies.
+- `frequency`: One of `"monthly"` (default) or `"daily"`.
+- `from`: Optional start date.
+- `to`: Optional end date.
+- `cache`: Logical. Use cached data if available (default `TRUE`).
 
 **Returns**
 
@@ -139,8 +143,10 @@ A data frame with columns: dateDate. currencyCharacter. ISO currency code. value
 
 ```r
 op <- options(readecb.cache_dir = tempdir())
-ecb_exchange_rate("USD", from = "2024-01")
-ecb_exchange_rate(c("USD", "GBP", "JPY"), from = "2024-01")
+try({
+  ecb_exchange_rate("USD", from = "2024-01")
+  ecb_exchange_rate(c("USD", "GBP", "JPY"), from = "2024-01")
+})
 options(op)
 ```
 
@@ -160,9 +166,9 @@ ecb_gdp(from = NULL, to = NULL, cache = TRUE)
 
 **Arguments**
 
-- `from` — Optional start date.
-- `to` — Optional end date.
-- `cache` — Logical. Use cached data if available (default `TRUE`).
+- `from`: Optional start date.
+- `to`: Optional end date.
+- `cache`: Logical. Use cached data if available (default `TRUE`).
 
 **Returns**
 
@@ -172,7 +178,9 @@ A data frame with columns: dateDate. First day of the quarter. valueNumeric. GDP
 
 ```r
 op <- options(readecb.cache_dir = tempdir())
-ecb_gdp(from = "2020")
+try({
+  ecb_gdp(from = "2020")
+})
 options(op)
 ```
 
@@ -192,11 +200,11 @@ ecb_get(dataflow, key, from = NULL, to = NULL, cache = TRUE)
 
 **Arguments**
 
-- `dataflow` — Character. The dataflow identifier (e.g. `"EXR"`, `"FM"`).
-- `key` — Character. The SDMX dimension key (e.g. `"M.USD.EUR.SP00.A"`).
-- `from` — Optional start date.
-- `to` — Optional end date.
-- `cache` — Logical. Use cached data if available (default `TRUE`).
+- `dataflow`: Character. The dataflow identifier (e.g. `"EXR"`, `"FM"`).
+- `key`: Character. The SDMX dimension key (e.g. `"M.USD.EUR.SP00.A"`).
+- `from`: Optional start date.
+- `to`: Optional end date.
+- `cache`: Logical. Use cached data if available (default `TRUE`).
 
 **Returns**
 
@@ -206,8 +214,10 @@ A data frame. Columns vary by dataflow but always include `TIME_PERIOD` and `OBS
 
 ```r
 op <- options(readecb.cache_dir = tempdir())
-# Fetch EUR/USD monthly exchange rate
-ecb_get("EXR", "M.USD.EUR.SP00.A", from = "2024-01")
+try({
+  # Fetch EUR/USD monthly exchange rate
+  ecb_get("EXR", "M.USD.EUR.SP00.A", from = "2024-01")
+})
 options(op)
 ```
 
@@ -227,9 +237,9 @@ ecb_government_debt(from = NULL, to = NULL, cache = TRUE)
 
 **Arguments**
 
-- `from` — Optional start date (year, e.g. `"2000"`).
-- `to` — Optional end date.
-- `cache` — Logical. Use cached data if available (default `TRUE`).
+- `from`: Optional start date (year, e.g. `"2000"`).
+- `to`: Optional end date.
+- `cache`: Logical. Use cached data if available (default `TRUE`).
 
 **Returns**
 
@@ -239,7 +249,9 @@ A data frame with columns: dateDate. 1 January of each year. valueNumeric. Gover
 
 ```r
 op <- options(readecb.cache_dir = tempdir())
-ecb_government_debt(from = "2000")
+try({
+  ecb_government_debt(from = "2000")
+})
 options(op)
 ```
 
@@ -265,11 +277,11 @@ ecb_hicp(
 
 **Arguments**
 
-- `country` — Character vector of country codes. Use `"U2"` for the euro area aggregate, or ISO 2-letter codes such as `"DE"` (Germany), `"FR"` (France), `"IT"` (Italy), `"ES"` (Spain).
-- `measure` — One of: `"annual_rate"` (default) -- year-on-year percentage change `"index"` -- index level (2015 = 100) `"monthly_rate"` -- month-on-month percentage change
-- `from` — Optional start date.
-- `to` — Optional end date.
-- `cache` — Logical. Use cached data if available (default `TRUE`).
+- `country`: Character vector of country codes. Use `"U2"` for the euro area aggregate, or ISO 2-letter codes such as `"DE"` (Germany), `"FR"` (France), `"IT"` (Italy), `"ES"` (Spain).
+- `measure`: One of: `"annual_rate"` (default) -- year-on-year percentage change `"index"` -- index level (2015 = 100) `"monthly_rate"` -- month-on-month percentage change
+- `from`: Optional start date.
+- `to`: Optional end date.
+- `cache`: Logical. Use cached data if available (default `TRUE`).
 
 **Returns**
 
@@ -279,8 +291,10 @@ A data frame with columns: dateDate. countryCharacter. Country or area code. val
 
 ```r
 op <- options(readecb.cache_dir = tempdir())
-ecb_hicp(from = "2020-01")
-ecb_hicp(c("DE", "FR", "IT"), from = "2023-01")
+try({
+  ecb_hicp(from = "2020-01")
+  ecb_hicp(c("DE", "FR", "IT"), from = "2023-01")
+})
 options(op)
 ```
 
@@ -300,10 +314,10 @@ ecb_lending_rates(country = "U2", from = NULL, to = NULL, cache = TRUE)
 
 **Arguments**
 
-- `country` — Character. Country code: `"U2"` for the euro area aggregate (default), or an ISO 2-letter code such as `"DE"`, `"FR"`, `"IT"`, `"ES"`.
-- `from` — Optional start date.
-- `to` — Optional end date.
-- `cache` — Logical. Use cached data if available (default `TRUE`).
+- `country`: Character. Country code: `"U2"` for the euro area aggregate (default), or an ISO 2-letter code such as `"DE"`, `"FR"`, `"IT"`, `"ES"`.
+- `from`: Optional start date.
+- `to`: Optional end date.
+- `cache`: Logical. Use cached data if available (default `TRUE`).
 
 **Returns**
 
@@ -313,7 +327,9 @@ A data frame with columns: dateDate. countryCharacter. Country or area code. val
 
 ```r
 op <- options(readecb.cache_dir = tempdir())
-ecb_lending_rates(from = "2015-01")
+try({
+  ecb_lending_rates(from = "2015-01")
+})
 options(op)
 ```
 
@@ -338,10 +354,10 @@ ecb_money_supply(
 
 **Arguments**
 
-- `aggregate` — One of `"M3"` (default), `"M2"`, or `"M1"`.
-- `from` — Optional start date.
-- `to` — Optional end date.
-- `cache` — Logical. Use cached data if available (default `TRUE`).
+- `aggregate`: One of `"M3"` (default), `"M2"`, or `"M1"`.
+- `from`: Optional start date.
+- `to`: Optional end date.
+- `cache`: Logical. Use cached data if available (default `TRUE`).
 
 **Returns**
 
@@ -351,7 +367,9 @@ A data frame with columns: dateDate. valueNumeric. Outstanding amount in million
 
 ```r
 op <- options(readecb.cache_dir = tempdir())
-ecb_money_supply("M3", from = "2020-01")
+try({
+  ecb_money_supply("M3", from = "2020-01")
+})
 options(op)
 ```
 
@@ -371,10 +389,10 @@ ecb_mortgage_rates(country = "U2", from = NULL, to = NULL, cache = TRUE)
 
 **Arguments**
 
-- `country` — Character. Country code: `"U2"` for the euro area aggregate (default), or an ISO 2-letter code such as `"DE"`, `"FR"`, `"IT"`, `"ES"`.
-- `from` — Optional start date.
-- `to` — Optional end date.
-- `cache` — Logical. Use cached data if available (default `TRUE`).
+- `country`: Character. Country code: `"U2"` for the euro area aggregate (default), or an ISO 2-letter code such as `"DE"`, `"FR"`, `"IT"`, `"ES"`.
+- `from`: Optional start date.
+- `to`: Optional end date.
+- `cache`: Logical. Use cached data if available (default `TRUE`).
 
 **Returns**
 
@@ -384,7 +402,9 @@ A data frame with columns: dateDate. countryCharacter. Country or area code. val
 
 ```r
 op <- options(readecb.cache_dir = tempdir())
-ecb_mortgage_rates(from = "2015-01")
+try({
+  ecb_mortgage_rates(from = "2015-01")
+})
 options(op)
 ```
 
@@ -404,9 +424,9 @@ ecb_policy_rates(from = NULL, to = NULL, cache = TRUE)
 
 **Arguments**
 
-- `from` — Optional start date (e.g. `"2020"` or `"2020-01"`).
-- `to` — Optional end date.
-- `cache` — Logical. Use cached data if available (default `TRUE`).
+- `from`: Optional start date (e.g. `"2020"` or `"2020-01"`).
+- `to`: Optional end date.
+- `cache`: Logical. Use cached data if available (default `TRUE`).
 
 **Returns**
 
@@ -416,7 +436,9 @@ A data frame with columns: dateDate. rateCharacter. One of `"Main refinancing ra
 
 ```r
 op <- options(readecb.cache_dir = tempdir())
-ecb_policy_rates(from = "2022-01")
+try({
+  ecb_policy_rates(from = "2022-01")
+})
 options(op)
 ```
 
@@ -436,9 +458,9 @@ ecb_unemployment(from = NULL, to = NULL, cache = TRUE)
 
 **Arguments**
 
-- `from` — Optional start date.
-- `to` — Optional end date.
-- `cache` — Logical. Use cached data if available (default `TRUE`).
+- `from`: Optional start date.
+- `to`: Optional end date.
+- `cache`: Logical. Use cached data if available (default `TRUE`).
 
 **Returns**
 
@@ -448,7 +470,9 @@ A data frame with columns: dateDate. valueNumeric. Unemployment rate as a percen
 
 ```r
 op <- options(readecb.cache_dir = tempdir())
-ecb_unemployment(from = "2020-01")
+try({
+  ecb_unemployment(from = "2020-01")
+})
 options(op)
 ```
 
@@ -468,10 +492,10 @@ ecb_yield_curve(tenor = "10Y", from = NULL, to = NULL, cache = TRUE)
 
 **Arguments**
 
-- `tenor` — Character vector of tenors. Common values: `"3M"`, `"6M"`, `"1Y"`, `"2Y"`, `"3Y"`, `"5Y"`, `"7Y"`, `"10Y"`, `"15Y"`, `"20Y"`, `"30Y"`. Default is `"10Y"`.
-- `from` — Optional start date.
-- `to` — Optional end date.
-- `cache` — Logical. Use cached data if available (default `TRUE`).
+- `tenor`: Character vector of tenors. Common values: `"3M"`, `"6M"`, `"1Y"`, `"2Y"`, `"3Y"`, `"5Y"`, `"7Y"`, `"10Y"`, `"15Y"`, `"20Y"`, `"30Y"`. Default is `"10Y"`.
+- `from`: Optional start date.
+- `to`: Optional end date.
+- `cache`: Logical. Use cached data if available (default `TRUE`).
 
 **Returns**
 
@@ -481,8 +505,10 @@ A data frame with columns: dateDate. tenorCharacter. Bond maturity. valueNumeric
 
 ```r
 op <- options(readecb.cache_dir = tempdir())
-ecb_yield_curve("10Y", from = "2023-01")
-ecb_yield_curve(c("2Y", "10Y"), from = "2022-01")
+try({
+  ecb_yield_curve("10Y", from = "2023-01")
+  ecb_yield_curve(c("2Y", "10Y"), from = "2022-01")
+})
 options(op)
 ```
 
@@ -502,7 +528,7 @@ list_ecb_dataflows(cache = TRUE)
 
 **Arguments**
 
-- `cache` — Logical. Use cached data if available (default `TRUE`).
+- `cache`: Logical. Use cached data if available (default `TRUE`).
 
 **Returns**
 
@@ -512,7 +538,9 @@ A data frame with columns: dataflow_idCharacter. The dataflow identifier. nameCh
 
 ```r
 op <- options(readecb.cache_dir = tempdir())
-list_ecb_dataflows()
+try({
+  list_ecb_dataflows()
+})
 options(op)
 ```
 
