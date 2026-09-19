@@ -59,7 +59,7 @@ try({
   ecb_lending_rates(from = "2015-01")
 })
 #> ℹ Fetching lending rate data
-#> ✔ Fetching lending rate data [159ms]
+#> ✔ Fetching lending rate data [1.5s]
 #> 
 #>           date country value
 #> 1   2015-01-01      U2  5.24

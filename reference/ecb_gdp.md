@@ -50,7 +50,7 @@ try({
   ecb_gdp(from = "2020")
 })
 #> ℹ Fetching euro area GDP
-#> ✔ Fetching euro area GDP [166ms]
+#> ✔ Fetching euro area GDP [1.3s]
 #> 
 #>          date   value
 #> 1  2020-01-01 2996366

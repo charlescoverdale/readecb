@@ -71,10 +71,10 @@ try({
   ecb_exchange_rate(c("USD", "GBP", "JPY"), from = "2024-01")
 })
 #> ℹ Fetching ECB exchange rates
-#> ✔ Fetching ECB exchange rates [417ms]
+#> ✔ Fetching ECB exchange rates [976ms]
 #> 
 #> ℹ Fetching ECB exchange rates
-#> ✔ Fetching ECB exchange rates [237ms]
+#> ✔ Fetching ECB exchange rates [1.1s]
 #> 
 #>          date currency       value
 #> 1  2024-01-01      GBP   0.8587309

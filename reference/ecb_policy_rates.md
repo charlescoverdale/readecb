@@ -55,7 +55,7 @@ try({
   ecb_policy_rates(from = "2022-01")
 })
 #> ℹ Fetching ECB policy rates
-#> ✔ Fetching ECB policy rates [617ms]
+#> ✔ Fetching ECB policy rates [2.2s]
 #> 
 #>            date                  rate value
 #> 1    2022-01-01 Deposit facility rate -0.50
@@ -5194,6 +5194,39 @@ try({
 #> 5134 2026-09-08 Deposit facility rate  2.25
 #> 5135 2026-09-08 Main refinancing rate  2.40
 #> 5136 2026-09-08 Marginal lending rate  2.65
+#> 5137 2026-09-09 Deposit facility rate  2.25
+#> 5138 2026-09-09 Main refinancing rate  2.40
+#> 5139 2026-09-09 Marginal lending rate  2.65
+#> 5140 2026-09-10 Deposit facility rate  2.25
+#> 5141 2026-09-10 Main refinancing rate  2.40
+#> 5142 2026-09-10 Marginal lending rate  2.65
+#> 5143 2026-09-11 Deposit facility rate  2.25
+#> 5144 2026-09-11 Main refinancing rate  2.40
+#> 5145 2026-09-11 Marginal lending rate  2.65
+#> 5146 2026-09-12 Deposit facility rate  2.25
+#> 5147 2026-09-12 Main refinancing rate  2.40
+#> 5148 2026-09-12 Marginal lending rate  2.65
+#> 5149 2026-09-13 Deposit facility rate  2.25
+#> 5150 2026-09-13 Main refinancing rate  2.40
+#> 5151 2026-09-13 Marginal lending rate  2.65
+#> 5152 2026-09-14 Deposit facility rate  2.25
+#> 5153 2026-09-14 Main refinancing rate  2.40
+#> 5154 2026-09-14 Marginal lending rate  2.65
+#> 5155 2026-09-15 Deposit facility rate  2.25
+#> 5156 2026-09-15 Main refinancing rate  2.40
+#> 5157 2026-09-15 Marginal lending rate  2.65
+#> 5158 2026-09-16 Deposit facility rate  2.50
+#> 5159 2026-09-16 Main refinancing rate  2.65
+#> 5160 2026-09-16 Marginal lending rate  2.90
+#> 5161 2026-09-17 Deposit facility rate  2.50
+#> 5162 2026-09-17 Main refinancing rate  2.65
+#> 5163 2026-09-17 Marginal lending rate  2.90
+#> 5164 2026-09-18 Deposit facility rate  2.50
+#> 5165 2026-09-18 Main refinancing rate  2.65
+#> 5166 2026-09-18 Marginal lending rate  2.90
+#> 5167 2026-09-19 Deposit facility rate  2.50
+#> 5168 2026-09-19 Main refinancing rate  2.65
+#> 5169 2026-09-19 Marginal lending rate  2.90
 options(op)
 # }
 ```

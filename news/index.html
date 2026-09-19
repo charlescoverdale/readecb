@@ -33,7 +33,7 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="0.1.4" id="readecb-014">readecb 0.1.4<a class="anchor" aria-label="anchor" href="#readecb-014"></a></h2>
+<h2 class="pkg-version" data-toc-text="0.1.4" id="readecb-014">readecb 0.1.4<a class="anchor" aria-label="anchor" href="#readecb-014"></a></h2><p class="text-muted">CRAN release: 2026-09-09</p>
 <div class="section level3">
 <h3 id="a-rate-limited-or-unavailable-portal-no-longer-reports-as-a-bad-query-0-1-4">A rate-limited or unavailable portal no longer reports as a bad query<a class="anchor" aria-label="anchor" href="#a-rate-limited-or-unavailable-portal-no-longer-reports-as-a-bad-query-0-1-4"></a></h3>
 <p><code>ecb_fetch()</code> aborted with “Invalid query. Check the dataflow and key” whenever the response body was HTML. That was never the right diagnosis: an unknown dataflow or series key returns HTTP 404 with <code>application/problem+json</code>, which is handled separately. HTML means the request never reached the data service at all, which in practice is the portal’s rate limiter, a gateway timeout, or maintenance.</p>

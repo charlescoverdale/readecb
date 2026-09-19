@@ -50,7 +50,7 @@ try({
   ecb_unemployment(from = "2020-01")
 })
 #> ℹ Fetching euro area unemployment rate
-#> ✔ Fetching euro area unemployment rate [184ms]
+#> ✔ Fetching euro area unemployment rate [3.1s]
 #> 
 #>          date value
 #> 1  2020-01-01   7.5

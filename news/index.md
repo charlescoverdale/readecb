@@ -2,6 +2,8 @@
 
 ## readecb 0.1.4
 
+CRAN release: 2026-09-09
+
 ### A rate-limited or unavailable portal no longer reports as a bad query
 
 `ecb_fetch()` aborted with “Invalid query. Check the dataflow and key”

@@ -54,7 +54,7 @@ try({
   ecb_get("EXR", "M.USD.EUR.SP00.A", from = "2024-01")
 })
 #> ℹ Fetching EXR data
-#> ✔ Fetching EXR data [8ms]
+#> ✔ Fetching EXR data [11ms]
 #> 
 #>                     KEY FREQ CURRENCY CURRENCY_DENOM EXR_TYPE EXR_SUFFIX
 #> 1  EXR.M.USD.EUR.SP00.A    M      USD            EUR     SP00          A

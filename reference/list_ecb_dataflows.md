@@ -44,7 +44,7 @@ try({
   list_ecb_dataflows()
 })
 #> ℹ Fetching ECB dataflow list
-#> ✔ Fetching ECB dataflow list [210ms]
+#> ✔ Fetching ECB dataflow list [435ms]
 #> 
 #>     dataflow_id name
 #> 1           AGR <NA>

@@ -71,10 +71,10 @@ try({
   ecb_hicp(c("DE", "FR", "IT"), from = "2023-01")
 })
 #> ℹ Fetching HICP data
-#> ✔ Fetching HICP data [160ms]
+#> ✔ Fetching HICP data [1.3s]
 #> 
 #> ℹ Fetching HICP data
-#> ✔ Fetching HICP data [156ms]
+#> ✔ Fetching HICP data [632ms]
 #> 
 #>           date country value
 #> 1   2023-01-01      DE   9.2
