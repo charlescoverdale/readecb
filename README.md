@@ -182,6 +182,7 @@ To force a fresh download, pass `cache = FALSE`. To clear the entire cache, call
 | [`mpshock`](https://github.com/charlescoverdale/mpshock) | Monetary policy shock series |
 | [`inflationkit`](https://github.com/charlescoverdale/inflationkit) | Inflation analysis (decomposition, persistence, Phillips curve) |
 | [`nowcast`](https://github.com/charlescoverdale/nowcast) | Economic nowcasting (bridge, MIDAS, DFM) |
+| [`readimf`](https://github.com/charlescoverdale/readimf) | IMF data (IFS, WEO, COFER, Direction of Trade) |
 
 ---
 
