@@ -26,7 +26,7 @@
 ecb_unemployment <- function(from = NULL, to = NULL, cache = TRUE) {
   cli::cli_progress_step("Fetching euro area unemployment rate")
   df <- ecb_fetch(
-    "LFSI", "M.I9.S.UNEHRT.TOTAL0.15_74.T",
+    "LFSI", "M.I10.S.UNEHRT.TOTAL0.15_74.T",
     from = from, to = to, cache = cache
   )
   cli::cli_progress_done()

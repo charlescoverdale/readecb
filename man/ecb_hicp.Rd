@@ -20,8 +20,10 @@ area aggregate, or ISO 2-letter codes such as \code{"DE"} (Germany), \code{"FR"}
 \item{measure}{One of:
 \itemize{
 \item \code{"annual_rate"} (default) -- year-on-year percentage change
-\item \code{"index"} -- index level (2015 = 100)
-\item \code{"monthly_rate"} -- month-on-month percentage change
+\item \code{"index"} -- index level (2025 = 100)
+\item \code{"monthly_rate"} -- month-on-month percentage change. The ECB does
+not publish this series, so it is computed from the index; the first
+month of the requested range is therefore dropped.
 }}
 
 \item{from}{Optional start date.}
@@ -40,7 +42,14 @@ A data frame with columns:
 }
 \description{
 Returns HICP inflation data for one or more euro area countries or country
-groups. The default is the euro area aggregate (\code{"U2"}).
+groups. The default is the euro area aggregate (\code{"U2"}, the euro area in
+its changing composition: 21 members since Bulgaria joined on 1 January
+2026).
+}
+\details{
+Data come from the ECB's \code{HICP} dataflow, which replaced the \code{ICP}
+dataflow when Eurostat moved the HICP to the ECOICOP 2 classification in
+2026. The \code{ICP} series stop at December 2025.
 }
 \examples{
 \donttest{
@@ -48,6 +57,7 @@ op <- options(readecb.cache_dir = tempdir())
 try({
   ecb_hicp(from = "2020-01")
   ecb_hicp(c("DE", "FR", "IT"), from = "2023-01")
+  ecb_hicp(measure = "monthly_rate", from = "2025-01")
 })
 options(op)
 }

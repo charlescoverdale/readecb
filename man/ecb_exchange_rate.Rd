@@ -47,7 +47,7 @@ options(op)
 }
 }
 \seealso{
-Other exchange rates: 
-\code{\link{list_exchange_rates}()}
+Other exchange rates:
+\code{\link[=list_exchange_rates]{list_exchange_rates()}}
 }
 \concept{exchange rates}

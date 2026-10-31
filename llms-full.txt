@@ -2,7 +2,7 @@
 
 > Provides clean, tidy access to statistical data published by the 'European Central Bank' ('ECB') via the 'ECB Data Portal' API.
 
-- Version: 0.1.4
+- Version: 0.1.5
 - Install: `install.packages("readecb")`
 - CRAN: https://CRAN.R-project.org/package=readecb
 - GitHub: https://github.com/charlescoverdale/readecb

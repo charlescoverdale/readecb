@@ -21,7 +21,7 @@ reference exchange rates. No network call is made.
 list_exchange_rates()
 }
 \seealso{
-Other exchange rates: 
-\code{\link{ecb_exchange_rate}()}
+Other exchange rates:
+\code{\link[=ecb_exchange_rate]{ecb_exchange_rate()}}
 }
 \concept{exchange rates}

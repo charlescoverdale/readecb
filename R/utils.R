@@ -8,6 +8,27 @@ ecb_cache_dir <- function() {
   getOption("readecb.cache_dir", default = tools::R_user_dir("readecb", "cache"))
 }
 
+#' Cache lifetime in hours, respecting the readecb.cache_ttl option
+#'
+#' ECB series are revised and extended continually, so a cached response
+#' older than this is fetched again. The default is 24 hours.
+#' @noRd
+ecb_cache_ttl <- function() {
+  ttl <- getOption("readecb.cache_ttl", default = 24)
+  if (!is.numeric(ttl) || length(ttl) != 1L || is.na(ttl) || ttl < 0) {
+    cli::cli_abort("Option {.code readecb.cache_ttl} must be a single non-negative number of hours.")
+  }
+  ttl
+}
+
+#' TRUE if a cache file exists and is younger than the cache lifetime
+#' @noRd
+ecb_cache_fresh <- function(path) {
+  if (!file.exists(path)) return(FALSE)
+  age <- difftime(Sys.time(), file.info(path)$mtime, units = "hours")
+  as.numeric(age) < ecb_cache_ttl()
+}
+
 #' Fetch data from the ECB Data Portal API
 #'
 #' @param dataflow Character. The dataflow identifier (e.g. "EXR", "FM").
@@ -16,7 +37,7 @@ ecb_cache_dir <- function() {
 #'   "YYYY-MM-DD").
 #' @param to Optional end date (same format as `from`).
 #' @param cache Logical. If `TRUE` (the default), cache the downloaded file
-#'   locally.
+#'   locally and reuse it until it is older than `ecb_cache_ttl()` hours.
 #' @return A data frame with columns from the CSV response.
 #' @noRd
 ecb_fetch <- function(dataflow, key, from = NULL, to = NULL, cache = TRUE) {
@@ -30,7 +51,7 @@ ecb_fetch <- function(dataflow, key, from = NULL, to = NULL, cache = TRUE) {
   )
   cache_file <- file.path(cache_dir, paste0(cache_key, ".csv"))
 
-  if (cache && file.exists(cache_file)) {
+  if (cache && ecb_cache_fresh(cache_file)) {
     csv_text <- readLines(cache_file, warn = FALSE)
     csv_text <- paste(csv_text, collapse = "\n")
     df <- utils::read.csv(text = csv_text, stringsAsFactors = FALSE)

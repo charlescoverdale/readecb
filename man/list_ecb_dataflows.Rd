@@ -30,9 +30,9 @@ options(op)
 }
 }
 \seealso{
-Other data access: 
-\code{\link{clear_cache}()},
-\code{\link{ecb_get}()},
-\code{\link{ecb_yield_curve}()}
+Other data access:
+\code{\link[=clear_cache]{clear_cache()}},
+\code{\link[=ecb_get]{ecb_get()}},
+\code{\link[=ecb_yield_curve]{ecb_yield_curve()}}
 }
 \concept{data access}

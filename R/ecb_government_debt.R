@@ -27,7 +27,7 @@
 ecb_government_debt <- function(from = NULL, to = NULL, cache = TRUE) {
   cli::cli_progress_step("Fetching government debt-to-GDP ratio")
   df <- ecb_fetch(
-    "GFS", "A.N.I9.W0.S13.S1.C.L.LE.GD.T._Z.XDC_R_B1GQ._T.F.V.N._T",
+    "GFS", "A.N.I10.W0.S13.S1.C.L.LE.GD.T._Z.XDC_R_B1GQ._T.F.V.N._T",
     from = from, to = to, cache = cache
   )
   cli::cli_progress_done()

@@ -21,9 +21,9 @@ options(op)
 }
 }
 \seealso{
-Other data access: 
-\code{\link{ecb_get}()},
-\code{\link{ecb_yield_curve}()},
-\code{\link{list_ecb_dataflows}()}
+Other data access:
+\code{\link[=ecb_get]{ecb_get()}},
+\code{\link[=ecb_yield_curve]{ecb_yield_curve()}},
+\code{\link[=list_ecb_dataflows]{list_ecb_dataflows()}}
 }
 \concept{data access}

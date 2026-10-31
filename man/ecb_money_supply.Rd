@@ -41,8 +41,8 @@ options(op)
 }
 }
 \seealso{
-Other credit: 
-\code{\link{ecb_lending_rates}()},
-\code{\link{ecb_mortgage_rates}()}
+Other credit:
+\code{\link[=ecb_lending_rates]{ecb_lending_rates()}},
+\code{\link[=ecb_mortgage_rates]{ecb_mortgage_rates()}}
 }
 \concept{credit}

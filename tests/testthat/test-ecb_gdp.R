@@ -20,3 +20,13 @@ test_that("ecb_gdp values are plausible", {
 
   expect_true(all(df$value > 1000000))
 })
+
+test_that("ecb_gdp uses the current euro area composition", {
+  skip_on_cran()
+  skip_if_offline()
+
+  # I9 (euro area 20) stopped at 2026-Q1 after Bulgaria joined; I10 is
+  # current. A stale aggregate would trail by two quarters or more.
+  df <- expect_ecb(ecb_gdp(from = "2025", cache = FALSE))
+  expect_gt(max(df$date), Sys.Date() - 270)
+})

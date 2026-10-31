@@ -36,8 +36,8 @@ options(op)
 }
 }
 \seealso{
-Other interest rates: 
-\code{\link{ecb_estr}()},
-\code{\link{ecb_euribor}()}
+Other interest rates:
+\code{\link[=ecb_estr]{ecb_estr()}},
+\code{\link[=ecb_euribor]{ecb_euribor()}}
 }
 \concept{interest rates}

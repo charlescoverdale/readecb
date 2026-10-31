@@ -39,9 +39,9 @@ options(op)
 }
 }
 \seealso{
-Other data access: 
-\code{\link{clear_cache}()},
-\code{\link{ecb_get}()},
-\code{\link{list_ecb_dataflows}()}
+Other data access:
+\code{\link[=clear_cache]{clear_cache()}},
+\code{\link[=ecb_get]{ecb_get()}},
+\code{\link[=list_ecb_dataflows]{list_ecb_dataflows()}}
 }
 \concept{data access}

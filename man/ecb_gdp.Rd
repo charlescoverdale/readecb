@@ -34,8 +34,8 @@ options(op)
 }
 }
 \seealso{
-Other macro: 
-\code{\link{ecb_government_debt}()},
-\code{\link{ecb_unemployment}()}
+Other macro:
+\code{\link[=ecb_government_debt]{ecb_government_debt()}},
+\code{\link[=ecb_unemployment]{ecb_unemployment()}}
 }
 \concept{macro}

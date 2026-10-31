@@ -26,7 +26,7 @@
 ecb_gdp <- function(from = NULL, to = NULL, cache = TRUE) {
   cli::cli_progress_step("Fetching euro area GDP")
   df <- ecb_fetch(
-    "MNA", "Q.Y.I9.W2.S1.S1.B.B1GQ._Z._Z._Z.EUR.LR.N",
+    "MNA", "Q.Y.I10.W2.S1.S1.B.B1GQ._Z._Z._Z.EUR.LR.N",
     from = from, to = to, cache = cache
   )
   cli::cli_progress_done()
