@@ -261,7 +261,7 @@ options(op)
 
 **Harmonised Index of Consumer Prices (HICP)**
 
-Returns HICP inflation data for one or more euro area countries or country groups. The default is the euro area aggregate (`"U2"`).
+Returns HICP inflation data for one or more euro area countries or country groups. The default is the euro area aggregate (`"U2"`, the euro area in its changing composition: 21 members since Bulgaria joined on 1 January 2026).
 
 **Usage**
 
@@ -278,7 +278,7 @@ ecb_hicp(
 **Arguments**
 
 - `country`: Character vector of country codes. Use `"U2"` for the euro area aggregate, or ISO 2-letter codes such as `"DE"` (Germany), `"FR"` (France), `"IT"` (Italy), `"ES"` (Spain).
-- `measure`: One of: `"annual_rate"` (default) -- year-on-year percentage change `"index"` -- index level (2015 = 100) `"monthly_rate"` -- month-on-month percentage change
+- `measure`: One of: `"annual_rate"` (default) -- year-on-year percentage change `"index"` -- index level (2025 = 100) `"monthly_rate"` -- month-on-month percentage change. The ECB does not publish this series, so it is computed from the index; the first month of the requested range is therefore dropped.
 - `from`: Optional start date.
 - `to`: Optional end date.
 - `cache`: Logical. Use cached data if available (default `TRUE`).
@@ -294,6 +294,7 @@ op <- options(readecb.cache_dir = tempdir())
 try({
   ecb_hicp(from = "2020-01")
   ecb_hicp(c("DE", "FR", "IT"), from = "2023-01")
+  ecb_hicp(measure = "monthly_rate", from = "2025-01")
 })
 options(op)
 ```
