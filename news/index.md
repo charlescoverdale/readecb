@@ -1,5 +1,53 @@
 # Changelog
 
+## readecb 0.1.5
+
+Data-correctness release. Bulgaria joined the euro on 1 January 2026,
+and the ECB moved several euro area series to new codes. Three functions
+kept returning data, so nothing failed, but the data stopped updating.
+
+### HICP moved to a new dataflow
+
+When Eurostat moved the HICP to the ECOICOP 2 classification, the ECB
+published it in a new `HICP` dataflow (data provider `4D0`) and froze
+the old `ICP` dataflow at December 2025.
+[`ecb_hicp()`](https://charlescoverdale.github.io/readecb/reference/ecb_hicp.md)
+therefore reported euro area inflation of 1.9% (December 2025) as the
+latest figure when it was 3.8% (September 2026). It now reads the `HICP`
+dataflow. Index levels are on the new base, 2025 = 100.
+
+`measure = "monthly_rate"` never returned data: the ECB publishes no
+month-on-month HICP series in either dataflow, so the request was a 404.
+It is now computed from the index, within each country, and is `NA`
+across a gap in the index rather than spanning two months.
+
+### Euro area aggregates use the 21-member composition
+
+[`ecb_gdp()`](https://charlescoverdale.github.io/readecb/reference/ecb_gdp.md),
+[`ecb_government_debt()`](https://charlescoverdale.github.io/readecb/reference/ecb_government_debt.md)
+and
+[`ecb_unemployment()`](https://charlescoverdale.github.io/readecb/reference/ecb_unemployment.md)
+requested the euro area 20 aggregate (`I9`), which the ECB stopped
+extending after Bulgaria’s accession:
+[`ecb_gdp()`](https://charlescoverdale.github.io/readecb/reference/ecb_gdp.md)
+ended at 2026 Q1 while Q2 and Q3 were published. They now request the
+current composition (`I10`), which is back-calculated over the full
+history.
+
+### Cached data now expires
+
+The cache never expired: once a series had been downloaded, the same
+call returned that copy indefinitely, missing every later release and
+revision. Cached responses, and the dataflow list behind
+[`list_ecb_dataflows()`](https://charlescoverdale.github.io/readecb/reference/list_ecb_dataflows.md),
+are now re-fetched after 24 hours. Set
+`options(readecb.cache_ttl = <hours>)` to change this.
+
+### Tests
+
+Live tests check that the euro area HICP and GDP series are recent, so a
+series that silently stops updating fails the suite rather than passing.
+
 ## readecb 0.1.4
 
 CRAN release: 2026-09-09

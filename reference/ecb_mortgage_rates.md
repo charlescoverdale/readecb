@@ -59,7 +59,7 @@ try({
   ecb_mortgage_rates(from = "2015-01")
 })
 #> ℹ Fetching mortgage rate data
-#> ✔ Fetching mortgage rate data [2.1s]
+#> ✔ Fetching mortgage rate data [173ms]
 #> 
 #>           date country value
 #> 1   2015-01-01      U2  2.40
@@ -201,6 +201,7 @@ try({
 #> 137 2026-05-01      U2  3.48
 #> 138 2026-06-01      U2  3.51
 #> 139 2026-07-01      U2  3.54
+#> 140 2026-08-01      U2  3.60
 options(op)
 # }
 ```

@@ -54,7 +54,7 @@ try({
   ecb_get("EXR", "M.USD.EUR.SP00.A", from = "2024-01")
 })
 #> ℹ Fetching EXR data
-#> ✔ Fetching EXR data [11ms]
+#> ✔ Fetching EXR data [10ms]
 #> 
 #>                     KEY FREQ CURRENCY CURRENCY_DENOM EXR_TYPE EXR_SUFFIX
 #> 1  EXR.M.USD.EUR.SP00.A    M      USD            EUR     SP00          A
@@ -89,6 +89,8 @@ try({
 #> 30 EXR.M.USD.EUR.SP00.A    M      USD            EUR     SP00          A
 #> 31 EXR.M.USD.EUR.SP00.A    M      USD            EUR     SP00          A
 #> 32 EXR.M.USD.EUR.SP00.A    M      USD            EUR     SP00          A
+#> 33 EXR.M.USD.EUR.SP00.A    M      USD            EUR     SP00          A
+#> 34 EXR.M.USD.EUR.SP00.A    M      USD            EUR     SP00          A
 #>    TIME_PERIOD OBS_VALUE
 #> 1   2024-01-01  1.090514
 #> 2   2024-02-01  1.079471
@@ -122,6 +124,8 @@ try({
 #> 30  2026-06-01  1.151800
 #> 31  2026-07-01  1.141748
 #> 32  2026-08-01  1.159310
+#> 33  2026-09-01  1.151323
+#> 34  2026-10-01  1.120159
 options(op)
 # }
 ```

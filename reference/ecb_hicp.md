@@ -1,7 +1,9 @@
 # Harmonised Index of Consumer Prices (HICP)
 
 Returns HICP inflation data for one or more euro area countries or
-country groups. The default is the euro area aggregate (`"U2"`).
+country groups. The default is the euro area aggregate (`"U2"`, the euro
+area in its changing composition: 21 members since Bulgaria joined on 1
+January 2026).
 
 ## Usage
 
@@ -29,9 +31,11 @@ ecb_hicp(
 
   - `"annual_rate"` (default) – year-on-year percentage change
 
-  - `"index"` – index level (2015 = 100)
+  - `"index"` – index level (2025 = 100)
 
-  - `"monthly_rate"` – month-on-month percentage change
+  - `"monthly_rate"` – month-on-month percentage change. The ECB does
+    not publish this series, so it is computed from the index; the first
+    month of the requested range is therefore dropped.
 
 - from:
 
@@ -61,6 +65,12 @@ A data frame with columns:
 
   Numeric. Inflation rate or index level.
 
+## Details
+
+Data come from the ECB's `HICP` dataflow, which replaced the `ICP`
+dataflow when Eurostat moved the HICP to the ECOICOP 2 classification in
+2026. The `ICP` series stop at December 2025.
+
 ## Examples
 
 ``` r
@@ -69,122 +79,38 @@ op <- options(readecb.cache_dir = tempdir())
 try({
   ecb_hicp(from = "2020-01")
   ecb_hicp(c("DE", "FR", "IT"), from = "2023-01")
+  ecb_hicp(measure = "monthly_rate", from = "2025-01")
 })
 #> ℹ Fetching HICP data
-#> ✔ Fetching HICP data [1.3s]
+#> ✔ Fetching HICP data [161ms]
 #> 
 #> ℹ Fetching HICP data
-#> ✔ Fetching HICP data [632ms]
+#> ✔ Fetching HICP data [190ms]
 #> 
-#>           date country value
-#> 1   2023-01-01      DE   9.2
-#> 2   2023-02-01      DE   9.3
-#> 3   2023-03-01      DE   7.8
-#> 4   2023-04-01      DE   7.6
-#> 5   2023-05-01      DE   6.3
-#> 6   2023-06-01      DE   6.8
-#> 7   2023-07-01      DE   6.5
-#> 8   2023-08-01      DE   6.4
-#> 9   2023-09-01      DE   4.3
-#> 10  2023-10-01      DE   3.0
-#> 11  2023-11-01      DE   2.3
-#> 12  2023-12-01      DE   3.8
-#> 13  2024-01-01      DE   3.1
-#> 14  2024-02-01      DE   2.7
-#> 15  2024-03-01      DE   2.3
-#> 16  2024-04-01      DE   2.4
-#> 17  2024-05-01      DE   2.8
-#> 18  2024-06-01      DE   2.5
-#> 19  2024-07-01      DE   2.6
-#> 20  2024-08-01      DE   2.0
-#> 21  2024-09-01      DE   1.8
-#> 22  2024-10-01      DE   2.4
-#> 23  2024-11-01      DE   2.4
-#> 24  2024-12-01      DE   2.8
-#> 25  2025-01-01      DE   2.8
-#> 26  2025-02-01      DE   2.6
-#> 27  2025-03-01      DE   2.3
-#> 28  2025-04-01      DE   2.2
-#> 29  2025-05-01      DE   2.1
-#> 30  2025-06-01      DE   2.0
-#> 31  2025-07-01      DE   1.8
-#> 32  2025-08-01      DE   2.1
-#> 33  2025-09-01      DE   2.4
-#> 34  2025-10-01      DE   2.3
-#> 35  2025-11-01      DE   2.6
-#> 36  2025-12-01      DE   2.0
-#> 37  2023-01-01      FR   7.0
-#> 38  2023-02-01      FR   7.3
-#> 39  2023-03-01      FR   6.7
-#> 40  2023-04-01      FR   6.9
-#> 41  2023-05-01      FR   6.0
-#> 42  2023-06-01      FR   5.3
-#> 43  2023-07-01      FR   5.1
-#> 44  2023-08-01      FR   5.7
-#> 45  2023-09-01      FR   5.7
-#> 46  2023-10-01      FR   4.5
-#> 47  2023-11-01      FR   3.9
-#> 48  2023-12-01      FR   4.1
-#> 49  2024-01-01      FR   3.4
-#> 50  2024-02-01      FR   3.2
-#> 51  2024-03-01      FR   2.4
-#> 52  2024-04-01      FR   2.4
-#> 53  2024-05-01      FR   2.6
-#> 54  2024-06-01      FR   2.5
-#> 55  2024-07-01      FR   2.7
-#> 56  2024-08-01      FR   2.2
-#> 57  2024-09-01      FR   1.4
-#> 58  2024-10-01      FR   1.6
-#> 59  2024-11-01      FR   1.7
-#> 60  2024-12-01      FR   1.8
-#> 61  2025-01-01      FR   1.8
-#> 62  2025-02-01      FR   0.9
-#> 63  2025-03-01      FR   0.9
-#> 64  2025-04-01      FR   0.9
-#> 65  2025-05-01      FR   0.6
-#> 66  2025-06-01      FR   0.9
-#> 67  2025-07-01      FR   0.9
-#> 68  2025-08-01      FR   0.8
-#> 69  2025-09-01      FR   1.1
-#> 70  2025-10-01      FR   0.8
-#> 71  2025-11-01      FR   0.8
-#> 72  2025-12-01      FR   0.7
-#> 73  2023-01-01      IT  10.7
-#> 74  2023-02-01      IT   9.8
-#> 75  2023-03-01      IT   8.1
-#> 76  2023-04-01      IT   8.6
-#> 77  2023-05-01      IT   8.0
-#> 78  2023-06-01      IT   6.7
-#> 79  2023-07-01      IT   6.3
-#> 80  2023-08-01      IT   5.5
-#> 81  2023-09-01      IT   5.6
-#> 82  2023-10-01      IT   1.8
-#> 83  2023-11-01      IT   0.6
-#> 84  2023-12-01      IT   0.5
-#> 85  2024-01-01      IT   0.9
-#> 86  2024-02-01      IT   0.8
-#> 87  2024-03-01      IT   1.2
-#> 88  2024-04-01      IT   0.9
-#> 89  2024-05-01      IT   0.8
-#> 90  2024-06-01      IT   0.9
-#> 91  2024-07-01      IT   1.6
-#> 92  2024-08-01      IT   1.2
-#> 93  2024-09-01      IT   0.7
-#> 94  2024-10-01      IT   1.0
-#> 95  2024-11-01      IT   1.5
-#> 96  2024-12-01      IT   1.4
-#> 97  2025-01-01      IT   1.7
-#> 98  2025-02-01      IT   1.7
-#> 99  2025-03-01      IT   2.1
-#> 100 2025-04-01      IT   2.0
-#> 101 2025-05-01      IT   1.7
-#> 102 2025-06-01      IT   1.8
-#> 103 2025-07-01      IT   1.7
-#> 104 2025-08-01      IT   1.6
-#> 105 2025-09-01      IT   1.8
-#> 106 2025-10-01      IT   1.3
-#> 107 2025-11-01      IT   1.1
-#> 108 2025-12-01      IT   1.2
+#> ℹ Fetching HICP data
+#> ✔ Fetching HICP data [174ms]
+#> 
+#>          date country value
+#> 1  2025-02-01      U2   0.4
+#> 2  2025-03-01      U2   0.6
+#> 3  2025-04-01      U2   0.6
+#> 4  2025-05-01      U2   0.0
+#> 5  2025-06-01      U2   0.3
+#> 6  2025-07-01      U2   0.0
+#> 7  2025-08-01      U2   0.1
+#> 8  2025-09-01      U2   0.1
+#> 9  2025-10-01      U2   0.2
+#> 10 2025-11-01      U2  -0.3
+#> 11 2025-12-01      U2   0.2
+#> 12 2026-01-01      U2  -0.6
+#> 13 2026-02-01      U2   0.6
+#> 14 2026-03-01      U2   1.3
+#> 15 2026-04-01      U2   1.0
+#> 16 2026-05-01      U2   0.1
+#> 17 2026-06-01      U2  -0.1
+#> 18 2026-07-01      U2   0.2
+#> 19 2026-08-01      U2   0.4
+#> 20 2026-09-01      U2   0.6
 options(op)
 # }
 ```

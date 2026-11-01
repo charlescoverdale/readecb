@@ -134,20 +134,20 @@ fx_multi <- ecb_exchange_rate(c("USD", "GBP", "JPY"), from = "2024-01")
 hicp <- ecb_hicp(from = "2020-01")
 tail(hicp, 3)
 #>         date country value
-#>   2025-06-01      U2   2.0
-#>   2025-07-01      U2   2.2
-#>   2025-08-01      U2   2.2
+#>   2026-07-01      U2   2.9
+#>   2026-08-01      U2   3.2
+#>   2026-09-01      U2   3.8
 
 # Compare across countries
 hicp_countries <- ecb_hicp(c("DE", "FR", "IT", "ES"), from = "2024-01")
 head(hicp_countries)
 #>         date country value
-#>   2024-01-01      DE   3.1
-#>   2024-01-01      ES   3.5
-#>   2024-01-01      FR   3.4
-#>   2024-01-01      IT   0.9
+#>   2024-01-01      DE   3.0
 #>   2024-02-01      DE   2.7
-#>   2024-02-01      ES   2.9
+#>   2024-03-01      DE   2.4
+#>   2024-04-01      DE   2.4
+#>   2024-05-01      DE   2.8
+#>   2024-06-01      DE   2.6
 ```
 
 ------------------------------------------------------------------------
@@ -160,12 +160,12 @@ head(hicp_countries)
 mortgages <- ecb_mortgage_rates(from = "2020-01")
 head(mortgages)
 #>         date country value
-#>   2020-01-01      I9  1.41
-#>   2020-02-01      I9  1.41
-#>   2020-03-01      I9  1.39
-#>   2020-04-01      I9  1.38
-#>   2020-05-01      I9  1.36
-#>   2020-06-01      I9  1.39
+#>   2020-01-01      U2  1.43
+#>   2020-02-01      U2  1.41
+#>   2020-03-01      U2  1.39
+#>   2020-04-01      U2  1.44
+#>   2020-05-01      U2  1.42
+#>   2020-06-01      U2  1.42
 ```
 
 ------------------------------------------------------------------------
@@ -211,8 +211,11 @@ head(flows)
 ## Caching
 
 Data is cached locally in `tools::R_user_dir("readecb", "cache")` on
-first download. Subsequent calls with the same parameters return
-instantly from the cache.
+first download. Subsequent calls with the same parameters return from
+the cache for 24 hours, after which the series is fetched again so that
+new releases and revisions come through. Set
+`options(readecb.cache_ttl = 168)` to keep cached data for a week, or
+any other number of hours.
 
 To force a fresh download, pass `cache = FALSE`. To clear the entire
 cache, call
@@ -231,6 +234,7 @@ cache, call
 | [`mpshock`](https://github.com/charlescoverdale/mpshock) | Monetary policy shock series |
 | [`inflationkit`](https://github.com/charlescoverdale/inflationkit) | Inflation analysis (decomposition, persistence, Phillips curve) |
 | [`nowcast`](https://github.com/charlescoverdale/nowcast) | Economic nowcasting (bridge, MIDAS, DFM) |
+| [`readimf`](https://github.com/charlescoverdale/readimf) | IMF data (IFS, WEO, COFER, Direction of Trade) |
 
 ------------------------------------------------------------------------
 
