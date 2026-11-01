@@ -75,6 +75,9 @@ list_ecb_dataflows <- function(cache = TRUE) {
   req <- httr2::request(url)
   req <- httr2::req_headers(req, Accept = "application/xml")
   req <- httr2::req_retry(req, max_tries = 3L, backoff = ~ 2)
+  # Return HTTP errors as responses so a refusal is reported as one, not
+  # as a connection failure.
+  req <- httr2::req_error(req, is_error = function(resp) FALSE)
   resp <- tryCatch(
     httr2::req_perform(req),
     error = function(e) {
@@ -85,6 +88,11 @@ list_ecb_dataflows <- function(cache = TRUE) {
       ))
     }
   )
+  if (httr2::resp_status(resp) >= 400L) {
+    cli::cli_abort(
+      "The ECB Data Portal returned HTTP {httr2::resp_status(resp)} for the dataflow list."
+    )
+  }
   cli::cli_progress_done()
 
   body <- httr2::resp_body_string(resp)
