@@ -66,7 +66,7 @@ list_ecb_dataflows <- function(cache = TRUE) {
   cache_dir  <- ecb_cache_dir()
   cache_file <- file.path(cache_dir, "dataflows.rds")
 
-  if (cache && file.exists(cache_file)) {
+  if (cache && ecb_cache_fresh(cache_file)) {
     return(readRDS(cache_file))
   }
 

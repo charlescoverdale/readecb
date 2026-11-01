@@ -30,7 +30,8 @@ back-calculated over the full history.
 
 The cache never expired: once a series had been downloaded, the same call
 returned that copy indefinitely, missing every later release and revision.
-Cached responses are now re-fetched after 24 hours. Set
+Cached responses, and the dataflow list behind `list_ecb_dataflows()`,
+are now re-fetched after 24 hours. Set
 `options(readecb.cache_ttl = <hours>)` to change this.
 
 ## Tests
